@@ -19,14 +19,8 @@ These archetype projects are in the works and need some tuning.
 ##Maven Notes
 * [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
 
----
----
 
-##Other Archetypes
-
-###GWT
+##My Favorite Archetype Destinations
 * [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
-
-###GWTP
 * [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
