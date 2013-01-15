@@ -1,4 +1,4 @@
-#Archtypes
+#Maven Archtypes
 * I wanted to publish a variety of Archetypes to help quicken project creation.
 
 
@@ -24,7 +24,7 @@
 These archetype projects are in the works and need some tuning. 
 
 * [GWT App Engine Guice JPA1](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-appengine-guice-jpa1) - Basic GWT and App Engine using guice with JPA1
-* [App Engine Guice JPA1](https://github.com/branflake2267/GoneVertical-Utils/tree/master/archetypes/appengine-guice-jpa1) - Basic App Engine using guice with JPA1
+* [App Engine Guice JPA1](https://github.com/branflake2267/Archetypes/tree/master/archetypes/appengine-guice-jpa1) - Basic App Engine using guice with JPA1
 
 
 ##Maven Notes
