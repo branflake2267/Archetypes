@@ -5,3 +5,4 @@
 target**
 .gwt-log
 .classpath
+www-test**
