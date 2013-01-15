@@ -20,6 +20,14 @@ These archetype projects are in the works and need some tuning.
 * [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
 
 ---
+<table>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+</table>
 
 ##Other Archetypes
 
