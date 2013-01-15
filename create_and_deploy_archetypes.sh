@@ -45,7 +45,7 @@ BuildArcheTypeInDirectory()
 
 mvn clean
 
-for dir in `find $CURRENTDIR -maxdepth 1 -type d -name 'gwtp*'`; do
+for dir in `find $CURRENTDIR -maxdepth 1 -type d -name '*'`; do
     echo "Processing::: $dir"
     BuildArcheTypeInDirectory $dir
 done
