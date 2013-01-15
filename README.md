@@ -21,6 +21,6 @@ These archetype projects are in the works and need some tuning.
 
 
 ##My Favorite Archetype Destinations
+* [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
 * [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
-* [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
