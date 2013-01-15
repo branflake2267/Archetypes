@@ -3,3 +3,5 @@
 *.project
 .idea**
 target**
+.gwt-log
+.classpath
