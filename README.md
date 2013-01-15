@@ -20,8 +20,8 @@ These archetype projects are in the works and need some tuning.
 ##Other Archetypes
 
 ###GWT
+* [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
-* [GWT Mojo Maven Plugin](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 
 ###GWTP
 * [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
