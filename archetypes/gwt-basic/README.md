@@ -1,12 +1,12 @@
-#App Engine Guice JPAv1
+#GWT Basic Archetype
 
-This is a simple App Engine application using Guice injection with JPA version 1. 
+This is a very basic GWT archetype and has a simple RPC setup. 
 
 ##Highlights
-* [DAO](https://github.com/branflake2267/GoneVertical-Utils/tree/master/archetypes/appengine-guice-jpa1/src/main/java/org/gonevertical/server/dao) - Data access using the entity manager
-* [Domain](https://github.com/branflake2267/GoneVertical-Utils/tree/master/archetypes/appengine-guice-jpa1/src/main/java/org/gonevertical/server/domain) - Domain objects that are persisted to App Engine
-* [Guice](https://github.com/branflake2267/GoneVertical-Utils/tree/master/archetypes/appengine-guice-jpa1/src/main/java/org/gonevertical/server/guice) - Guice configuration which initializes JPA's entity manager
-* [Servlets](https://github.com/branflake2267/GoneVertical-Utils/tree/master/archetypes/appengine-guice-jpa1/src/main/java/org/gonevertical/server/servlets) - Example servlets
-
-##Articles
-* [Ultimate GWT + GAE + Datanucleus + Eclipse + Maven Guide](http://bpossolo.blogspot.com/2013/01/the-ultimate-guide-to-gwt-gae-maven.html)
+* [POM](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/pom.xml)
+* [Project](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project)
+* [Entry Point](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
+* [RPC Client](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project/client/rpc)
+* [RPC Server](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project/server/rpc/RpcServiceImpl.java)
+* [web.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/webapp/WEB-INF/web.xml)
+* [Welcome Page Project.html](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/webapp/Project.html)

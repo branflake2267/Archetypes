@@ -9,10 +9,14 @@
         <servlet-name>RpcServlet</servlet-name>
         <servlet-class>org.gonevertical.project.server.rpc.RpcServiceImpl</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RpcServlet</servlet-name>
         <url-pattern>/project/rpcService</url-pattern>
     </servlet-mapping>
+
+    <!-- Default page to serve -->
+    <welcome-file-list>
+        <welcome-file>Project.html</welcome-file>
+    </welcome-file-list>
 
 </web-app>
