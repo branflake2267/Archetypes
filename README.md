@@ -19,7 +19,7 @@ These archetype projects are in the works and need some tuning.
 ##Maven Notes
 * [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
 
-=============
+---
 
 ##Other Archetypes
 
