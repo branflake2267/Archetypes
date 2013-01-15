@@ -10,6 +10,10 @@
 * [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
 
 
+##News
+* 1/14/2013 - Create this project. Created a GWT basic archetype. 
+
+
 ##Incubating
 These archetype projects are in the works and need some tuning. 
 
