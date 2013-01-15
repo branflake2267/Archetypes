@@ -7,7 +7,7 @@
     <!-- Servlets -->
     <servlet>
         <servlet-name>RpcServlet</servlet-name>
-        <servlet-class>org.gonevertical.project.server.RpcServiceImpl</servlet-class>
+        <servlet-class>org.gonevertical.project.server.rpc.RpcServiceImpl</servlet-class>
     </servlet>
 
     <servlet-mapping>
