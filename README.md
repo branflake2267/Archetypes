@@ -6,7 +6,7 @@
 * 1/14/2013 - Create this project. Created a GWT basic archetype. 
 
 
-##GWT ArcheTypes
+##ArcheTypes in this Project
 * [GWT Basic](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic) - Simple GWT setup
 
 ###Incubating
