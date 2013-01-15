@@ -16,6 +16,7 @@
         <gwt.style>OBF</gwt.style>
 
         <!-- Maven -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     </properties>
 
