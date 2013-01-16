@@ -13,11 +13,11 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>[GWT Basic](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic)</td>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic">GWT Basic</a></td>
 		<td>Very basic GWT maven setup</td>
 	</tr>
 	<tr>
-		<td>[GWT Basic RPC](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc)</td>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">GWT Basic RPC</a></td>
 		<td>Very basic GWT maven setup with RPC</td>
 	</tr>
 </table>
