@@ -1,4 +1,4 @@
-#GWT Basic Archetype
+#GWT Basic Archetype with RPC
 
 This is a very basic GWT archetype and has a simple RPC setup. 
 
