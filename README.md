@@ -1,11 +1,6 @@
 #Maven Archtypes
 * I want to publish a variety of Archetypes to help quicken project creation.
 
-
-##News
-* 1/14/2013 - Create this project. Created a GWT basic archetype. 
-
-
 ##ArcheTypes in this Project
 <table>
 	<tr>
@@ -37,3 +32,7 @@ These archetype projects are in the works and need some tuning.
 * [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
 * [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
+
+##News
+* 1/15/2013 - Created gwt-basic-rpc and made gwt-basic simpler. 
+* 1/14/2013 - Create this project. Created a GWT basic archetype. 
