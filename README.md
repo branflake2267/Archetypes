@@ -1,5 +1,5 @@
 #Maven Archtypes
-* I wanted to publish a variety of Archetypes to help quicken project creation.
+* I want to publish a variety of Archetypes to help quicken project creation.
 
 
 ##News
@@ -7,7 +7,20 @@
 
 
 ##ArcheTypes in this Project
-* [GWT Basic](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic) - Simple GWT setup
+<table>
+	<tr>
+		<th>Archetype</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic">GWT Basic</a></td>
+		<td>Very basic GWT maven setup</td>
+	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">GWT Basic RPC</a></td>
+		<td>Very basic GWT maven setup with RPC</td>
+	</tr>
+</table>
 
 ###Incubating
 These archetype projects are in the works and need some tuning. 

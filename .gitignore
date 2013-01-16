@@ -7,3 +7,4 @@ target**
 .classpath
 www-test**
 gwt-unitCache**
+bin**
