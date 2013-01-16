@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.branflake2267.archetypes</groupId>
-    <artifactId>gwt-basic</artifactId>
+    <artifactId>gwt-basic-rpc</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gwt-basic</name>
-    <description>Very basic GWT maven setup</description>
+    <name>gwt-basic-rpc</name>
+    <description>Very basic GWT maven setup with RPC</description>
 
     <properties>
         <!-- GWT -->
