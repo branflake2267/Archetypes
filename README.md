@@ -2,6 +2,8 @@
 * I want to publish a variety of Archetypes to help quicken project creation.
 
 ##ArcheTypes in this Project
+Follow the links for the desired archetype below for project creation instructions.
+
 <table>
 	<tr>
 		<th>Archetype</th>
