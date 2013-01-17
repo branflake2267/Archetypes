@@ -20,7 +20,7 @@
         <guice.version>3.0</guice.version>
 
         <!-- Maven -->
-        <maven-gae-plugin.version>0.9.5</maven-gae-plugin.version>
+        <maven-gae-plugin.version>0.9.4</maven-gae-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
@@ -43,6 +43,7 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
@@ -81,7 +82,7 @@
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
 
-                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
+                    <extraJvmArgs>-Xss1024k -Xmx512M -XX:MaxPermSize=64m</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
 
@@ -133,8 +134,16 @@
                     <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>appengine-credentials</serverId>
                     <splitJars>true</splitJars>
+                    <sdkDir>${gae.home}</sdkDir>
                 </configuration>
                 <executions>
+                    <execution>
+                        <id>install-server-jar</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>deploy</id>
                         <goals>
@@ -143,12 +152,21 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <!-- skip deployment -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
         </plugins>
 
         <pluginManagement>
             <plugins>
-                <!-- For Eclipse -->
-                <!-- IDEA ignores this section -->
+                <!-- For Eclipse IDEA ignores this section -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
@@ -174,7 +192,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>net.kindleit</groupId>
                                         <artifactId>maven-gae-plugin</artifactId>
-                                        <versionRange>[0.7.4,)</versionRange>
+                                        <versionRange>[0.7.0,)</versionRange>
                                         <goals>
                                             <goal>unpack</goal>
                                         </goals>
@@ -189,7 +207,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>
+    </build> 
 
     <dependencies>
         <!-- GWT -->
@@ -212,26 +230,15 @@
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${gae.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
             <version>${gae.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-tools-sdk</artifactId>
+            <artifactId>appengine-testing</artifactId>
             <version>${gae.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jta_1.1_spec</artifactId>
-            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
