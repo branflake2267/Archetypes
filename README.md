@@ -2,6 +2,8 @@
 * I want to publish a variety of Archetypes to help quicken project creation.
 
 ##ArcheTypes in this Project
+Follow the links for the desired archetype below for project creation instructions.
+
 <table>
 	<tr>
 		<th>Archetype</th>
@@ -14,6 +16,10 @@
 	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">GWT Basic RPC</a></td>
 		<td>Very basic GWT maven setup with RPC</td>
+	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice">GWT Basic RPC using GAE</a></td>
+		<td>Very basic GWT with RPC using App Engine and Guice dependency injection</td>
 	</tr>
 </table>
 
@@ -34,5 +40,6 @@ These archetype projects are in the works and need some tuning.
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
 ##News
+* 1/16/2013 - Created gwt-basic-rpc-appengine-guice archetype.
 * 1/15/2013 - Created gwt-basic-rpc and made gwt-basic simpler. 
 * 1/14/2013 - Create this project. Created a GWT basic archetype. 
