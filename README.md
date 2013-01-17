@@ -2,7 +2,8 @@
 * I want to publish a variety of Archetypes to help quicken project creation.
 
 ##ArcheTypes in this Project
-Follow the links for the desired archetype below for project creation instructions.
+* Follow the links for the desired archetype below for project creation instructions.
+* [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse
 
 <table>
 	<tr>
