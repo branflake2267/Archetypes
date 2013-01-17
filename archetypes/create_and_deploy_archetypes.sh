@@ -5,9 +5,7 @@
 
 echo "Started"
 
-CURRENTDIR=`pwd`
-
-BuildArcheTypeInDirectory()
+BuildArchetypeInDirectory()
 {
     PROJECTDIR=$1
     echo "Working in::: $PROJECTDIR";
@@ -24,6 +22,7 @@ BuildArcheTypeInDirectory()
     rm -R *.iml
     rm -R .idea
 
+    # generate archetype
     echo "mvn archetype:create-from-project"
     mvn archetype:create-from-project
 
@@ -39,19 +38,29 @@ BuildArcheTypeInDirectory()
     sed -ie "s@<\/project>@${SONATYPE}@g" $PROJECTDIR/target/generated-sources/archetype/pom.xml
     cd $PROJECTDIR/target/generated-sources/archetype
 
-    # TODO add parameter to enable this
+    # deploy to sonatype
     mvn deploy
 }
 
-mvn clean
-
-echo "find . -maxdepth 1 -type d -name '[a-z]*'"
-for dir in `find .  -maxdepth 1 -type d -name '[a-z]*'`; do
+LoopDirectory()
+{
+    echo "find . -maxdepth 1 -type d -name '[a-z]*'"
+    for dir in `find .  -maxdepth 1 -type d -name '[a-z]*'`; do
     echo "~~~~~ Processing::: $dir ~~~~~~~~"
-    BuildArcheTypeInDirectory $dir
-done
+    #BuildArchetypeInDirectory $dir
+    done
+}
 
-echo "\\n***Run this in a new project directory:***\\nmvn archetype:generate -DarchetypeCatalog=local\\n"
+CURRENTDIR=`pwd`
+
+if [ ! -z $1 ] ;
+then
+    echo "~~~~~ Processing::: $1 ~~~~~~"
+    BuildArchetypeInDirectory $1
+else
+    LoopDirectory
+fi
+
 echo "Finished"
 
 # TODO produce a catalog
