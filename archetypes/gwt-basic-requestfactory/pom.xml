@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>org.gonevertical.project.client</groupId>
-    <artifactId>gwt-basic-requestfactory-activityandplaces</artifactId>
+    <artifactId>gwt-basic-requestfactory</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gwt-basic-requestfactory-activityandplaces</name>
-    <description>Very basic GWT maven setup using RequestFactory using Activity and Places</description>
+    <name>gwt-basic-requestfactory</name>
+    <description>Very basic GWT maven setup using RequestFactory</description>
     
     <properties>
         <!-- GWT -->

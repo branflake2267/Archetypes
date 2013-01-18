@@ -8,11 +8,15 @@ import com.google.web.bindery.requestfactory.shared.ProxyFor;
 @ProxyFor(SystemUser.class)
 public interface SystemUserProxy extends EntityProxy {
 
+  Long getVersion();
+  
   String getLoginUrl();
   
   String getLogoutUrl();
   
-  String getId();
+  Long getId();
+  
+  void setId(Long id);
 
   String getGoogleNickname();
   

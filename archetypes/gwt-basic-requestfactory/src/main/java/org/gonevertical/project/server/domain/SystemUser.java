@@ -2,19 +2,32 @@ package org.gonevertical.project.server.domain;
 
 public class SystemUser {
 
+  public static SystemUser findSystemUser(Long id) {
+    SystemUser systemUser = new SystemUser();
+    systemUser.setVersion(1l); // simulate the version
+    systemUser.setId(1l);
+
+    return systemUser;
+  }
+
   private Long version;
-  
   private Long id;
-
   private String googleUserId;
-
   private String googleEmail;
-
   private String googleNickname;
-
   private String loginUrl;
-
   private String logoutUrl;
+
+  public SystemUser() {
+  }
+
+  private void setVersion(long version) {
+    this.version = version;
+  }
+
+  public Long getVersion() {
+    return version;
+  }
 
   public Long getId() {
     return id;
@@ -63,5 +76,5 @@ public class SystemUser {
   public void setLogoutUrl(String logoutUrl) {
     this.logoutUrl = logoutUrl;
   }
- 
+
 }
