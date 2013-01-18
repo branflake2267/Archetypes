@@ -23,6 +23,10 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice">GWT Basic RPC using GAE</a></td>
 		<td>Very basic GWT with RPC using App Engine and Guice dependency injection</td>
 	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-requestfactory">GWT Basic RequestFactory</a></td>
+		<td>Very basic GWT with Request Factory</td>
+	</tr>
 </table>
 
 ###Incubating
