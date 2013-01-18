@@ -19,7 +19,7 @@ This is a very basic GWT archetype.
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
--DarchetypeArtifactId=gwt-basic-requestfactory \
+-DarchetypeArtifactId=gwt-basic-requestfactory-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
