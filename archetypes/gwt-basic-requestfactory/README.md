@@ -3,7 +3,10 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
-
+* [Project directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-requestfactory/src/main/java/org/gonevertical/project)
+* [RequestFactory Client Side](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-requestfactory/src/main/java/org/gonevertical/project/client/requestfactory)
+* [RequestFactory Server Side](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-requestfactory/src/main/java/org/gonevertical/project/server/domain)
+* [web.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-requestfactory/src/main/webapp/WEB-INF/web.xml)
 
 ##Maven Archetype Usage
 
