@@ -8,3 +8,5 @@ target**
 www-test**
 gwt-unitCache**
 bin**
+.factorypath
+.apt_generated
