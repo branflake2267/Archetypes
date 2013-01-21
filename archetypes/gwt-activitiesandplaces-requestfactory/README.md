@@ -1,6 +1,6 @@
 #GWT Basic Archetype
 
-This is a very basic GWT archetype. 
+This archetype contains Activities & Places using Request Factory. 
 
 ##Highlights
 * [Project Client & Server Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory/src/main/java/org/gonevertical/project)
