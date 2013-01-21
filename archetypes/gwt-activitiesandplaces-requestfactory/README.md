@@ -9,6 +9,7 @@ This archetype contains Activities & Places using Request Factory.
 * [Login Presenter & View](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory/src/main/java/org/gonevertical/project/client/application/login)
 * [Request Factory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory/src/main/java/org/gonevertical/project/client/requestfactory)
 * [Domain](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory/src/main/java/org/gonevertical/project/server/domain)
+* [MVP Presenter Example](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-activitiesandplaces-requestfactory/src/main/java/org/gonevertical/project/client/application/login/LoginActivity.java#L63)
 
 ##Maven Archetype Usage
 
