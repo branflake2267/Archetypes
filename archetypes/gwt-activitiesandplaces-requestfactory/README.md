@@ -27,3 +27,6 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
 ```
+
+##Request Factory Annotation Processor Setup
+* [Request Factory Annotation Processor Setup for Eclipse](http://c.gwt-examples.com/home/data-transport/request-factory/annotation-processor)
