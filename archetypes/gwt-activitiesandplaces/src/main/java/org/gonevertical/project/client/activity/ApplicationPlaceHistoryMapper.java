@@ -23,8 +23,10 @@ import com.google.gwt.place.shared.PlaceTokenizer;
  */
 // @WithTokenizers({ LoginPlace.Tokenizer.class, ... })
 public interface ApplicationPlaceHistoryMapper extends PlaceHistoryMapperWithFactory<ClientFactory> {
+  
   /**
    * { @link ClientFactory }
    * ClientFactory has the tokenizer get methods!!!!
    */
+  
 }

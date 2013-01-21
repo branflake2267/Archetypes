@@ -37,6 +37,7 @@ public class HomeActivity extends AbstractActivity implements HomePresenter {
     if (running == true) {
       s = "Please hold on. This activity is stopping.";
     }
+    
     return s;
   }
 

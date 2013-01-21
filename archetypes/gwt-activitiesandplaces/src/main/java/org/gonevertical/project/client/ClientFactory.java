@@ -25,5 +25,9 @@ public interface ClientFactory {
    */
   HomePlace.Tokenizer getHomeTokenizer();
   
+  /**
+   * used by the historyMapper
+   */
   LoginPlace.Tokenizer getLogInTokenizer();
+  
 }

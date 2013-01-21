@@ -15,6 +15,7 @@ public class ProjectEntryPoint implements EntryPoint {
   
   @Override
   public void onModuleLoad() {
+    // The client factory takes care of the places logic
   }
   
 }
