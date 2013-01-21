@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.branflake2267.archetypes</groupId>
-    <artifactId>gwt-appengine-guice-jpa1</artifactId>
+    <artifactId>gwt-basic-appengine-guice-jpa1</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gwt-appengine-guice-jpa1</name>
+    <name>gwt-basic-appengine-guice-jpa1</name>
     <description>Basic GWT + App Engine setup using Guice with JPA</description>
 
     <properties>
