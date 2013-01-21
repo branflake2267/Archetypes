@@ -3,7 +3,12 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
-
+* [Project Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project)
+* [ClientFactoryImpl](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project/client/ClientFactoryImpl.java)
+* [Activity Mapper](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project/client/activity/ApplicationActivityMapper.java)
+* [Home Presenter & View](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project/client/application/home)
+* [Domain](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project/server/domain/SystemUser.java)
+* [Request Facdtory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces/src/main/java/org/gonevertical/project/client/requestfactory)
 
 ##Maven Archetype Usage
 
