@@ -27,6 +27,10 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-requestfactory">GWT Basic RequestFactory</a></td>
 		<td>Very basic GWT with Request Factory</td>
 	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory">GWT Activities & Places RequestFactory</a></td>
+		<td>GWT activities & places with RequestFactory</td>
+	</tr>
 </table>
 
 ###Incubating
