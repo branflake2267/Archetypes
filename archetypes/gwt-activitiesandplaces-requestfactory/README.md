@@ -3,6 +3,12 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
+* [Project Directory]()
+* [ClientFactoryImpl]()
+* [Activity Mapper]()
+* [Home Presenter & View]()
+* [Domain]()
+* [Request Factory]()
 
 
 ##Maven Archetype Usage
