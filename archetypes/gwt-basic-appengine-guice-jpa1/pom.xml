@@ -110,6 +110,7 @@
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
+                    <extraJvmArgs>-Dappengine.sdk.root=${gae.home}</extraJvmArgs>
 
                     <runTarget>showcase.html</runTarget>
                     <module>org.gonevertical.project.Project</module>
@@ -162,7 +163,6 @@
                     <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>appengine-credentials</serverId>
                     <splitJars>true</splitJars>
-                    <jvmFlags>-Dappengine.sdk.root=${gae.home}</jvmFlags>
                 </configuration>
                 <executions>
                     <execution>
@@ -327,8 +327,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- <dependency> <groupId>com.google.appengine.orm</groupId> <artifactId>datanucleus-appengine</artifactId> 
-            <version>1.0.10</version> <scope>compile</scope> </dependency> -->
+        <dependency>
+            <groupId>com.google.appengine.orm</groupId>
+            <artifactId>datanucleus-appengine</artifactId>
+            <version>1.0.10</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!-- DI Guice -->
         <dependency>
