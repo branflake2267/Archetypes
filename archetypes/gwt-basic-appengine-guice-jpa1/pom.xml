@@ -242,19 +242,7 @@
     </build>
 
     <dependencies>
-        <!-- GWT -->
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-
-        <!-- Google App Engine -->
+        <!-- Google App Engine dependencies -->
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -267,23 +255,18 @@
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${gae.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
             <version>${gae.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-tools-sdk</artifactId>
+            <artifactId>appengine-testing</artifactId>
             <version>${gae.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        
+        <!-- <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jta_1.1_spec</artifactId>
             <version>1.1.1</version>
@@ -293,6 +276,33 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_3.0_spec</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-jsr107cache</artifactId>
+            <version>1.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency> -->
+        
+        <!-- GWT -->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+        </dependency>
+<!--         <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+        </dependency> -->
 
         <!-- Datanuclues -->
         <!-- JPA1: datanucleus appengine plugin v1 (1.0.10) + datanucleus 
