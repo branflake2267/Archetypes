@@ -1,6 +1,6 @@
 #GWT Basic Archetype
 
-This is a very basic GWT archetype. 
+This is a very basic GWT archetype with a few css examples using the ClientBundle.
 
 ##Highlights
 * [Application Widgets Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/main/java/org/gonevertical/project/client/application)
