@@ -55,6 +55,7 @@ These archetype projects are in the works and need some tuning.
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
 ##News
+* 1/23/2013 - create gwt-css archetype.
 * 1/20/2013 - Creatd gwt-activitiesandplaces-requestfactory archetype.
 * 1/16/2013 - Created gwt-basic-rpc-appengine-guice archetype.
 * 1/15/2013 - Created gwt-basic-rpc and made gwt-basic simpler. 
