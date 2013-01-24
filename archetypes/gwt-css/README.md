@@ -3,6 +3,8 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
+* [Application Widgets Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/main/java/org/gonevertical/project/client/application)
+* [Resources Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/main/java/org/gonevertical/project/client/resources)
 * [pom.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/pom.xml)
 * [Project Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/main/java/org/gonevertical/project)
 * [Entry Point Class](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
