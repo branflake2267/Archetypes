@@ -31,6 +31,11 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory">GWT Activities & Places RequestFactory</a></td>
 		<td>GWT activities & places with RequestFactory</td>
 	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css">GWT CSS</a></td>
+		<td>Simple project using ClientBunble Resources; CssResource and ImageResource </td>
+	</tr>
+	
 </table>
 
 ###Incubating
