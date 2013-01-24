@@ -35,7 +35,6 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css">GWT CSS</a></td>
 		<td>Simple project using ClientBunble Resources; CssResource and ImageResource </td>
 	</tr>
-	
 </table>
 
 ###Incubating
@@ -55,8 +54,8 @@ These archetype projects are in the works and need some tuning.
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
 ##News
-* 1/23/2013 - create gwt-css archetype.
-* 1/20/2013 - Creatd gwt-activitiesandplaces-requestfactory archetype.
+* 1/23/2013 - Created gwt-css archetype.
+* 1/20/2013 - Created gwt-activitiesandplaces-requestfactory archetype.
 * 1/16/2013 - Created gwt-basic-rpc-appengine-guice archetype.
 * 1/15/2013 - Created gwt-basic-rpc and made gwt-basic simpler. 
-* 1/14/2013 - Create this project. Created a GWT basic archetype. 
+* 1/14/2013 - Created this project. Created a GWT basic archetype. 
