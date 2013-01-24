@@ -12,11 +12,13 @@ public interface Resources extends ClientBundle {
 
   public interface LayoutStyles extends CssResource {
 
-    /* Example Constant is 100% */
+    /* example Constant which is 100% */
     String wallTowall();
 
+    /* basic style */
     String boxy();
     
+    /* sprite */
     String logoBox();
     
   }
