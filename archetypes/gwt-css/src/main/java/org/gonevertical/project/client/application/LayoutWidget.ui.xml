@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <!-- css resource css -->
+    <ui:with field="res" type="org.gonevertical.project.client.resources.Resources" />
+
+    <!-- in widget css -->
+    <ui:style>
+        .box {
+            margin: 30px;
+            width: 150px;
+            height: 75px;
+            border: 1px solid green;
+        }
+    </ui:style>
+
+    <g:HTMLPanel>
+        <g:FlowPanel styleName="{res.layoutStyles.boxy}" />
+
+        <g:FlowPanel styleName="{style.box}" />
+        
+        <g:FlowPanel styleName="{res.layoutStyles.logoBox}"/>
+    </g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,26 @@
+/* Constant */
+@def wallTowall 100%;
+
+html {
+    width: wallTowall;
+    height: wallTowall;
+}
+
+body {
+    width: wallTowall;
+    height: wallTowall;
+    margin: 0px;
+}
+
+.boxy {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid blue;
+}
+
+@sprite .logoBox {
+  gwt-image: "logo";
+  border: 2px solid #000;
+  margin: 40px;
+}
