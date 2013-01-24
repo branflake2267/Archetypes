@@ -3,12 +3,12 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
-* [pom.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/pom.xml)
-* [Project Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project)
-* [Entry Point Class](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
-* [web.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/webapp/WEB-INF/web.xml)
-* [Welcome Page Project.html](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic/src/main/webapp/Project.html)
-* [GWT Test Case](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic/src/test/java/org/gonevertical/project/client)
+* [pom.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/pom.xml)
+* [Project Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/main/java/org/gonevertical/project)
+* [Entry Point Class](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
+* [web.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/src/main/webapp/WEB-INF/web.xml)
+* [Welcome Page Project.html](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-css/src/main/webapp/Project.html)
+* [GWT Test Case](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css/src/test/java/org/gonevertical/project/client)
 
 ##Maven Archetype Usage
 
@@ -21,7 +21,7 @@ This is a very basic GWT archetype.
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
--DarchetypeArtifactId=gwt-basic-archetype \
+-DarchetypeArtifactId=gwt-css-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
