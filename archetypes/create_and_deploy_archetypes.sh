@@ -19,8 +19,11 @@ BuildArchetypeInDirectory()
     mvn eclipse:clean
     rm -R .settings
     rm -R bin
+    rm -R www-test
+    rm -R gwt-unitCache
     rm -R *.iml
     rm -R .idea
+    rm -R .gwt
 
     # generate archetype
     echo "mvn archetype:create-from-project"
@@ -28,6 +31,9 @@ BuildArchetypeInDirectory()
 
     cd target/generated-sources/archetype/
     mvn install
+
+    # Archetype variable modifications
+    find . -name '*.xml' -type f -exec sed -i '' 's/<module>.*\.\(.*\)<\/module>/<module>${package}.\1<\/module>/g' {} \;
 
     cd $CURRENTDIR
 
