@@ -1,6 +1,6 @@
 package org.gonevertical.server.guice;
 
-import org.gonevertical.server.dao.DaoModule;
+import org.gonevertical.server.endpoints.EndpointsModule;
 import org.gonevertical.server.servlets.ServletsModule;
 
 import com.google.inject.AbstractModule;
@@ -18,7 +18,7 @@ public class ServerModule extends AbstractModule {
     
     install(new ServletPathModule());
     install(new ServletsModule());
-    install(new DaoModule());
+    install(new EndpointsModule());
   }
   
 }

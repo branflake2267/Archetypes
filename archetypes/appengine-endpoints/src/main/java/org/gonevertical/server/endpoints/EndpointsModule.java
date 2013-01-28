@@ -1,4 +1,4 @@
-package org.gonevertical.server.dao;
+package org.gonevertical.server.endpoints;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
@@ -6,11 +6,11 @@ import com.google.inject.Singleton;
 /**
  * bind DAOs here
  */
-public class DaoModule extends AbstractModule {
+public class EndpointsModule extends AbstractModule {
   
   @Override
   protected void configure() {
-    bind(SystemUserDao.class).in(Singleton.class);
+    bind(SystemUserEndpoint.class).in(Singleton.class);
   }
   
 }

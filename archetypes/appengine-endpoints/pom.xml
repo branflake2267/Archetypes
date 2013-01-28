@@ -8,11 +8,11 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>appengine-endpoints</name>
-    <description>App Engine </description>
+    <description>App Engine</description>
 
     <properties>
         <!-- comma-separated full qualified names of your api-classes (i.e. com.endpoints.MyService) -->
-        <endpoint.service.classnames>org.gonevertical.server.domain.Todo</endpoint.service.classnames>
+        <endpoint.service.classnames>org.gonevertical.server.endpoints.SystemUserEndpoint</endpoint.service.classnames>
         <appengine.app.id>SandboxTest</appengine.app.id>
 
         <gae.version>1.7.4</gae.version>
@@ -141,6 +141,8 @@
                 <configuration>
                     <applicationId>${appengine.app.id}</applicationId>
                     <serviceClassNames>${endpoint.service.classnames}</serviceClassNames>
+                    <apiOutputDirectory>${basedir}/src/main/webapp/WEB-INF</apiOutputDirectory>
+                    <classPath>${webappDirectory}/WEB-INF/classes</classPath>
                 </configuration>
             </plugin>
         </plugins>
