@@ -11,7 +11,8 @@
     <description>App Engine</description>
 
     <properties>
-        <!-- comma-separated full qualified names of your api-classes (i.e. com.endpoints.MyService) -->
+        <!-- comma-separated full qualified names of your api-classes (i.e. 
+            com.endpoints.MyService) -->
         <endpoint.service.classnames>org.gonevertical.server.endpoints.SystemUserEndpoint</endpoint.service.classnames>
         <appengine.app.id>SandboxTest</appengine.app.id>
 
@@ -141,9 +142,16 @@
                 <configuration>
                     <applicationId>${appengine.app.id}</applicationId>
                     <serviceClassNames>${endpoint.service.classnames}</serviceClassNames>
-                    <apiOutputDirectory>${basedir}/src/main/webapp/WEB-INF</apiOutputDirectory>
+                    <apiOutputDirectory>${webappDirectory}/WEB-INF</apiOutputDirectory>
                     <classPath>${webappDirectory}/WEB-INF/classes</classPath>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.persistence</groupId>
+                        <artifactId>persistence-api</artifactId>
+                        <version>1.0.2</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
 
@@ -184,10 +192,10 @@
                                         <execute />
                                     </action>
                                 </pluginExecution>
-                                
+
                                 <pluginExecution>
                                     <pluginExecutionFilter>
-                                         <groupId>com.mic.endpoint.api</groupId>
+                                        <groupId>com.mic.endpoint.api</groupId>
                                         <artifactId>endpoint-maven-plugin</artifactId>
                                         <version>0.0.2-SNAPSHOT</version>
                                         <goals>
