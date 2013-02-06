@@ -21,6 +21,8 @@ BuildArchetypeInDirectory()
     rm -R bin
     rm -R *.iml
     rm -R .idea
+    rm -R .factorypath
+    rm -R .apt_generated
 
     # generate archetype
     echo "mvn archetype:create-from-project"
