@@ -82,7 +82,7 @@
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
                     
-                    <extraJvmArgs>-Xss1024k -Xmx512M</extraJvmArgs>
+                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=128m</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
                     
