@@ -1,7 +1,7 @@
 package org.gonevertical.project.server.guice;
 
-import org.gonevertical.project.server.rpc.RpcServiceImpl;
 import org.gonevertical.project.server.servlets.HomeServlet;
+import org.gonevertical.project.server.servlets.rpc.RpcServiceImpl;
 
 import com.google.inject.servlet.ServletModule;
 
@@ -12,7 +12,8 @@ public class ServletPathModule extends ServletModule {
   
   @Override
   public void configureServlets() {
-    serve("/rpcService*").with(RpcServiceImpl.class);
+    // rpc servlet
+    serve("/project/rpcService*").with(RpcServiceImpl.class);
     // ignore _ah
     serveRegex("^/(?!_ah.*)").with(HomeServlet.class);
   }
