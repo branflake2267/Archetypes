@@ -1,9 +1,10 @@
-package org.gonevertical.project.server.rpc;
+package org.gonevertical.project.server.servlets.rpc;
 
 import javax.inject.Inject;
 
 import org.gonevertical.project.client.rpc.RpcService;
 import org.gonevertical.project.server.dao.SystemUserDao;
+import org.gonevertical.project.server.domain.SystemUser;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -21,7 +22,15 @@ public class RpcServiceImpl extends RemoteServiceServlet implements RpcService {
   }
   
   public String testCallServer(String input) throws IllegalArgumentException {
+    testDao();
+    
     return input + " server call works";
+  }
+
+  private void testDao() {
+    SystemUser user = new SystemUser();
+    user.setName("Brandon");
+    systemUserDao.put(user);
   }
 
 }

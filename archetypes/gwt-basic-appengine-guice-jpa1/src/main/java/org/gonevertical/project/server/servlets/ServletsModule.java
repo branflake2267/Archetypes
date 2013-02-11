@@ -1,7 +1,7 @@
 package org.gonevertical.project.server.servlets;
 
 
-import org.gonevertical.project.server.rpc.RpcServiceImpl;
+import org.gonevertical.project.server.servlets.rpc.RpcServiceImpl;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
