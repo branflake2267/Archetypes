@@ -21,15 +21,29 @@ BuildArchetypeInDirectory()
     rm -R bin
     rm -R *.iml
     rm -R .idea
-    rm -R .factorypath
-    rm -R .apt_generated
+    rm -R .gwt
+    rm .DS_Store
+    rm -R war
+    rm -R www-test
+    rm -R gwt-unitCache
 
     # generate archetype
     echo "mvn archetype:create-from-project"
     mvn archetype:create-from-project
 
+    # move to generated archetype base
     cd target/generated-sources/archetype/
-    mvn install
+
+    # clean up files in project.
+    rm -R src/main/resources/archetype-resources/*.sh
+
+    # sed -i works differently on mac and linux.
+    # work around b/c com.arcbees inherits conflicts
+    if [ $(uname) = "Darwin" ]; then
+        find . -name '*.xml' -type f -exec sed -i '' 's/<module>.*\.\(.*\)<\/module>/<module>${package}.\1<\/module>/g' {} \;
+    else
+        find . -name '*.xml' -type f -exec sed -i 's/<module>.*\.\(.*\)<\/module>/<module>${package}.\1<\/module>/g' {} \;
+    fi
 
     cd $CURRENTDIR
 
