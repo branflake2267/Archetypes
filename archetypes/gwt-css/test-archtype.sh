@@ -4,8 +4,7 @@
 mvn clean
 mkdir target
 mkdir target/test
-mkdir target/test/gwtp-basic
-cd target/test/gwtp-basic
+cd target/test
 
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
