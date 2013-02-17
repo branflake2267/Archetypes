@@ -1,4 +1,4 @@
-#GWT Activities and Places using RequestFactory with Google Maps.
+#GWT Activities and Places using RF with Google Maps.
 
 This is a using Activities and Places with Request Factory and Google Maps.
 
