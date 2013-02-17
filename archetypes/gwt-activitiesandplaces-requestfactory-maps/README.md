@@ -1,6 +1,6 @@
-#GWT Basic Archetype
+#GWT Activities and Places using RequestFactory with Google Maps.
 
-This is a very basic GWT archetype. 
+This is a using Activities and Places with Request Factory and Google Maps.
 
 ##Highlights
 * [Client Server Directories](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps/src/main/java/org/gonevertical/project)
