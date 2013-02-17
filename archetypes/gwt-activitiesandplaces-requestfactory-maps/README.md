@@ -3,12 +3,6 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
-* [Project Directory]()
-* [ClientFactoryImpl]()
-* [Activity Mapper]()
-* [Home Presenter & View]()
-* [Domain]()
-* [Request Factory]()
 
 
 ##Maven Archetype Usage
@@ -23,7 +17,7 @@ This is a very basic GWT archetype.
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gwt-activityandplaces-requestfactory-archetype \
+-DarchetypeArtifactId=gwt-activitiesandplaces-requestfactory-maps-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
