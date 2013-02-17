@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>gwt-activitiesandplaces-requestfactory-maps</name>
-    <description>GWT activity and places using the RequestFactory.</description>
+    <description>GWT activity and places with Google Maps using the RequestFactory.</description>
 
     <properties>
         <!-- GWT -->
@@ -82,7 +82,7 @@
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
 
-                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
+                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
 
@@ -110,6 +110,13 @@
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- RequestFactory -->

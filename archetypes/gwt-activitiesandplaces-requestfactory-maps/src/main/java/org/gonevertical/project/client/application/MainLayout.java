@@ -8,7 +8,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -17,7 +17,7 @@ public class MainLayout extends Composite {
   
   interface LayoutUiBinder extends UiBinder<Widget, MainLayout> {}
   @UiField
-  FlowPanel header;
+  HTMLPanel header;
   @UiField
   SimplePanel contentPanel;
   @UiField
@@ -27,9 +27,6 @@ public class MainLayout extends Composite {
 
   public MainLayout() {
     initWidget(uiBinder.createAndBindUi(this));
-    
-    header.add(new HTML("Header"));
-    footer.add(new HTML("Footer"));
   }
   
   public void setClientFactory(ClientFactory clientFactory) {
