@@ -2,33 +2,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.github.branflake2267.archetypes</groupId>
-    <artifactId>gwt-activityandplaces-requestfactory</artifactId>
+    <artifactId>gwt-activitiesandplaces-requestfactory-maps</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gwt-activityandplaces-requestfactory</name>
+    <name>gwt-activitiesandplaces-requestfactory-maps</name>
     <description>GWT activity and places using the RequestFactory.</description>
-    
+
     <properties>
         <!-- GWT -->
         <gwt.version>2.5.0</gwt.version>
         <gwt.style>OBF</gwt.style>
-        
+        <gwt-maps-api.version>3.10.0-alpha-2</gwt-maps-api.version>
+
         <!-- Maven -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     </properties>
-    
+
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
-        
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,7 +49,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            
+
             <!-- Skips the GWTTestCases during Junit Testing -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -63,32 +64,31 @@
                     </excludes>
                 </configuration>
             </plugin>
-            
+
             <!-- GWT -->
             <!-- 'mvn gwt:run' - runs development mode -->
             <!-- 'mvn gwt:debug' - runs debug mode -->
             <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt
-             tests (*GwtTest.java), (run a suite its faster) -->
+            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt tests (*GwtTest.java), (run a suite its faster) -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
                 <version>${gwt.version}</version>
                 <configuration>
                     <strict>true</strict>
-                    
+
                     <testTimeOut>180</testTimeOut>
                     <includes>**/*GwtTestSuite.java</includes>
                     <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
-                    
+
                     <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
-                    
+
                     <copyWebapp>true</copyWebapp>
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    
+
                     <runTarget>Project.html</runTarget>
                     <module>org.gonevertical.project.Project</module>
                 </configuration>
@@ -103,7 +103,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <dependencies>
         <!-- GWT -->
         <dependency>
@@ -111,7 +111,7 @@
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
         </dependency>
-        
+
         <!-- RequestFactory -->
         <dependency>
             <groupId>com.google.web.bindery</groupId>
@@ -124,7 +124,7 @@
             <artifactId>requestfactory-server</artifactId>
             <version>${gwt.version}</version>
         </dependency>
-        
+
         <!-- RequestFactory Validation JSR 303 javax.validation -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -141,7 +141,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        
+
         <!-- Logging used by the Hibernate validator -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -153,13 +153,27 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.2</version>
         </dependency>
-        
+
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- GWT Maps API V3 -->
+        <dependency>
+            <groupId>com.github.branflake2267</groupId>
+            <artifactId>gwt-maps-api</artifactId>
+            <version>${gwt-maps-api.version}</version>
+        </dependency>
+
+        <!-- Other GWT Maps Dependency from Google -->
+        <dependency>
+            <groupId>com.google.gwt.google-apis</groupId>
+            <artifactId>gwt-ajaxloader</artifactId>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 </project>
