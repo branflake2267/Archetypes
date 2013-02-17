@@ -7,7 +7,6 @@
         }
         
         .header {
-            
         }
         
         .content {
@@ -16,12 +15,15 @@
         }
         
         .footer {
-            
         }
     </ui:style>
 
     <g:HTMLPanel styleName="{style.root}">
-        <g:FlowPanel ui:field="header" />
+        <g:HTMLPanel ui:field="header" >
+            <a href="#">Home</a>&nbsp;&nbsp;
+            <a href="#login:">Login</a>&nbsp;&nbsp;
+            <a href="#map:">Map</a>&nbsp;&nbsp;
+        </g:HTMLPanel>
         <g:SimplePanel ui:field="contentPanel" styleName="{style.content}" />
         <g:FlowPanel ui:field="footer" />
     </g:HTMLPanel>

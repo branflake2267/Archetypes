@@ -5,8 +5,8 @@
 		
 	</ui:style>
 	<g:HTMLPanel>
-        Home Place<br/>
-        <a href="#login:">Goto Login Place</a>
-        <a href="#map:">Map</a>
+        <a href="#">Home Place</a><br/>
+        <a href="#login:">Goto Login Place</a><br/>
+        <a href="#map:">Goto Map Place</a>
     </g:HTMLPanel>
 </ui:UiBinder> 

@@ -13,9 +13,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class LoginView extends Composite {
 
-  private static SignInViewImplUiBinder uiBinder = GWT.create(SignInViewImplUiBinder.class);
+  private static Binder uiBinder = GWT.create(Binder.class);
 
-  interface SignInViewImplUiBinder extends UiBinder<Widget, LoginView> {}
+  interface Binder extends UiBinder<Widget, LoginView> {}
   
   @UiField
   HTML name;
