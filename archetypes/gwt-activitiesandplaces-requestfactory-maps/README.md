@@ -3,7 +3,9 @@
 This is a very basic GWT archetype. 
 
 ##Highlights
-
+* [Client Server Directories](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps/src/main/java/org/gonevertical/project)
+* [Map Activity](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps/src/main/java/org/gonevertical/project/client/application/map)
+* [RequestFactory Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps/src/main/java/org/gonevertical/project/client/requestfactory)
 
 ##Maven Archetype Usage
 
