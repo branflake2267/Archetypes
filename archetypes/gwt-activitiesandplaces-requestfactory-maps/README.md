@@ -3,7 +3,7 @@
 This is a using Activities and Places with Request Factory and Google Maps.
 
 ##GWT Google Maps Api
-[GWT Maps V3 API](https://github.com/branflake2267/GWT-Maps-V3-Api) - This api was used for Google Maps. 
+* [GWT Maps V3 API](https://github.com/branflake2267/GWT-Maps-V3-Api) - This api was used for Google Maps. 
 
 ##Highlights
 * [Client Server Directories](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps/src/main/java/org/gonevertical/project)
