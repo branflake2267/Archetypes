@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HomeView extends Composite {
 
-  private static SignInViewImplUiBinder uiBinder = GWT.create(SignInViewImplUiBinder.class);
+  private static Binder uiBinder = GWT.create(Binder.class);
 
-  interface SignInViewImplUiBinder extends UiBinder<Widget, HomeView> {}
+  interface Binder extends UiBinder<Widget, HomeView> {}
 
   private Presenter presenter;
 

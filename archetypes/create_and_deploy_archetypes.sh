@@ -26,6 +26,7 @@ BuildArchetypeInDirectory()
     rm -R war
     rm -R www-test
     rm -R gwt-unitCache
+    rm -R .gwt-tmp
 
     # generate archetype
     echo "mvn archetype:create-from-project"

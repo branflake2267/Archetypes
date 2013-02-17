@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public class MapActivity extends AbstractActivity implements MapPresenter {
 
-  private MapView view;
+  private static MapView view;
   private ClientFactory clientFactory;
   private boolean running;
 

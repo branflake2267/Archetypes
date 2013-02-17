@@ -19,15 +19,15 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class MapView extends Composite {
 
-  private static SignInViewImplUiBinder uiBinder = GWT.create(SignInViewImplUiBinder.class);
+  private static Binder uiBinder = GWT.create(Binder.class);
 
-  interface SignInViewImplUiBinder extends UiBinder<Widget, MapView> {}
+  interface Binder extends UiBinder<Widget, MapView> {}
   @UiField
   HTMLPanel map;
   
   private Presenter presenter;
-
   private MapWidget mapWidget;
+  private boolean mapLoaded;
 
   public MapView() {
     initWidget(uiBinder.createAndBindUi(this));
@@ -38,7 +38,11 @@ public class MapView extends Composite {
   }
   
   public void start() {
-    loadMapApi();
+    if (!mapLoaded) {
+      loadMapApi();
+    } else {
+      mapWidget.triggerResize();
+    }
   }
   
   private void loadMapApi() {
@@ -65,6 +69,7 @@ public class MapView extends Composite {
   }
 
   private void draw() {
+    mapLoaded = true;
     LatLng center = LatLng.newInstance(49.496675, -102.65625);
     MapOptions opts = MapOptions.newInstance();
     opts.setZoom(4);
