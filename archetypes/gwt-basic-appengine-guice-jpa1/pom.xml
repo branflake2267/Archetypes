@@ -16,7 +16,7 @@
         <gwt.style>OBF</gwt.style>
 
         <!-- App Engine -->
-        <gae.version>1.7.4</gae.version>
+        <gae.version>1.7.5</gae.version>
         <guice.version>3.0</guice.version>
         <datanucleus.version>1.1.5</datanucleus.version>
         <slf4j.version>1.5.11</slf4j.version>
