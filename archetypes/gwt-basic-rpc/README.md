@@ -23,9 +23,9 @@ This is a very basic GWT archetype and has a simple RPC setup.
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeArtifactId=gwt-basic-rpc-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
--DartifactId=new-project-name \
--DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots
+-DartifactId=new-project-name 
 ```

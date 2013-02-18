@@ -1,7 +1,7 @@
 #Maven Archtypes
 * I want to publish a variety of Archetypes to help quicken project creation.
 
-##ArcheTypes in this Project
+##ArcheTypes in this Project 
 * Follow the links for the desired archetype below for project creation instructions.
 * [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse.
 * [IDEA Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/intellij-idea) - How to import a Maven project into IntelliJ IDEA.
@@ -31,6 +31,10 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory">GWT Activities & Places RequestFactory</a></td>
 		<td>GWT activities & places with RequestFactory</td>
 	</tr>
+        <tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-activitiesandplaces-requestfactory-maps">GWT Activities & Places RequestFactory & Maps</a></td>
+		<td>GWT activities & places with RequestFactory and Google Maps</td>
+	</tr>
 	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css">GWT CSS</a></td>
 		<td>Simple project using ClientBunble Resources; CssResource and ImageResource </td>
@@ -54,6 +58,7 @@ These archetype projects are in the works and need some tuning.
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
 ##News
+* 2/17/2013 - Created gwt-activitiesandplaces-requestfactory-maps.
 * 1/23/2013 - Created gwt-css archetype.
 * 1/20/2013 - Created gwt-activitiesandplaces-requestfactory archetype.
 * 1/16/2013 - Created gwt-basic-rpc-appengine-guice archetype.

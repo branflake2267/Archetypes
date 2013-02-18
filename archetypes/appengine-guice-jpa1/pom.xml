@@ -11,8 +11,8 @@
     <description>Basic App Engine setup using Guice with JPA</description>
 
     <properties>
-        <gae.version>1.7.4</gae.version>
-        <maven-gae-plugin.version>0.9.4</maven-gae-plugin.version>
+        <gae.version>1.7.5</gae.version>
+        <maven-gae-plugin.version>0.9.5</maven-gae-plugin.version>
         <guice.version>3.0</guice.version>
         <datanucleus.version>1.1.5</datanucleus.version>
         <slf4j.version>1.5.11</slf4j.version>
@@ -99,17 +99,27 @@
             </plugin>
 
             <!-- App Engine -->
+            <!-- run 'mvn gae:run' -->
+            <!-- run 'mvn gae:deploy' -->
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
                 <version>${maven-gae-plugin.version}</version>
                 <configuration>
-                    <sdkDir>${gae.home}</sdkDir>
                     <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>appengine-credentials</serverId>
                     <splitJars>true</splitJars>
+                    <sdkDir>${gae.home}</sdkDir>
+                    <jvmFlags>-Dappengine.sdk.root=${gae.home}</jvmFlags>
                 </configuration>
                 <executions>
+                    <execution>
+                        <id>install-server-jar</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>deploy</id>
                         <goals>
@@ -151,6 +161,20 @@
                                         <versionRange>1.1.4</versionRange>
                                         <goals>
                                             <goal>enhance</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <execute />
+                                    </action>
+                                </pluginExecution>
+                                
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>net.kindleit</groupId>
+                                        <artifactId>maven-gae-plugin</artifactId>
+                                        <versionRange>[0.7.0,)</versionRange>
+                                        <goals>
+                                            <goal>unpack</goal>
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
