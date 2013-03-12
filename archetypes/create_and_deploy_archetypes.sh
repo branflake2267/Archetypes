@@ -64,6 +64,7 @@ LoopDirectory()
     echo "find . -maxdepth 1 -type d -name '[a-z]*'"
     for dir in `find .  -maxdepth 1 -type d -name '[a-z]*'`; do
     echo "~~~~~ Processing::: $dir ~~~~~~~~"
+    # Disabled until the fix of the loop, reset needed
     #BuildArchetypeInDirectory $dir
     done
 }
