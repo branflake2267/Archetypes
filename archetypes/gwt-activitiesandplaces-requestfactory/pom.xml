@@ -78,9 +78,10 @@
                     <strict>true</strict>
                     
                     <testTimeOut>180</testTimeOut>
-                    <includes>**/*GwtTestSuite.java</includes>
-                    <excludes>**/*GwtTest.java</excludes>
                     <mode>htmlunit</mode>
+                    <!-- <includes>**/*GwtTestSuite.java</includes> -->
+                    <!-- <excludes>**/*GwtTest.java</excludes> -->
+                    <includes>**/*GwtTest.java</includes>
                     
                     <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
                     <logLevel>INFO</logLevel>
