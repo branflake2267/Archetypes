@@ -19,7 +19,7 @@ ModifyPom()
         find . -name '*.xml' -type f -exec sed -i 's/<module>.*\.\(.*\)<\/module>/<module>${package}.\1<\/module>/g' {} \;
     fi
     
-    # Rename Project to __module__
+    # Rename Project to __module__ 
     if [ $(uname) = "Darwin" ]; then
         find . -name '*.html' -type f -exec sed -i '' 's/project/${module}/g' {} \;
         find . -name '*.xml' -type f -exec sed -i '' 's/project/${module}/g' {} \;
