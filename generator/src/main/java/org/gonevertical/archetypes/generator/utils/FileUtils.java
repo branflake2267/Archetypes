@@ -49,4 +49,19 @@ public class FileUtils {
     rf.renameTo(file);
   }
 
+  public static boolean deleteRecursive(File path) {
+    if (path.exists()) {
+      File[] files = path.listFiles();
+      for (int i = 0; i < files.length; i++) {
+        if (files[i].isDirectory()) {
+          deleteRecursive(files[i]);
+        } else {
+          boolean deleted = files[i].delete();
+          System.out.println("deleted=" + deleted);
+        }
+      }
+    }
+    return (path.delete());
+  }
+
 }

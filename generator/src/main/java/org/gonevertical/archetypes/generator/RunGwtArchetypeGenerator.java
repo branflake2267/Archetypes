@@ -9,29 +9,61 @@ import org.apache.commons.io.FileUtils;
 import org.gonevertical.archetypes.generator.utils.FileCleaner;
 import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
+import org.gonevertical.archetypes.generator.utils.XmlNodeCleaner;
 
-public class RunGWTArchetypeGenerator {
+public class RunGwtArchetypeGenerator {
 
   public static void main(String[] args) {
-    new RunGWTArchetypeGenerator().run(args);
+    new RunGwtArchetypeGenerator().run(args);
   }
 
   private String baseWorkingDir = null;
 
-  public RunGWTArchetypeGenerator() {
+  public RunGwtArchetypeGenerator() {
   }
 
+  /**
+   * TODO params?
+   */
   private void run(String[] args) {
-    // TODO parse project dir var
-    baseWorkingDir = "/Users/branflake2267/git/Archetypes/archetypes/gwt-basic/";
+    buildArchetypes("gwt-basic");
+    buildArchetypes("gwt-basic-rpc");
+    buildArchetypes("gwt-basic-rpc-appengine-guice");
+    buildArchetypes("gwt-basic-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+    buildArchetypes("gwt-css");
+  }
+  
+  private void buildArchetypes(String path) {
+    String base = null;
+    try {
+      base = new File("..").getCanonicalPath();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+    // /Users/branflake2267/git/Archetypes/generator/
+    baseWorkingDir = base + "/archetypes/" + path + "/";
+    
+    File file = new File(baseWorkingDir);
+    boolean isDir = file.isDirectory();
+    if (!isDir) {
+      System.out.println("Exiting, dir problem");
+      System.exit(0);
+    }
+    
+    System.out.println("baseWorkingDir=" + baseWorkingDir);
 
     runSteps();
   }
+  
 
   private void runSteps() {
     runMvnClean();
     runMvnArchetypeCreateFromProject();
     cleanGeneratedArchetype();
+    cleanArchetypeMetaData();
     setupRequiredArchetypeVars();
     replaceTextWithArchetypeVars();
     setupArchetypeIntegrationTestParameter();
@@ -40,6 +72,29 @@ public class RunGWTArchetypeGenerator {
     deploy();
     
     System.out.println("Finished generating pom for " + baseWorkingDir);
+  }
+  
+  private void cleanArchetypeMetaData() {
+    cleanArchetypeMetaData("target/generated-sources/archetype/target/classes/META-INF/maven/archetype-metadata.xml");
+    cleanArchetypeMetaData("target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml");
+  }
+  
+  private void cleanArchetypeMetaData(String path) {
+    String filePath = baseWorkingDir + path;
+    
+    XmlNodeCleaner xnc = new XmlNodeCleaner();
+    
+    // remove with directory
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"www-test\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".settings\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".gwt\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
+    
+    // remove includes
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
   }
 
   private void deploy() {
