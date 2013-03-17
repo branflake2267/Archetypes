@@ -57,15 +57,21 @@ public class RunGwtArchetypeGenerator {
     runSteps();
   }
   
-  private void runSteps() {
+  private void runSteps() {    
+    // generate
     runMvnClean();
     runMvnArchetypeCreateFromProject();
+    
+    // clean
     cleanGeneratedArchetype();
     cleanArchetypeMetaData();
+    
+    // ${module}lize
     setupRequiredArchetypeVars();
     replaceTextWithArchetypeVars();
     setupArchetypeIntegrationTestParameter();
     renameProjectFiles();
+    
     addDeployToSonaTypePomElements();
     deploy();
     
@@ -88,11 +94,18 @@ public class RunGwtArchetypeGenerator {
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".gwt\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
     
-    // remove includes
-    xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
-    xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
-    xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
-    xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
+    // remove includes won't work
+//    xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
+//    xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
+//    xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
+//    xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
+    
+    // TODO won't work
+    //xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    //xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    
+    xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
   }
 
   private void deploy() {
@@ -143,7 +156,7 @@ public class RunGwtArchetypeGenerator {
     String find = "(artifactId=.*)";
     
     String replace = "$1\n";
-    replace += "module=Project\n";
+    replace += "module=AppModTest\n";
     
     regexFindAndReplaceFiles("archetype.properties", find, replace);
   }
