@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.2-SNAPSHOT</version>
     <name>gwt-basic</name>
-    <description>Very basic GWT maven setup</description>
+    <description>Basic GWT Maven setup.</description>
 
     <properties>
         <!-- GWT -->
@@ -56,11 +56,10 @@
             </plugin>
 
             <!-- GWT -->
-            <!-- 'mvn gwt:run' - runs development mode -->
-            <!-- 'mvn gwt:debug' - runs debug mode -->
-            <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt tests (*GwtTest.java), 
-                (run a suite its faster) -->
+            <!-- 'mvn gwt:run' -->
+            <!-- 'mvn gwt:debug' -->
+            <!-- 'mvn gwt:compile' -->
+            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -70,6 +69,7 @@
 
                     <testTimeOut>180</testTimeOut>
                     <mode>htmlunit</mode>
+                    <!-- Switch to a suite to run tests faster -->
                     <!-- <includes>**/*GwtTestSuite.java</includes> -->
                     <!-- <excludes>**/*GwtTest.java</excludes> -->
                     <includes>**/*GwtTest.java</includes>
@@ -103,12 +103,7 @@
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-
+        
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
