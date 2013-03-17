@@ -2,7 +2,7 @@
 # Update pom versions
 
 # GWT
-find . -name 'pom.xml' -type f -exec sed -i '' 's/<gwt.version>.*<\/gwt.version>/<gwt.version>2.5.0<\/gwt.version>/g' {} \;
+find . -name 'pom.xml' -type f -exec sed -i '' 's/<gwt.version>.*<\/gwt.version>/<gwt.version>2.5.1<\/gwt.version>/g' {} \;
 
 # Google App engine
 find . -name 'pom.xml' -type f -exec sed -i '' 's/<gae.version>.*<\/gae.version>/<gae.version>1.7.5<\/gae.version>/g' {} \;

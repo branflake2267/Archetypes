@@ -11,23 +11,53 @@ import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
 import org.gonevertical.archetypes.generator.utils.XmlNodeCleaner;
 
-public class RunGWTArchetypeGenerator {
+public class RunGwtArchetypeGenerator {
 
   public static void main(String[] args) {
-    new RunGWTArchetypeGenerator().run(args);
+    new RunGwtArchetypeGenerator().run(args);
   }
 
   private String baseWorkingDir = null;
 
-  public RunGWTArchetypeGenerator() {
+  public RunGwtArchetypeGenerator() {
   }
 
+  /**
+   * TODO params?
+   */
   private void run(String[] args) {
-    // TODO parse project dir var
-    baseWorkingDir = "/Users/branflake2267/git/Archetypes/archetypes/gwt-basic/";
+    buildArchetypes("gwt-basic");
+    buildArchetypes("gwt-basic-rpc");
+    buildArchetypes("gwt-basic-rpc-appengine-guice");
+    buildArchetypes("gwt-basic-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+    buildArchetypes("gwt-css");
+  }
+  
+  private void buildArchetypes(String path) {
+    String base = null;
+    try {
+      base = new File("..").getCanonicalPath();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+    // /Users/branflake2267/git/Archetypes/generator/
+    baseWorkingDir = base + "/archetypes/" + path + "/";
+    
+    File file = new File(baseWorkingDir);
+    boolean isDir = file.isDirectory();
+    if (!isDir) {
+      System.out.println("Exiting, dir problem");
+      System.exit(0);
+    }
+    
+    System.out.println("baseWorkingDir=" + baseWorkingDir);
 
     runSteps();
   }
+  
 
   private void runSteps() {
     runMvnClean();

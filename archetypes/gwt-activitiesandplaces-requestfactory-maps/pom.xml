@@ -12,7 +12,7 @@
 
     <properties>
         <!-- GWT -->
-        <gwt.version>2.5.0</gwt.version>
+        <gwt.version>2.5.1</gwt.version>
         <gwt.style>OBF</gwt.style>
         <gwt-maps-api.version>3.10.0-alpha-2</gwt-maps-api.version>
 
