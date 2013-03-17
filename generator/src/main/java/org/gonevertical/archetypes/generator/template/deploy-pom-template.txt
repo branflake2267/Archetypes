@@ -46,13 +46,4 @@
         <url>http://teamcity.gonevertical.org/project.html?projectId=project9</url>
     </ciManagement>
     
-    <distributionManagement>
-        <repository>
-            <id>sona-nexus-deploy</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>sona-nexus-deploy</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
+</project>

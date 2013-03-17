@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.apache.commons.io.FileUtils;
 import org.gonevertical.archetypes.generator.utils.FileCleaner;
 import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
@@ -34,6 +35,14 @@ public class RunGWTArchetypeGenerator {
     replaceTextWithArchetypeVars();
     renameProjectFiles();
     addDeployToSonaTypePomElements();
+    deploy();
+    
+    System.out.println("Finished generating pom for " + baseWorkingDir);
+  }
+
+  private void deploy() {
+    String pathToArchetypePom = baseWorkingDir + "target/generated-sources/archetype";
+    runCommand(pathToArchetypePom, "mvn", "deploy");
   }
 
   private void runMvnClean() {
@@ -57,6 +66,8 @@ public class RunGWTArchetypeGenerator {
     cleanArchetypeExt(".gwt-tmp");
     cleanArchetypeExt("README.md");
     cleanArchetypeExt("EmptyNess.java");
+    cleanArchetypeExt(".project");
+    cleanArchetypeExt(".classpath");
   }
 
   private void replaceTextWithArchetypeVars() {
@@ -65,11 +76,13 @@ public class RunGWTArchetypeGenerator {
     // Only do cap Project in .xml files
     regexFile(".xml", "\\.Project", ".\\${module}");
     regexFile(".xml", "'project'", "'\\${module}'");
+    regexFile(".xml", "Project.html", "\\${module}.html");
 
     regexFile(".java", "Project", "\\${module}");
     regexFile(".java", "project", "\\${module}");
     regexFile(".html", "Project", "\\${module}");
     regexFile(".html", "project", "\\${module}");
+    
 
     regexFile(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
@@ -82,7 +95,54 @@ public class RunGWTArchetypeGenerator {
   }
   
   private void addDeployToSonaTypePomElements() {
+    addPomParent();
+    addDeployFileContents();
+  }
+  
+  private void addDeployFileContents() {
+    String base = "";
+    try {
+      base = new File(".").getCanonicalPath();
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
+    String path = base + "/src/main/java/org/gonevertical/archetypes/generator/template/deploy-pom-template.txt";
     
+    String find = "</project>";
+    
+    String replace = "";
+    try {
+      replace = FileUtils.readFileToString(new File(path), "UTF-8");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
+    String pathToArchetypePom = "target/generated-sources/archetype/pom.xml";
+    
+    repalceInFile(pathToArchetypePom, find, replace);
+  }
+
+  private void addPomParent() {
+    String find = "<modelVersion>4.0.0</modelVersion>";
+    
+    String replace = "";
+    replace += "<modelVersion>4.0.0</modelVersion>\n\n";
+    replace += "<parent>\n";
+    replace += "  <groupId>org.sonatype.oss</groupId>\n";
+    replace += "  <artifactId>oss-parent</artifactId>\n";
+    replace += "  <version>7</version>\n";
+    replace += "</parent>\n";
+    
+    String pathToArchetypePom = "target/generated-sources/archetype/pom.xml";
+    
+    repalceInFile(pathToArchetypePom, find, replace);
+  }
+  
+  private void repalceInFile(String path, String find, String replace) {
+    path = baseWorkingDir + path;
+    File file = new File(path);
+    
+    org.gonevertical.archetypes.generator.utils.FileUtils.replaceInFileByLine(file, find, replace);
   }
 
   private void renameProjectFile(String src, String dest) {
