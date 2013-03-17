@@ -23,7 +23,7 @@ public class RunGwtArchetypeGenerator {
   }
 
   /**
-   * TODO params?
+   * TODO setup params or config file?
    */
   private void run(String[] args) {
     buildArchetypes("gwt-basic");
@@ -43,7 +43,6 @@ public class RunGwtArchetypeGenerator {
       e.printStackTrace();
     }
     
-    // /Users/branflake2267/git/Archetypes/generator/
     baseWorkingDir = base + "/archetypes/" + path + "/";
     
     File file = new File(baseWorkingDir);
@@ -58,7 +57,6 @@ public class RunGwtArchetypeGenerator {
     runSteps();
   }
   
-
   private void runSteps() {
     runMvnClean();
     runMvnArchetypeCreateFromProject();
