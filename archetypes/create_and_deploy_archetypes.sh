@@ -3,41 +3,14 @@
 # Once the archetype has been created run 'mvn archetype:generate -DarchetypeCatalog=local' in a new directory
 # http://www.automatedbusinesslogic.com/articles/deploying-a-maven-archetype
 
-echo "Started"
-
-BuildArchetypeInDirectory()
+RemoveFiles() 
 {
-    PROJECTDIR=$1
-    echo "Working in::: $PROJECTDIR";
+    find . -name $1 -type f -exec rm -rf {} \;
+}
 
-    # move to the archetype
-    cd $PROJECTDIR
-
-    # clean house
-    mvn clean
-    mvn idea:clean
-    mvn eclipse:clean
-    rm -R .settings
-    rm -R bin
-    rm -R *.iml
-    rm -R .idea
-    rm -R .gwt
-    rm .DS_Store
-    rm -R war
-    rm -R www-test
-    rm -R gwt-unitCache
-    rm -R .gwt-tmp
-
-    # generate archetype
-    echo "mvn archetype:create-from-project"
-    mvn archetype:create-from-project
-
-    # move to generated archetype base
-    cd target/generated-sources/archetype/
-
-    # clean up files in project.
-    find . -name "*.sh" -type f -exec rm -f {} \;
-
+ModifyPom() 
+{
+    # Add package var to the module declaration
     # sed -i works differently on mac and linux.
     # work around b/c com.arcbees inherits conflicts
     if [ $(uname) = "Darwin" ]; then
@@ -45,41 +18,113 @@ BuildArchetypeInDirectory()
     else
         find . -name '*.xml' -type f -exec sed -i 's/<module>.*\.\(.*\)<\/module>/<module>${package}.\1<\/module>/g' {} \;
     fi
+    
+    # Rename Project to __module__ 
+    if [ $(uname) = "Darwin" ]; then
+        find . -name '*.html' -type f -exec sed -i '' 's/project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i '' 's/project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i '' 's/Project/${module}/g' {} \;
+        find . -name '*.java' -type f -exec sed -i '' 's/Project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i '' 's/ProjectEntryPoint/${module}EntryPoint/g' {} \;
+    else
+        find . -name '*.html' -type f -exec sed -i 's/project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i 's/project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i 's/Project/${module}/g' {} \;
+        find . -name '*.java' -type f -exec sed -i 's/Project/${module}/g' {} \;
+        find . -name '*.xml' -type f -exec sed -i 's/ProjectEntryPoint/${module}EntryPoint/g' {} \;
+    fi
+}
 
-    cd $CURRENTDIR
+ModifyArchetypeMetaData() 
+{
+    #Add required property "module"
+    METAMODULE="<requiredProperties><requiredProperty key=\"module\"><defaultValue>Project<\/defaultValue><\/requiredProperty><\/requiredProperties><fileSets>"
+    
+    if [ $(uname) = "Darwin" ]; then
+        find . -name '*archetype-metadata.xml' -type f -exec sed -i '' 's/<fileSets>/'"$METAMODULE"'/g' {} \;
+    else
+        find . -name '*archetype-metadata.xml' -type f -exec sed -i 's/<fileSets>/'"$METAMODULE"'/g' {} \;
+    fi
+}
+
+RenameModuleFiles() 
+{
+    mv src/main/resources/archetype-resources/src/main/java/client/ProjectEntryPoint.java src/main/resources/archetype-resources/src/main/java/client/__module__EntryPoint.java
+    mv src/main/resources/archetype-resources/src/main/webapp/Project.html src/main/resources/archetype-resources/src/main/webapp/__module__.html
+    mv src/main/resources/archetype-resources/src/main/webapp/Project.css src/main/resources/archetype-resources/src/main/webapp/__module__.css
+    mv src/main/resources/archetype-resources/src/main/java/Project.gwt.xml src/main/resources/archetype-resources/src/main/java/__module__.gwt.xml
+}
+
+DeployToSonatype()
+{
+    cd $SCRIPTDIR
 
     # add deployment to pom.xml for deployment to sonatype
-    SONATYPE="<distributionManagement><repository><id>sona-nexus-deploy<\/id><url>https:\/\/oss.sonatype.org\/service\/local\/staging\/deploy\/maven2<\/url><\/repository><snapshotRepository><id>sona-nexus-deploy<\/id><url>https:\/\/oss.sonatype.org\/content\/repositories\/snapshots<\/url><\/snapshotRepository><\/distributionManagement><\/project>"
+    SONATYPE=( $( ./deploy-pom-template.txt ) )
     echo $SONATYPE
 
-    sed -ie "s@<\/project>@${SONATYPE}@g" $PROJECTDIR/target/generated-sources/archetype/pom.xml
+    sed -ie 's/<\/project>/'"$SONATYPE"'/g' $PROJECTDIR/target/generated-sources/archetype/pom.xml
     cd $PROJECTDIR/target/generated-sources/archetype
 
-    # deploy to sonatype
-    mvn deploy
+    #TODO deploy to sonatype
+    #mvn deploy
 }
 
-LoopDirectory()
+ArchetypeCleaning()
 {
-    echo "find . -maxdepth 1 -type d -name '[a-z]*'"
-    for dir in `find .  -maxdepth 1 -type d -name '[a-z]*'`; do
-    echo "~~~~~ Processing::: $dir ~~~~~~~~"
-    # Disabled until the fix of the loop, reset needed
-    #BuildArchetypeInDirectory $dir
-    done
+    # house cleaning
+    RemoveFiles "*.sh"
+    RemoveFiles "*.DS_Store"
+    RemoveFiles ".settings"
+    RemoveFiles "bin"
+    RemoveFiles "*.iml"
+    RemoveFiles ".gwt"
+    RemoveFiles "www-test"
+    RemoveFiles "war"
+    RemoveFiles "gwt-unitCache"
+    RemoveFiles ".gwt-tmp"
+    RemoveFiles "README.md"
+    RemoveFiles "EmptyNess.java"
 }
 
-CURRENTDIR=`pwd`
+BuildArchetypeInDirectory()
+{
+    PROJECTDIR=$1
+    echo "Working in directory=$PROJECTDIR";
+
+    # move to the archetype
+    cd $PROJECTDIR
+    
+    # clean previous build
+    mvn clean
+
+    # generate archetype
+    echo "mvn archetype:create-from-project"
+    mvn archetype:create-from-project
+
+    # move to generated archetype base
+    cd target/generated-sources/archetype/
+ 
+    ArchetypeCleaning
+
+    ModifyPom
+    
+    ModifyArchetypeMetaData
+    
+    RenameModuleFiles
+    
+    DeployToSonatype
+}
+
+echo "Started"
+
+SCRIPTDIR=`pwd`
 
 if [ ! -z $1 ] ;
 then
     echo "~~~~~ Processing::: $1 ~~~~~~"
     BuildArchetypeInDirectory $1
-else
-    LoopDirectory
 fi
 
 echo "Finished"
 
-# TODO produce a catalog
-#mvn archetype:crawl -Dcatalog=$CURRENTDIR/archetype-catalog.xml
