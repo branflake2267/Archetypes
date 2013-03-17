@@ -23,7 +23,7 @@ public class RunGWTArchetypeGenerator {
 
   private void run(String[] args) {
     // TODO parse project dir var
-    baseWorkingDir = "/Users/branflake2267/git/Archetypes/archetypes/gwt-css/";
+    baseWorkingDir = "/Users/branflake2267/git/Archetypes/archetypes/gwt-basic/";
 
     runSteps();
   }
