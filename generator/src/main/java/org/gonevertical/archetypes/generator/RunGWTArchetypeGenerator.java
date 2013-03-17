@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.gonevertical.archetypes.generator.utils.FileCleaner;
 import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
+import org.gonevertical.archetypes.generator.utils.XmlNodeCleaner;
 
 public class RunGWTArchetypeGenerator {
 
@@ -32,6 +33,7 @@ public class RunGWTArchetypeGenerator {
     runMvnClean();
     runMvnArchetypeCreateFromProject();
     cleanGeneratedArchetype();
+    cleanArchetypeMetaData();
     setupRequiredArchetypeVars();
     replaceTextWithArchetypeVars();
     setupArchetypeIntegrationTestParameter();
@@ -40,6 +42,29 @@ public class RunGWTArchetypeGenerator {
     deploy();
     
     System.out.println("Finished generating pom for " + baseWorkingDir);
+  }
+  
+  private void cleanArchetypeMetaData() {
+    cleanArchetypeMetaData("target/generated-sources/archetype/target/classes/META-INF/maven/archetype-metadata.xml");
+    cleanArchetypeMetaData("target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml");
+  }
+  
+  private void cleanArchetypeMetaData(String path) {
+    String filePath = baseWorkingDir + path;
+    
+    XmlNodeCleaner xnc = new XmlNodeCleaner();
+    
+    // remove with directory
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"www-test\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".settings\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".gwt\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
+    
+    // remove includes
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
   }
 
   private void deploy() {

@@ -31,8 +31,7 @@ public class FileCleaner extends DirectoryWalker<File> {
   @Override
   protected boolean handleDirectory(File directory, int depth, Collection<File> results) throws IOException {
     if (directory.getName().equals(name)) {
-      directory.delete();
-      results.add(directory);
+      delete(directory);
       System.out.println("Deleted directory" + directory.toString());
     }
     return super.handleDirectory(directory, depth, results);
@@ -45,5 +44,10 @@ public class FileCleaner extends DirectoryWalker<File> {
       System.out.println("Deleted file" + file.toString());
     }
   }
+  
+  private void delete(File directory) {
+    FileUtils.deleteRecursive(directory);
+  }
+  
   
 }
