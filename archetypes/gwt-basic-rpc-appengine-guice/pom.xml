@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>gwt-basic-rpc-appengine-guice</name>
-    <description>GWT with RPC using App Engin with Guice</description>
+    <description>GWT with RPC using App Engin with Guice.</description>
 
     <properties>
         <!-- GWT -->
@@ -63,13 +63,10 @@
             </plugin>
 
             <!-- GWT -->
-            <!-- 'mvn gwt:run' - runs development mode -->
-            <!-- 'mvn gwt:debug' - runs debug mode -->
-            <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn integration-test' - runs the gwt tests (*GwtTest.java), 
-                (run a suite its faster) -->
-            <!-- 'mvn clean gwt:compile deploy -DskipTests' - deploys to 
-                gae & sona with out running tests -->
+            <!-- 'mvn gwt:run' -->
+            <!-- 'mvn gwt:debug' -->
+            <!-- 'mvn gwt:compile' -->
+            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -79,6 +76,7 @@
 
                     <testTimeOut>180</testTimeOut>
                     <mode>htmlunit</mode>
+                    <!-- Switch to a suite to run tests faster -->
                     <!-- <includes>**/*GwtTestSuite.java</includes> -->
                     <!-- <excludes>**/*GwtTest.java</excludes> -->
                     <includes>**/*GwtTest.java</includes>

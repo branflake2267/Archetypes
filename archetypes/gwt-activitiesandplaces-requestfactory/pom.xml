@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>gwt-activityandplaces-requestfactory</name>
-    <description>GWT activity and places using the RequestFactory.</description>
+    <description>GWT Activity and Places using the RequestFactory.</description>
     
     <properties>
         <!-- GWT -->
@@ -65,11 +65,10 @@
             </plugin>
             
             <!-- GWT -->
-            <!-- 'mvn gwt:run' - runs development mode -->
-            <!-- 'mvn gwt:debug' - runs debug mode -->
-            <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt
-             tests (*GwtTest.java), (run a suite its faster) -->
+            <!-- 'mvn gwt:run' -->
+            <!-- 'mvn gwt:debug' -->
+            <!-- 'mvn gwt:compile' -->
+            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -79,11 +78,12 @@
                     
                     <testTimeOut>180</testTimeOut>
                     <mode>htmlunit</mode>
+                    <!-- Switch to a suite to run tests faster -->
                     <!-- <includes>**/*GwtTestSuite.java</includes> -->
                     <!-- <excludes>**/*GwtTest.java</excludes> -->
                     <includes>**/*GwtTest.java</includes>
                     
-                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
+                    <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
                     

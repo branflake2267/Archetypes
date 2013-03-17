@@ -118,4 +118,49 @@ public class XmlNodeCleaner {
     //t.transform(source, new StreamResult(System.out));
   }
 
+  
+  public void removeParentParentParentNodeWithExpression(String filePath, String xpathExp) {
+    try {
+      removeParentParentNodeWithExpressionOrThrow(filePath, xpathExp);
+    } catch (XPathExpressionException e) {
+      e.printStackTrace();
+    } catch (SAXException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ParserConfigurationException e) {
+      e.printStackTrace();
+    } catch (TransformerException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void removeParentParentNodeWithExpressionOrThrow(String filePath, String xpathExp) throws SAXException, IOException,
+      ParserConfigurationException, XPathExpressionException, TransformerException {
+    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    Document document = dbf.newDocumentBuilder().parse(new File(filePath));
+
+    XPathFactory xpf = XPathFactory.newInstance();
+    XPath xpath = xpf.newXPath();
+    XPathExpression expression = xpath.compile(xpathExp);
+
+    NodeList foundNodes = (NodeList) expression.evaluate(document, XPathConstants.NODESET);
+    if (foundNodes == null) {
+      System.out.println("XPath didn't find " + xpathExp);
+      return;
+    }
+
+    for (int i = 0; i < foundNodes.getLength(); i++) {
+      Node foundNode = foundNodes.item(i);
+      foundNode.getParentNode().getParentNode().getParentNode().removeChild(foundNode.getParentNode().getParentNode());
+    }
+
+    TransformerFactory tf = TransformerFactory.newInstance();
+    Transformer t = tf.newTransformer();
+
+    DOMSource source = new DOMSource(document);
+    StreamResult result = new StreamResult(new File(filePath));
+    t.transform(source, result);
+    t.transform(source, new StreamResult(System.out));
+  }
 }

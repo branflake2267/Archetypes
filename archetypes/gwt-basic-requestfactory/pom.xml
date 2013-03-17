@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>gwt-basic-requestfactory</name>
-    <description>Very basic GWT maven setup using RequestFactory</description>
+    <description>Basic GWT maven setup using RequestFactory.</description>
     
     <properties>
         <!-- GWT -->
@@ -65,11 +65,10 @@
             </plugin>
             
             <!-- GWT -->
-            <!-- 'mvn gwt:run' - runs development mode -->
-            <!-- 'mvn gwt:debug' - runs debug mode -->
-            <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt
-             tests (*GwtTest.java), (run a suite its faster) -->
+            <!-- 'mvn gwt:run' -->
+            <!-- 'mvn gwt:debug' -->
+            <!-- 'mvn gwt:compile' -->
+            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -79,6 +78,7 @@
                     
                     <testTimeOut>180</testTimeOut>
                     <mode>htmlunit</mode>
+                    <!-- Switch to a suite to run tests faster -->
                     <!-- <includes>**/*GwtTestSuite.java</includes> -->
                     <!-- <excludes>**/*GwtTest.java</excludes> -->
                     <includes>**/*GwtTest.java</includes>
