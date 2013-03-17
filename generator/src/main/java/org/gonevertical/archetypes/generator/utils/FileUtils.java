@@ -1,0 +1,52 @@
+package org.gonevertical.archetypes.generator.utils;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class FileUtils {
+
+  public static void replaceInFileByLine(File file, String regexFind, String regexReplace) {
+    if (file == null) {
+      return;
+    }
+    String tmpName = file.getAbsolutePath() + ".tmp";
+    FileInputStream fis = null;
+    BufferedInputStream bis = null;
+    DataInputStream dis = null;
+    BufferedReader br = null;
+    try {
+      fis = new FileInputStream(file);
+      bis = new BufferedInputStream(fis);
+      dis = new DataInputStream(bis);
+      br = new BufferedReader(new InputStreamReader(dis));
+      FileWriter fstream = new FileWriter(tmpName);
+      BufferedWriter out = new BufferedWriter(fstream);
+      String s = null;
+      while ((s = br.readLine()) != null) {
+        s = s.replaceAll(regexFind, regexReplace);
+        out.write(s + "\n");
+      }
+      out.close();
+      fstream.close();
+      br.close();
+      fis.close();
+      bis.close();
+      dis.close();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    File rf = new File(tmpName);
+    rf.renameTo(file);
+  }
+
+}
