@@ -10,15 +10,15 @@ import org.gonevertical.archetypes.generator.utils.FileCleaner;
 import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
 
-public class RunGenerator {
+public class RunGWTArchetypeGenerator {
 
   public static void main(String[] args) {
-    new RunGenerator().run(args);
+    new RunGWTArchetypeGenerator().run(args);
   }
 
   private String baseWorkingDir = null;
 
-  public RunGenerator() {
+  public RunGWTArchetypeGenerator() {
   }
 
   private void run(String[] args) {
