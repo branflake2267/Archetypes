@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.apache.commons.io.FileUtils;
 import org.gonevertical.archetypes.generator.utils.FileCleaner;
 import org.gonevertical.archetypes.generator.utils.FileRegex;
 import org.gonevertical.archetypes.generator.utils.MoveFile;
@@ -22,9 +21,13 @@ public class RunGWTArchetypeGenerator {
   }
 
   private void run(String[] args) {
-    // TODO
+    // TODO parse project dir var
     baseWorkingDir = "/Users/branflake2267/git/Archetypes/archetypes/gwt-css/";
 
+    runSteps();
+  }
+
+  private void runSteps() {
     runMvnClean();
     runMvnArchetypeCreateFromProject();
     cleanGeneratedArchetype();
