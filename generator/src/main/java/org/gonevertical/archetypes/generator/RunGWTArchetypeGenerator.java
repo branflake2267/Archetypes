@@ -32,7 +32,9 @@ public class RunGWTArchetypeGenerator {
     runMvnClean();
     runMvnArchetypeCreateFromProject();
     cleanGeneratedArchetype();
+    setupRequiredArchetypeVars();
     replaceTextWithArchetypeVars();
+    setupArchetypeIntegrationTestParameter();
     renameProjectFiles();
     addDeployToSonaTypePomElements();
     deploy();
@@ -50,7 +52,7 @@ public class RunGWTArchetypeGenerator {
   }
 
   private void runMvnArchetypeCreateFromProject() {
-    runCommand(baseWorkingDir, "mvn", "archetype:create-from-project");
+    runCommand(baseWorkingDir, "mvn", "archetype:create-from-project", "-Darchetype.properties=archetype.properties");
   }
 
   private void cleanGeneratedArchetype() {
@@ -70,21 +72,44 @@ public class RunGWTArchetypeGenerator {
     cleanArchetypeExt(".classpath");
   }
 
+  private void setupRequiredArchetypeVars() {
+    String find = "<fileSets>";
+    
+    String replace = "";
+    replace += "<requiredProperties>\n";
+    replace += "    <requiredProperty key=\"module\">\n";
+    replace += "        <defaultValue>Project</defaultValue>\n";
+    replace += "    </requiredProperty>\n";
+    replace += "</requiredProperties>\n\n";
+    replace += "<fileSets>\n";
+    
+    regexFindAndReplaceFiles("archetype-metadata.xml", find, replace);
+  }
+  
+  private void setupArchetypeIntegrationTestParameter() {
+    String find = "(artifactId=.*)";
+    
+    String replace = "$1\n";
+    replace += "module=Project\n";
+    
+    regexFindAndReplaceFiles("archetype.properties", find, replace);
+  }
+  
   private void replaceTextWithArchetypeVars() {
-    regexFile(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>");
+    regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>");
 
     // Only do cap Project in .xml files
-    regexFile(".xml", "\\.Project", ".\\${module}");
-    regexFile(".xml", "'project'", "'\\${module}'");
-    regexFile(".xml", "Project.html", "\\${module}.html");
+    regexFindAndReplaceFiles(".xml", "\\.Project", ".\\${module}");
+    regexFindAndReplaceFiles(".xml", "'project'", "'\\${module}'");
+    regexFindAndReplaceFiles(".xml", "Project.html", "\\${module}.html");
 
-    regexFile(".java", "Project", "\\${module}");
-    regexFile(".java", "project", "\\${module}");
-    regexFile(".html", "Project", "\\${module}");
-    regexFile(".html", "project", "\\${module}");
+    regexFindAndReplaceFiles(".java", "Project", "\\${module}");
+    regexFindAndReplaceFiles(".java", "project", "\\${module}");
+    regexFindAndReplaceFiles(".html", "Project", "\\${module}");
+    regexFindAndReplaceFiles(".html", "project", "\\${module}");
     
 
-    regexFile(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
+    regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
 
   private void renameProjectFiles() {
@@ -153,7 +178,7 @@ public class RunGWTArchetypeGenerator {
     mf.start(startDir);
   }
 
-  private void regexFile(String name, String regexFind, String regexReplace) {
+  private void regexFindAndReplaceFiles(String name, String regexFind, String regexReplace) {
     String archetypeBase = baseWorkingDir + "target/generated-sources";
     File startDir = new File(archetypeBase);
 
@@ -161,11 +186,11 @@ public class RunGWTArchetypeGenerator {
     fr.start(startDir);
   }
 
-  private void cleanArchetypeExt(String ext) {
+  private void cleanArchetypeExt(String name) {
     String archetypeBase = baseWorkingDir + "target/generated-sources"; 
     File startDir = new File(archetypeBase);
 
-    FileCleaner fc = new FileCleaner(ext);
+    FileCleaner fc = new FileCleaner(name);
     fc.start(startDir);
   }
 
