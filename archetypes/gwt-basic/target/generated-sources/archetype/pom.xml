@@ -11,7 +11,7 @@
 
   <groupId>com.github.branflake2267.archetypes</groupId>
   <artifactId>gwt-basic-archetype</artifactId>
-  <version>1.3</version>
+  <version>1.4-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>gwt-basic-archetype</name>
