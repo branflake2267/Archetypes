@@ -11,6 +11,7 @@
     <groupId>com.github.branflake2267.archetypes</groupId>
     <artifactId>archetypes-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>Archetypes Parent</name>
 
     <url>https://github.com/branflake2267/Archetypes</url>
@@ -58,4 +59,7 @@
         <url>http://teamcity.gonevertical.org/project.html?projectId=project9</url>
     </ciManagement>
 
+    <modules>
+        <module>archetypes</module>
+    </modules>
 </project>
