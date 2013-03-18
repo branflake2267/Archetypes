@@ -1,6 +1,4 @@
 
-    
-    
     <url>https://github.com/branflake2267/Archetypes</url>
     <inceptionYear>2013</inceptionYear>
     
