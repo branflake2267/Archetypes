@@ -64,4 +64,39 @@ public class FileUtils {
     return (path.delete());
   }
 
+  public static String findInFileAndReturnLine(File file, String regex) {
+    if (file == null) {
+      return null;
+    }
+    String line = null;
+    FileInputStream fis = null;
+    BufferedInputStream bis = null;
+    DataInputStream dis = null;
+    BufferedReader br = null;
+    boolean found = false;
+    try {
+      fis = new FileInputStream(file);
+      bis = new BufferedInputStream(fis);
+      dis = new DataInputStream(bis);
+      br = new BufferedReader(new InputStreamReader(dis));
+      String s = null;
+      while ((s = br.readLine()) != null) {
+        found = StringUtils.findMatch(regex, s);
+        if (found == true) {
+          line = s;
+          break;
+        }
+      }
+      br.close();
+      fis.close();
+      bis.close();
+      dis.close();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return line;
+  }
+
 }

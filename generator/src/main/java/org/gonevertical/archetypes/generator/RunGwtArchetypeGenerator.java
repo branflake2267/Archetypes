@@ -16,6 +16,8 @@ public class RunGwtArchetypeGenerator {
   public static void main(String[] args) {
     new RunGwtArchetypeGenerator().run(args);
   }
+  
+  private boolean deploy = false;
 
   /**
    * base path for working directory of the repo/archetypes
@@ -37,6 +39,11 @@ public class RunGwtArchetypeGenerator {
    */
   private String baseGeneratedArchetypeDir;
 
+  /**
+   * base path of the repo
+   */
+  private String base;
+
   public RunGwtArchetypeGenerator() {
   }
 
@@ -44,17 +51,18 @@ public class RunGwtArchetypeGenerator {
    * TODO setup params or config file?
    */
   private void run(String[] args) {
+    deploy = false;
+    
     buildArchetypes("gwt-basic");
-    // buildArchetypes("gwt-basic-rpc");
-    // buildArchetypes("gwt-basic-rpc-appengine-guice");
-    // buildArchetypes("gwt-basic-requestfactory");
-    // buildArchetypes("gwt-activitiesandplaces-requestfactory");
-    // buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
-    // buildArchetypes("gwt-css");
+    buildArchetypes("gwt-basic-rpc");
+    buildArchetypes("gwt-basic-rpc-appengine-guice");
+    buildArchetypes("gwt-basic-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory");
+    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+    buildArchetypes("gwt-css");
   }
 
   private void buildArchetypes(String path) {
-    String base = null;
     try {
       base = new File("..").getCanonicalPath();
     } catch (IOException e) {
@@ -96,8 +104,10 @@ public class RunGwtArchetypeGenerator {
     // deploy items
     addPomParent();
     moveArchetypeToGeneratedDirectory();
-    // TODO add dry run
-    deploy();
+    
+    if (deploy) {
+      deploy();
+    }
 
     System.out.println("Finished generating pom for " + baseWorkingDir);
   }
@@ -191,6 +201,7 @@ public class RunGwtArchetypeGenerator {
     regexFindAndReplaceFiles(".xml", "\\.Project", ".\\${module}");
     regexFindAndReplaceFiles(".xml", "'project'", "'\\${module}'");
     regexFindAndReplaceFiles(".xml", "Project.html", "\\${module}.html");
+    regexFindAndReplaceFiles(".xml", "/project/", "/\\${module}/"); // web.xml
 
     regexFindAndReplaceFiles(".java", "Project", "\\${module}");
     regexFindAndReplaceFiles(".java", "project", "\\${module}");
@@ -211,17 +222,26 @@ public class RunGwtArchetypeGenerator {
   private void addPomParent() {
     String find = "<modelVersion>4.0.0</modelVersion>";
 
+    String version = getParentPomVersion();
+    
     String replace = "";
     replace += "<modelVersion>4.0.0</modelVersion>\n\n";
     replace += "<parent>\n";
     replace += "  <groupId>com.github.branflake2267.archetypes</groupId>\n";
     replace += "  <artifactId>generated</artifactId>\n";
-    replace += "  <version>0.0.1-SNAPSHOT</version>\n";
+    replace += "  " + version + "\n";
     replace += "</parent>\n";
 
     String pathToArchetypePom = "target/generated-sources/archetype/pom.xml";
 
     repalceInFile(pathToArchetypePom, find, replace);
+  }
+
+  private String getParentPomVersion() {
+    String path = base + "/pom.xml";
+    String regex = "<version>(.*?-SNAPSHOT)</version>";
+    String version = org.gonevertical.archetypes.generator.utils.FileUtils.findInFileAndReturnLine(new File(path), regex).trim();
+    return version;
   }
 
   private void repalceInFile(String path, String find, String replace) {
