@@ -17,7 +17,25 @@ public class RunGwtArchetypeGenerator {
     new RunGwtArchetypeGenerator().run(args);
   }
 
-  private String baseWorkingDir = null;
+  /**
+   * base path for working directory of the repo/archetypes
+   */
+  private String baseWorkingDir;
+
+  /**
+   * base path for the generated archetypes repo/generated
+   */
+  private String baseGenerated;
+
+  /**
+   * Archetype directory like "gwt-basic"
+   */
+  private String archetypeDirectory;
+
+  /**
+   * Generated directory path with archetype directory
+   */
+  private String baseGeneratedArchetypeDir;
 
   public RunGwtArchetypeGenerator() {
   }
@@ -27,14 +45,14 @@ public class RunGwtArchetypeGenerator {
    */
   private void run(String[] args) {
     buildArchetypes("gwt-basic");
-    buildArchetypes("gwt-basic-rpc");
-    buildArchetypes("gwt-basic-rpc-appengine-guice");
-    buildArchetypes("gwt-basic-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
-    buildArchetypes("gwt-css");
+    // buildArchetypes("gwt-basic-rpc");
+    // buildArchetypes("gwt-basic-rpc-appengine-guice");
+    // buildArchetypes("gwt-basic-requestfactory");
+    // buildArchetypes("gwt-activitiesandplaces-requestfactory");
+    // buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+    // buildArchetypes("gwt-css");
   }
-  
+
   private void buildArchetypes(String path) {
     String base = null;
     try {
@@ -42,75 +60,80 @@ public class RunGwtArchetypeGenerator {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    
+
+    archetypeDirectory = path;
     baseWorkingDir = base + "/archetypes/" + path + "/";
-    
+    baseGenerated = base + "/generated/";
+    baseGeneratedArchetypeDir = baseGenerated + archetypeDirectory;
+
     File file = new File(baseWorkingDir);
     boolean isDir = file.isDirectory();
     if (!isDir) {
       System.out.println("Exiting, dir problem");
       System.exit(0);
     }
-    
+
     System.out.println("baseWorkingDir=" + baseWorkingDir);
 
     runSteps();
   }
-  
-  private void runSteps() {    
+
+  private void runSteps() {
     // generate
     runMvnClean();
     runMvnArchetypeCreateFromProject();
-    
+
     // clean
     cleanGeneratedArchetype();
     cleanArchetypeMetaData();
-    
-    // ${module}lize
+
+    // ${module}lize velocity variables
     setupRequiredArchetypeVars();
     replaceTextWithArchetypeVars();
     setupArchetypeIntegrationTestParameter();
     renameProjectFiles();
-    
-    addDeployToSonaTypePomElements();
+
+    // deploy items
+    addPomParent();
+    moveArchetypeToGeneratedDirectory();
+    // TODO add dry run
     deploy();
-    
+
     System.out.println("Finished generating pom for " + baseWorkingDir);
   }
-  
+
   private void cleanArchetypeMetaData() {
     cleanArchetypeMetaData("target/generated-sources/archetype/target/classes/META-INF/maven/archetype-metadata.xml");
     cleanArchetypeMetaData("target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml");
   }
-  
+
   private void cleanArchetypeMetaData(String path) {
     String filePath = baseWorkingDir + path;
-    
+
     XmlNodeCleaner xnc = new XmlNodeCleaner();
-    
+
     // remove with directory
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"www-test\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".settings\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".gwt\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
-    
+
     // remove includes won't work
-//    xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
-//    xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
-//    xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
-//    xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
-    
+    // xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    // xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
+    // xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    // xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
+
     // TODO won't work
-    //xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
-    //xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
-    
+    // xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    // xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
+
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
   }
 
-  private void deploy() {
-    String pathToArchetypePom = baseWorkingDir + "target/generated-sources/archetype";
-    runCommand(pathToArchetypePom, "mvn", "deploy");
+  private void deploy() {    
+    runCommand(baseGeneratedArchetypeDir, "mvn", "deploy");
   }
 
   private void runMvnClean() {
@@ -140,7 +163,7 @@ public class RunGwtArchetypeGenerator {
 
   private void setupRequiredArchetypeVars() {
     String find = "<fileSets>";
-    
+
     String replace = "";
     replace += "<requiredProperties>\n";
     replace += "    <requiredProperty key=\"module\">\n";
@@ -148,19 +171,19 @@ public class RunGwtArchetypeGenerator {
     replace += "    </requiredProperty>\n";
     replace += "</requiredProperties>\n\n";
     replace += "<fileSets>\n";
-    
+
     regexFindAndReplaceFiles("archetype-metadata.xml", find, replace);
   }
-  
+
   private void setupArchetypeIntegrationTestParameter() {
     String find = "(artifactId=.*)";
-    
+
     String replace = "$1\n";
     replace += "module=AppModTest\n";
-    
+
     regexFindAndReplaceFiles("archetype.properties", find, replace);
   }
-  
+
   private void replaceTextWithArchetypeVars() {
     regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>");
 
@@ -173,7 +196,6 @@ public class RunGwtArchetypeGenerator {
     regexFindAndReplaceFiles(".java", "project", "\\${module}");
     regexFindAndReplaceFiles(".html", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "project", "\\${module}");
-    
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
@@ -184,64 +206,53 @@ public class RunGwtArchetypeGenerator {
     renameProjectFile("Project.css", "__module__.css");
     renameProjectFile("Project.gwt.xml", "__module__.gwt.xml");
   }
-  
-  private void addDeployToSonaTypePomElements() {
-    addPomParent();
-    addDeployFileContents();
-  }
-  
-  private void addDeployFileContents() {
-    String base = "";
-    try {
-      base = new File(".").getCanonicalPath();
-    } catch (IOException e1) {
-      e1.printStackTrace();
-    }
-    String path = base + "/src/main/java/org/gonevertical/archetypes/generator/template/deploy-pom-template.txt";
-    
-    String find = "</project>";
-    
-    String replace = "";
-    try {
-      replace = FileUtils.readFileToString(new File(path), "UTF-8");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    
-    String pathToArchetypePom = "target/generated-sources/archetype/pom.xml";
-    
-    repalceInFile(pathToArchetypePom, find, replace);
-  }
 
+  // TODO get parent's version and update it?
   private void addPomParent() {
     String find = "<modelVersion>4.0.0</modelVersion>";
-    
+
     String replace = "";
     replace += "<modelVersion>4.0.0</modelVersion>\n\n";
     replace += "<parent>\n";
-    replace += "  <groupId>org.sonatype.oss</groupId>\n";
-    replace += "  <artifactId>oss-parent</artifactId>\n";
-    replace += "  <version>7</version>\n";
+    replace += "  <groupId>com.github.branflake2267.archetypes</groupId>\n";
+    replace += "  <artifactId>generated</artifactId>\n";
+    replace += "  <version>0.0.1-SNAPSHOT</version>\n";
     replace += "</parent>\n";
-    
+
     String pathToArchetypePom = "target/generated-sources/archetype/pom.xml";
-    
+
     repalceInFile(pathToArchetypePom, find, replace);
   }
-  
+
   private void repalceInFile(String path, String find, String replace) {
     path = baseWorkingDir + path;
     File file = new File(path);
-    
+
     org.gonevertical.archetypes.generator.utils.FileUtils.replaceInFileByLine(file, find, replace);
   }
 
   private void renameProjectFile(String src, String dest) {
     String archetypeBase = baseWorkingDir + "target/generated-sources";
     File startDir = new File(archetypeBase);
-    
+
     MoveFile mf = new MoveFile(src, dest);
     mf.start(startDir);
+  }
+
+  private void moveArchetypeToGeneratedDirectory() {
+    String archetypeBase = baseWorkingDir + "target/generated-sources/archetype";
+
+    try {
+      FileUtils.deleteDirectory(new File(baseGeneratedArchetypeDir));
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
+    
+    try {
+      FileUtils.moveDirectory(new File(archetypeBase), new File(baseGeneratedArchetypeDir));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   private void regexFindAndReplaceFiles(String name, String regexFind, String regexReplace) {
@@ -253,7 +264,7 @@ public class RunGwtArchetypeGenerator {
   }
 
   private void cleanArchetypeExt(String name) {
-    String archetypeBase = baseWorkingDir + "target/generated-sources"; 
+    String archetypeBase = baseWorkingDir + "target/generated-sources";
     File startDir = new File(archetypeBase);
 
     FileCleaner fc = new FileCleaner(name);
