@@ -2,7 +2,7 @@
 *.iml
 *.project
 .idea**
-#target**
+target**
 .gwt-log
 .classpath
 www-test**

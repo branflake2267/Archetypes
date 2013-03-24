@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.branflake2267.archetypes</groupId>
-    <artifactId>gwt-basic</artifactId>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
     <packaging>war</packaging>
-    <version>1.6-SNAPSHOT</version>
+    <version>${version}</version>
     <name>gwt-basic</name>
     <description>Basic GWT Maven setup.</description>
 
@@ -81,8 +80,8 @@
                     <copyWebapp>true</copyWebapp>
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
 
-                    <runTarget>Project.html</runTarget>
-                    <module>org.gonevertical.project.Project</module>
+                    <runTarget>${module}.html</runTarget>
+                    <module>${package}.${module}</module>
                 </configuration>
                 <executions>
                     <execution>
