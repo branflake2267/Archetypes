@@ -21,7 +21,7 @@ public class RunGwtArchetypeGenerator {
    * base path for working directory of the repo/archetypes
    */
   private String baseWorkingDir;
-  
+
   /**
    * base path for the generated archetypes repo/generated
    */
@@ -31,6 +31,11 @@ public class RunGwtArchetypeGenerator {
    * Archetype directory like "gwt-basic"
    */
   private String archetypeDirectory;
+
+  /**
+   * Generated directory path with archetype directory
+   */
+  private String baseGeneratedArchetypeDir;
 
   public RunGwtArchetypeGenerator() {
   }
@@ -59,6 +64,7 @@ public class RunGwtArchetypeGenerator {
     archetypeDirectory = path;
     baseWorkingDir = base + "/archetypes/" + path + "/";
     baseGenerated = base + "/generated/";
+    baseGeneratedArchetypeDir = baseGenerated + archetypeDirectory;
 
     File file = new File(baseWorkingDir);
     boolean isDir = file.isDirectory();
@@ -91,7 +97,7 @@ public class RunGwtArchetypeGenerator {
     addPomParent();
     moveArchetypeToGeneratedDirectory();
     // TODO add dry run
-    //deploy();
+    deploy();
 
     System.out.println("Finished generating pom for " + baseWorkingDir);
   }
@@ -125,10 +131,9 @@ public class RunGwtArchetypeGenerator {
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
   }
-  
-  private void deploy() {
-    String pathToArchetypePom = baseWorkingDir + "target/generated-sources/archetype";
-    runCommand(pathToArchetypePom, "mvn", "deploy");
+
+  private void deploy() {    
+    runCommand(baseGeneratedArchetypeDir, "mvn", "deploy");
   }
 
   private void runMvnClean() {
@@ -233,13 +238,18 @@ public class RunGwtArchetypeGenerator {
     MoveFile mf = new MoveFile(src, dest);
     mf.start(startDir);
   }
-  
+
   private void moveArchetypeToGeneratedDirectory() {
-    String archetypeBase = baseWorkingDir + "target/generated-sources";
-    String generatedPath = baseGenerated + archetypeDirectory;
+    String archetypeBase = baseWorkingDir + "target/generated-sources/archetype";
+
+    try {
+      FileUtils.deleteDirectory(new File(baseGeneratedArchetypeDir));
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
     
     try {
-      FileUtils.moveFile(new File(archetypeBase), new File(generatedPath));
+      FileUtils.moveDirectory(new File(archetypeBase), new File(baseGeneratedArchetypeDir));
     } catch (IOException e) {
       e.printStackTrace();
     }
