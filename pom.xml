@@ -60,6 +60,6 @@
     </ciManagement>
 
     <modules>
-        <module>archetypes</module>
+        <module>generated</module>
     </modules>
 </project>
