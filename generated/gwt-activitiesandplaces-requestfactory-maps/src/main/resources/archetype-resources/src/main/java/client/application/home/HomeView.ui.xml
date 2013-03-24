@@ -1,0 +1,15 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+        <a href="${symbol_pound}">Home Place</a><br/>
+        <a href="${symbol_pound}login:">Goto Login Place</a><br/>
+        <a href="${symbol_pound}map:">Goto Map Place</a>
+    </g:HTMLPanel>
+</ui:UiBinder> 
