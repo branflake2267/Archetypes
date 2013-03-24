@@ -1,0 +1,28 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <!-- external css resource styles -->
+    <ui:with field="res" type="${package}.client.resources.Resources" />
+
+    <!-- inline uibinder css styles -->
+    <ui:style>
+        .box {
+            margin: 30px;
+            width: 150px;
+            height: 75px;
+            border: 1px solid green;
+        }
+    </ui:style>
+
+    <g:HTMLPanel>
+        <g:FlowPanel styleName="{res.layoutStyles.boxy}" />
+
+        <g:FlowPanel styleName="{style.box}" />
+        
+        <g:FlowPanel styleName="{res.layoutStyles.logoBox}"/>
+    </g:HTMLPanel>
+</ui:UiBinder> 
