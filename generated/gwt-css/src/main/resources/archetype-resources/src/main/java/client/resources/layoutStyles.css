@@ -1,0 +1,30 @@
+/* example Constant which is 100% */
+@def wallTowall 100%;
+
+/* document style using the constant */
+html {
+    width: wallTowall;
+    height: wallTowall;
+}
+
+/* document style using the constant */
+body {
+    width: wallTowall;
+    height: wallTowall;
+    margin: 0px;
+}
+
+/* basic style */
+.boxy {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid blue;
+}
+
+/* sprite */
+@sprite .logoBox {
+  gwt-image: "logo";
+  border: 2px solid #000;
+  margin: 40px;
+}
