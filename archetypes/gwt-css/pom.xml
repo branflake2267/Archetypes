@@ -75,7 +75,7 @@
                     
                     <mode>htmlunit</mode>
 
-                    <extraJvmArgs>-Xss1024k -Xmx1024M -XX:MaxPermSize=256m</extraJvmArgs>
+                    <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
                     <logLevel>INFO</logLevel>
                     <style>${gwt.style}</style>
 
