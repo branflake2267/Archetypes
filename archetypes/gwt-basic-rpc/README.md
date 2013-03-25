@@ -22,8 +22,9 @@ This is a very basic GWT archetype and has a simple RPC setup.
 * This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
+mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
+-DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=gwt-basic-rpc-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
