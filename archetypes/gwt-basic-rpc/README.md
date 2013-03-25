@@ -28,5 +28,6 @@ mvn archetype:generate \
 -DarchetypeArtifactId=gwt-basic-rpc-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
--DartifactId=new-project-name 
+-DartifactId=new-project-name \
+-Dmodule=Project
 ```
