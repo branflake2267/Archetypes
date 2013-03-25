@@ -51,14 +51,14 @@ public class RunGwtArchetypeGenerator {
    * TODO setup params or config file?
    */
   private void run(String[] args) {
-    deploy = false;
+    deploy = true;
     
-    buildArchetypes("gwt-basic");
-    buildArchetypes("gwt-basic-rpc");
-    buildArchetypes("gwt-basic-rpc-appengine-guice");
-    buildArchetypes("gwt-basic-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+//    buildArchetypes("gwt-basic");
+//    buildArchetypes("gwt-basic-rpc");
+//    buildArchetypes("gwt-basic-rpc-appengine-guice");
+//    buildArchetypes("gwt-basic-requestfactory");
+//    buildArchetypes("gwt-activitiesandplaces-requestfactory");
+//    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
     buildArchetypes("gwt-css");
   }
 
