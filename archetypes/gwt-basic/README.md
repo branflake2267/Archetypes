@@ -21,8 +21,9 @@ This is a very basic GWT archetype.
 * This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
+mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
+-DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=gwt-basic-archetype \
 -DarchetypeVersion=1.2-SNAPSHOT \
 -DgroupId=com.projectname.project \
