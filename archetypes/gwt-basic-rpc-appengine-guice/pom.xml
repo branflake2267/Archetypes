@@ -91,10 +91,11 @@
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
-                    <extraJvmArgs>-Dappengine.sdk.root=${gae.home}</extraJvmArgs>
 
                     <runTarget>Project.html</runTarget>
-                    <module>org.gonevertical.project.Project</module>
+                    <modules>
+                        <module>org.gonevertical.project.Project</module>
+                    </modules>
                 </configuration>
                 <executions>
                     <execution>
@@ -210,7 +211,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>net.kindleit</groupId>
                                         <artifactId>maven-gae-plugin</artifactId>
-                                        <versionRange>[0.7.0,)</versionRange>
+                                        <versionRange>[0.9.0,)</versionRange>
                                         <goals>
                                             <goal>unpack</goal>
                                         </goals>
