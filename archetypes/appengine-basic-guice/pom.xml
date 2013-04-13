@@ -4,17 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.branflake2267.archetypes</groupId>
-    <artifactId>gwt-basic-rpc-appengine-guice</artifactId>
+    <artifactId>appengine-basic-guice</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>gwt-basic-rpc-appengine-guice</name>
-    <description>GWT with RPC using App Engin with Guice.</description>
+    <name>appengine-basic-guice</name>
+    <description>Basic App Engine with Guice.</description>
 
     <properties>
-        <!-- GWT -->
-        <gwt.version>2.5.1</gwt.version>
-        <gwt.style>OBF</gwt.style>
-
         <!-- App Engine -->
         <gae.version>1.7.6</gae.version>
         <guice.version>3.0</guice.version>
@@ -29,12 +25,6 @@
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,66 +35,6 @@
                     <target>1.6</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
-
-            <!-- Ignore GWTTestCases when running JUnit Runner -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*GwtTest.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-
-            <!-- GWT -->
-            <!-- 'mvn gwt:run' -->
-            <!-- 'mvn gwt:debug' -->
-            <!-- 'mvn gwt:compile' -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <version>${gwt.version}</version>
-                <configuration>
-                    <strict>true</strict>
-
-                    <testTimeOut>180</testTimeOut>
-                    <mode>htmlunit</mode>
-                    <!-- Switch to a suite to run tests faster -->
-                    <!-- <includes>**/*GwtTestSuite.java</includes> -->
-                    <!-- <excludes>**/*GwtTest.java</excludes> -->
-                    <includes>**/*GwtTest.java</includes>
-
-                    <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
-                    <logLevel>INFO</logLevel>
-                    <style>${gwt.style}</style>
-
-                    <copyWebapp>true</copyWebapp>
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
-
-                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-                    <appEngineVersion>${gae.version}</appEngineVersion>
-                    <appEngineHome>${gae.home}</appEngineHome>
-
-                    <runTarget>Project.html</runTarget>
-                    <modules>
-                        <module>org.gonevertical.project.Project</module>
-                    </modules>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <plugin>
@@ -171,16 +101,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            
-            <!-- skip deployment -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
         </plugins>
 
         <pluginManagement>
@@ -193,20 +113,6 @@
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.apache.maven.plugins</groupId>
-                                        <artifactId>maven-war-plugin</artifactId>
-                                        <versionRange>2.1.1</versionRange>
-                                        <goals>
-                                            <goal>exploded</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <execute />
-                                    </action>
-                                </pluginExecution>
-
                                 <pluginExecution>
                                     <pluginExecutionFilter>
                                         <groupId>net.kindleit</groupId>
@@ -229,13 +135,6 @@
     </build>
 
     <dependencies>
-        <!-- GWT -->
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-
         <!-- Google App Engine -->
         <dependency>
             <groupId>com.google.appengine</groupId>
