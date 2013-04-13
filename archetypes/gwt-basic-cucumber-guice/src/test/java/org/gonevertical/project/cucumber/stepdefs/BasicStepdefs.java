@@ -26,21 +26,21 @@ public class BasicStepdefs {
     applicationPage.close();
   }
 
-  @Given("^I navigate to (\\S+)$")
+  @Given("^the application loads$")
+  public void theAppLoads() {
+    applicationPage.getUrl(baseUrl);
+    applicationPage.doesDebugIdExist("loaded");
+  }
+  
+  @When("^I navigate to (\\S+)$")
   public void iNavigateTo(String nameToken) {
     String url = baseUrl + "#" + nameToken;
 
     applicationPage.getUrl(url);
-    applicationPage.waitUntilDomIsLoaded(nameToken);
   }
 
-  @When("^I click on the GWT button$")
-  public void iClickOnTheButton() {
-    // TODO
-  }
-
-  @Then("^then the popup displays$")
-  public void enterValidCredential() {
+  @Then("^it works$")
+  public void thenItWorks() {
     // TODO
   }
 

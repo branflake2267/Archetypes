@@ -16,13 +16,12 @@ public class ApplicationPage extends BasePage {
     super(webDriver);
   }
 
-  public Boolean waitUntilDomIsLoaded(String nameToken) {
+  public Boolean doesDebugIdExist(String debugId) {
     try {
-      webDriverWait().until(ExpectedConditions.presenceOfElementLocated(By.id(DEBUG_ID_PREFIX + nameToken + "Panel")));
-      webDriverWait().until(ExpectedConditions.presenceOfElementLocated(By.id(DEBUG_ID_PREFIX + "dom")));
+      webDriverWait().until(ExpectedConditions.presenceOfElementLocated(By.id(DEBUG_ID_PREFIX + debugId)));
       return true;
     } catch (TimeoutException e) {
-      return false;
+      throw e;
     }
   }
 

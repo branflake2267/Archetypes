@@ -92,8 +92,8 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>test</goal>
                             <goal>compile</goal>
+                            <goal>test</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -133,7 +133,7 @@
             <!-- mvn jetty:start -->
             <!-- mvn jetty:stop -->
             <!-- mvn jetty:run -->
-            <!-- mvn integration-test -Pintegration-test -->
+            <!-- mvn 'integration-test -Pintegration-test' runs cucumber tests -->
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -226,6 +226,7 @@
     </dependencies>
 
     <profiles>
+        <!-- 'mvn gwt:compile jetty:run -Pintegration-test' - test run cucumber story -->
         <profile>
             <id>integration-test</id>
             <build>

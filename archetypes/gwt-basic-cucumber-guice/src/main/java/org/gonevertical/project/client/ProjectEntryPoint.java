@@ -11,7 +11,9 @@ public class ProjectEntryPoint implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new HTML("Loaded."));
+    HTML html = new HTML("Loaded....");
+    html.ensureDebugId("loaded");
+    RootPanel.get().add(html);
   }
   
 }
