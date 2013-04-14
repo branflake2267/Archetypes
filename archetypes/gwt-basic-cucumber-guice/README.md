@@ -3,7 +3,10 @@
 This is a very basic GWT Archetype. 
 
 ##Highlights
-* TODO
+* [Basic Cucumber Feature Story](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-cucumber-guice/src/test/resources/org/gonevertical/project/cucumber/Load.feature)
+* [Tests Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-cucumber-guice/src/test/java/org/gonevertical/project)
+* [Cucumber Test Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-cucumber-guice/src/test/java/org/gonevertical/project/cucumber)
+* [Simple Selenium Tests](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-cucumber-guice/src/test/java/org/gonevertical/project/selenium/SimpleSeleniumTest.java)
 
 ##Maven Archetype Usage
 
