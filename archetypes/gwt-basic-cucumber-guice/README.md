@@ -5,11 +5,6 @@ This is a very basic GWT Archetype.
 ##Highlights
 * TODO
 
-##Build Server Testing
-Running the integration tests on a server will require to run the browsers headlessly in a virtual frame buffer on the server. 
-
-* [Setup Headless Running on Ubuntu](https://sites.google.com/site/mygwtexamples/home/testing/headless-running)
-
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
@@ -38,3 +33,8 @@ Import the maven project and run the tests.
 ```
 mvn integration-test -Pintegration-test
 ```
+
+##Build Server Testing
+Running the integration tests on a server headlessly will require to run the browsers headlessly in a virtual frame buffer on the server. 
+
+* [Setup Headless Running on Ubuntu](https://sites.google.com/site/mygwtexamples/home/testing/headless-running)
