@@ -28,3 +28,10 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DartifactId=new-project-name \
 -Dmodule=Project
 ```
+
+##Run Tests
+Import the maven project and run the tests.
+
+```
+mvn integration-test -Pintegration-test
+```
