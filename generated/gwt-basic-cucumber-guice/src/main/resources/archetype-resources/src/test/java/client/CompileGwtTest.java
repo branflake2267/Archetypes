@@ -5,7 +5,7 @@ package ${package}.client;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
-public class Compile${module}GwtTest extends GWTTestCase {
+public class CompileGwtTest extends GWTTestCase {
   
   @Override
   public String getModuleName() {
