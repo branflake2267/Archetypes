@@ -70,7 +70,7 @@
             <!-- 'mvn gwt:run' - runs development mode -->
             <!-- 'mvn gwt:debug' - runs debug mode -->
             <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn integration-test' -->
+            <!-- 'mvn integration-test -Pintegration-test' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -104,8 +104,9 @@
                 </executions>
             </plugin>
 
+            <!-- Cucumber Tests -->
             <!-- Integration testing which runs classes *TestInt.java -->
-            <!-- run 'mvn integration-test' -->
+            <!-- run 'mvn integration-test -Pintegration-test' -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -240,7 +241,7 @@
     </dependencies>
 
     <profiles>
-        <!-- 'mvn gwt:compile jetty:run -Pintegration-test' - test run cucumber story -->
+        <!-- 'mvn gwt:compile jetty:run -Pintegration-test' - test run cucumber story from ide -->
         <profile>
             <id>integration-test</id>
             <build>
