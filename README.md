@@ -39,6 +39,10 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css">GWT CSS</a></td>
 		<td>Simple project using ClientBunble Resources; CssResource and ImageResource </td>
 	</tr>
+	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-cucumber-guice">GWT Basic Cucumber Guice</a></td>
+		<td>Simple GWT project with Cucumber andn Selenium testing</td>
+	</tr>
 </table>
 
 ###Incubating
