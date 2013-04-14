@@ -4,11 +4,10 @@ import javax.inject.Inject;
 
 import org.gonevertical.project.cucumber.application.ApplicationPage;
 
-
-import cucumber.annotation.After;
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
+import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class BasicStepdefs {
 
