@@ -53,13 +53,13 @@ public class RunGwtArchetypeGenerator {
   private void run(String[] args) {
     deploy = true;
     
-    buildArchetypes("gwt-basic");
-    buildArchetypes("gwt-basic-rpc");
-    buildArchetypes("gwt-basic-rpc-appengine-guice");
-    buildArchetypes("gwt-basic-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory");
-    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
-    buildArchetypes("gwt-css");
+//    buildArchetypes("gwt-basic");
+//    buildArchetypes("gwt-basic-rpc");
+//    buildArchetypes("gwt-basic-rpc-appengine-guice");
+//    buildArchetypes("gwt-basic-requestfactory");
+//    buildArchetypes("gwt-activitiesandplaces-requestfactory");
+//    buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
+//    buildArchetypes("gwt-css");
     buildArchetypes("gwt-basic-cucumber-guice");
     
     System.out.println("Finished Everything!");
@@ -98,8 +98,11 @@ public class RunGwtArchetypeGenerator {
     cleanGeneratedArchetype();
     cleanArchetypeMetaData();
 
-    // ${module}lize velocity variables
+    // archetype-metadata.xml resources
     setupRequiredArchetypeVars();
+    //setupTestResourcesPackaging();
+    
+    // ${module}lize velocity variables
     replaceTextWithArchetypeVars();
     setupArchetypeIntegrationTestParameter();
     renameProjectFiles();
@@ -174,6 +177,9 @@ public class RunGwtArchetypeGenerator {
     cleanArchetypeExt(".classpath");
   }
 
+  /**
+   * archetype-metadata.xml resources
+   */
   private void setupRequiredArchetypeVars() {
     String find = "<fileSets>";
 
@@ -185,7 +191,31 @@ public class RunGwtArchetypeGenerator {
     replace += "</requiredProperties>\n\n";
     replace += "<fileSets>\n";
 
-    regexFindAndReplaceFiles("archetype-metadata.xml", find, replace);
+    String pathToArchetypePom = "/target/generated-sources/archetype/target/classes/META-INF/maven/archetype-metadata.xml";
+
+    repalceInFile(pathToArchetypePom, find, replace);
+  }
+
+  /**
+   * archetype-metadata.xml resources
+   */
+  private void setupTestResourcesPackaging() {
+    String find = "</fileSets>";
+
+    String replace = "";
+    replace += "<fileSet encoding=\"UTF-8\" filtered=\"true\" packaged=\"true\">\n";
+    replace += "<directory>src/test/resources</directory>\n";
+    replace += "  <includes>\n";
+    replace += "    <include>**/*.java</include>\n";
+    replace += "    <include>**/*.properties</include>\n";
+    replace += "    <include>**/*.feature</include>\n";
+    replace += "  </includes>\n";
+    replace += "</fileSet>\n";
+    replace += "\n\n\n</fileSets>\n";
+    
+    String pathToArchetypePom = "/target/generated-sources/archetype/target/classes/META-INF/maven/archetype-metadata.xml";
+
+    repalceInFile(pathToArchetypePom, find, replace);
   }
 
   private void setupArchetypeIntegrationTestParameter() {
