@@ -60,6 +60,7 @@ public class RunGwtArchetypeGenerator {
     buildArchetypes("gwt-activitiesandplaces-requestfactory");
     buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
     buildArchetypes("gwt-css");
+    buildArchetypes("gwt-basic-cucumber-guice");
   }
 
   private void buildArchetypes(String path) {
@@ -207,6 +208,7 @@ public class RunGwtArchetypeGenerator {
     regexFindAndReplaceFiles(".java", "project", "\\${module}");
     regexFindAndReplaceFiles(".html", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "project", "\\${module}");
+    regexFindAndReplaceFiles(".properties", "project", "\\${module}");
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
