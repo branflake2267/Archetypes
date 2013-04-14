@@ -2,7 +2,7 @@ package org.gonevertical.project;
 
 import org.gonevertical.project.cucumber.application.ApplicationPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.google.inject.AbstractModule;
@@ -18,7 +18,7 @@ public class CucumberModule extends AbstractModule {
     @Provides
     @Singleton
     WebDriver getDefaultWebDriver() {
-        return new ChromeDriver();
+        return new FirefoxDriver();
     }
 
     @Provides
