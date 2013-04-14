@@ -32,6 +32,9 @@
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.feature</include>
+                </includes>
             </testResource>
         </testResources>
 
@@ -53,6 +56,7 @@
                 <version>2.12</version>
                 <configuration>
                     <includes>
+                        <!-- Junit Tests -->
                         <include>**/*Test.java</include>
                     </includes>
                     <excludes>
@@ -65,7 +69,7 @@
             <!-- 'mvn gwt:run' - runs development mode -->
             <!-- 'mvn gwt:debug' - runs debug mode -->
             <!-- 'mvn gwt:compile' - compiles gwt -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt tests (*GwtTest.java), (run a suite its faster) -->
+            <!-- 'mvn integration-test'-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
@@ -117,13 +121,6 @@
                                 <include>**/*TestInt.java</include>
                             </includes>
                         </configuration>
-                    </execution>
-                    <execution>
-                        <id>verify</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
