@@ -10,3 +10,5 @@ gwt-unitCache**
 bin**
 .factorypath
 .apt_generated
+chromedriver.log
+
