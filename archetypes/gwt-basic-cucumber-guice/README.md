@@ -29,6 +29,9 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -Dmodule=Project
 ```
 
+##Slenium Web Drivers
+A few things are required. Chrome, firefox and the Chrome web driver. Be sure these are installed before running the integration-tests.
+
 ##Run Tests
 Import the maven project and run the tests.
 
