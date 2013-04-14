@@ -1,4 +1,4 @@
-package org.gonevertical.project;
+package org.gonevertical.project.cucumber;
 
 import org.gonevertical.project.cucumber.application.ApplicationPage;
 import org.openqa.selenium.WebDriver;
