@@ -15,7 +15,7 @@
         <gwt.style>OBF</gwt.style>
 
         <!-- App Engine -->
-        <gae.version>1.7.5</gae.version>
+        <gae.version>1.7.6</gae.version>
         <guice.version>3.0</guice.version>
 
         <!-- Maven -->
@@ -90,10 +90,11 @@
                     <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
                     <appEngineVersion>${gae.version}</appEngineVersion>
                     <appEngineHome>${gae.home}</appEngineHome>
-                    <extraJvmArgs>-Dappengine.sdk.root=${gae.home}</extraJvmArgs>
 
                     <runTarget>${module}.html</runTarget>
-                    <module>${package}.${module}</module>
+                    <modules>
+                        <module>${package}.${module}</module>
+                    </modules>
                 </configuration>
                 <executions>
                     <execution>
@@ -105,32 +106,69 @@
                 </executions>
             </plugin>
 
-            <!-- App Engine -->
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
-                <version>${maven-gae-plugin.version}</version>
+                <version>0.9.5</version>
                 <configuration>
+                    <sdkDir>${gae.home}</sdkDir>
+                    <appDir>${webappDirectory}</appDir>
+                    <unpackVersion>${gae.version}</unpackVersion>
+                    
                     <!-- Add credentials to ~/.m2/settings.xml <id>appengine-credentials</id> -->
                     <serverId>appengine-credentials</serverId>
                     <splitJars>true</splitJars>
-                    <sdkDir>${gae.home}</sdkDir>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>install-server-jar</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>deploy</id>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <dependencies>
+                    <!-- Google App Engine API -->
+                    <dependency>
+                        <groupId>com.google.appengine</groupId>
+                        <artifactId>appengine-api-1.0-sdk</artifactId>
+                        <version>${gae.version}</version>
+                    </dependency>
+                    <!-- Google App Engine Runtime Dependencies -->
+                    <dependency>
+                        <groupId>org.apache.geronimo.specs</groupId>
+                        <artifactId>geronimo-jta_1.1_spec</artifactId>
+                        <version>1.1.1</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.geronimo.specs</groupId>
+                        <artifactId>geronimo-jpa_3.0_spec</artifactId>
+                        <version>1.1.1</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.jdo</groupId>
+                        <artifactId>jdo2-api</artifactId>
+                        <version>2.3-eb</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-core</artifactId>
+                        <version>1.1.5</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.google.appengine.orm</groupId>
+                        <artifactId>datanucleus-appengine</artifactId>
+                        <version>1.0.10</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-jpa</artifactId>
+                        <version>1.1.5</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <!-- App Engine Runtime Dependencies -->
+                    <dependency>
+                        <groupId>com.google.appengine</groupId>
+                        <artifactId>appengine-tools-sdk</artifactId>
+                        <version>${gae.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             
             <!-- skip deployment -->
@@ -172,7 +210,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>net.kindleit</groupId>
                                         <artifactId>maven-gae-plugin</artifactId>
-                                        <versionRange>[0.7.0,)</versionRange>
+                                        <versionRange>[0.9.0,)</versionRange>
                                         <goals>
                                             <goal>unpack</goal>
                                         </goals>
@@ -187,7 +225,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build> 
+    </build>
 
     <dependencies>
         <!-- GWT -->
@@ -207,23 +245,6 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-labs</artifactId>
             <version>${gae.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>${gae.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${gae.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
         </dependency>
 
         <!-- DI Guice -->
@@ -248,12 +269,32 @@
             <version>${guice.version}</version>
         </dependency>
 
+ 		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
         <!-- Testing -->
+		<dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${gae.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>${gae.version}</version>
+            <scope>test</scope>
+        </dependency>
+       
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 </project>
