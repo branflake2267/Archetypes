@@ -32,6 +32,11 @@ public class SimpleSeleniumTest {
   }
   
   private void runBasicTest(WebDriver driver) {
+    // And now use this to visit Google
+    driver.get("http://www.google.com");
+    // Alternatively the same thing can be done like this
+    // driver.navigate().to("http://www.google.com");
+    
     // Find the text input element by its name
     WebElement element = driver.findElement(By.name("q"));
 
