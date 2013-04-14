@@ -61,6 +61,8 @@ public class RunGwtArchetypeGenerator {
     buildArchetypes("gwt-activitiesandplaces-requestfactory-maps");
     buildArchetypes("gwt-css");
     buildArchetypes("gwt-basic-cucumber-guice");
+    
+    System.out.println("Finished Everything!");
   }
 
   private void buildArchetypes(String path) {
