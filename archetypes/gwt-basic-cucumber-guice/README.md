@@ -23,7 +23,7 @@ Running the integration tests on a server will require to run the browsers headl
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeArtifactId=gwt-basic-cucumber-guice-archetype \
--DarchetypeVersion=1.0-SNAPSHOT \
+-DarchetypeVersion=1.6-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
 -Dmodule=Project
