@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FileUtils {
 
@@ -47,6 +49,36 @@ public class FileUtils {
     }
     File rf = new File(tmpName);
     rf.renameTo(file);
+  }
+
+  public static void replaceInFile(File file, String regexFind) {
+    if (file == null) {
+      return;
+    }
+
+    String fileText = null;
+    try {
+      fileText = org.apache.commons.io.FileUtils.readFileToString(file);
+    } catch (IOException e1) {
+      e1.printStackTrace();
+      return;
+    }
+
+    Pattern regex = Pattern.compile(regexFind, Pattern.DOTALL);
+    Matcher regexMatcher = regex.matcher(fileText);
+    String found = "";
+    if (regexMatcher.find()) {
+      found = regexMatcher.group(1);
+      if (found != null && found.length() > 0) {
+        fileText = fileText.replace(found, "");
+      }
+    }
+
+    try {
+      org.apache.commons.io.FileUtils.write(file, fileText);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public static boolean deleteRecursive(File path) {

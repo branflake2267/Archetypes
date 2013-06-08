@@ -56,7 +56,7 @@ public class XmlNodeUtils {
     }
     
     String value = foundNode.getTextContent();
-    System.out.println("foundNode=" + foundNode);
+    System.out.println("foundNode=" + foundNode.getTextContent());
     
     return value;
   }
