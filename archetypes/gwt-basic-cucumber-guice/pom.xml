@@ -18,6 +18,12 @@
         <!-- Maven -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        
+        <!-- Cucumber App Engine Integration Testing -->
+        <gae.wait>false</gae.wait>
+        <gae.stop.port>8081</gae.stop.port>
+        <gae.port>8888</gae.port>
+        <gae.address>127.0.0.1</gae.address>
     </properties>
 
     <build>
@@ -47,6 +53,7 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
@@ -92,7 +99,9 @@
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
 
                     <runTarget>Project.html</runTarget>
-                    <module>org.gonevertical.project.Project</module>
+                    <modules>
+                        <module>org.gonevertical.project.Project</module>
+                    </modules>
                 </configuration>
                 <executions>
                     <execution>
