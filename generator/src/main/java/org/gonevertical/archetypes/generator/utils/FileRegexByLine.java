@@ -8,16 +8,18 @@ import java.util.List;
 
 import org.apache.commons.io.DirectoryWalker;
 
-public class FileRegex extends DirectoryWalker<File> {
+public class FileRegexByLine extends DirectoryWalker<File> {
 
   private String name;
   private String regexFind;
+  private String regexReplace;
 
-  public FileRegex(String name, String regexFind) {
+  public FileRegexByLine(String name, String regexFind, String regexReplace) {
     super();
     
     this.name = name;
     this.regexFind = regexFind;
+    this.regexReplace = regexReplace;
   }
 
   public List<File> start(File startDirectory) {
@@ -32,7 +34,7 @@ public class FileRegex extends DirectoryWalker<File> {
   
   protected void handleFile(File file, int depth, Collection<File> results) {
     if (file.getName().matches(".*" + name + "$")) {
-      FileUtils.replaceInFile(file, regexFind);
+      FileUtils.replaceInFileByLine(file, regexFind, regexReplace);
       results.add(file);
       System.out.println("Regexed file" + file.toString());
     }
