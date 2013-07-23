@@ -279,14 +279,12 @@ public class GwtArchetypeGenerator {
     regexFindAndReplaceFiles(".xml", "'project'", "'\\${module}'"); // module
     regexFindAndReplaceFiles(".xml", "<display-name>Project</display-name>", "<display-name>\\${module}</display-name>"); // web.xml 
     regexFindAndReplaceFiles(".xml", "<welcome-file>Project.html</welcome-file>", "<welcome-file>\\${module}.html</welcome-file>"); // web.xml
-//  regexFindAndReplaceFiles(".xml", "/workOnProjectDir/", "/\\${module}/"); // web.xml // TODO remove?
-
+    
+    regexFindAndReplaceFiles(".java", "/project/", "/\\${module}/"); // rpc
     regexFindAndReplaceFiles(".java", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "project", "\\${module}");
-//  regexFindAndReplaceFiles(".java", "workOnProjectDir", "\\${module}");
-//    regexFindAndReplaceFiles(".html", "workOnProjectDir", "\\${module}");
-//    regexFindAndReplaceFiles(".properties", "workOnProjectDir", "\\${module}");
+//    regexFindAndReplaceFiles(".properties", "workOnProjectDir", "\\${module}"); // TODO ?
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
