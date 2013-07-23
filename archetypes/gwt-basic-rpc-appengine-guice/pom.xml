@@ -16,7 +16,7 @@
         <gwt.style>OBF</gwt.style>
 
         <!-- App Engine -->
-        <gae.version>1.7.6</gae.version>
+        <gae.version>1.8.0</gae.version>
         <guice.version>3.0</guice.version>
 
         <!-- Maven -->
