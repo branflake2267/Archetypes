@@ -275,15 +275,17 @@ public class GwtArchetypeGenerator {
 
     // Only do cap Project in .xml files
     regexFindAndReplaceFiles(".xml", "\\.Project", ".\\${module}");
-    regexFindAndReplaceFiles(".xml", "'workOnProjectDir'", "'\\${module}'");
     regexFindAndReplaceFiles(".xml", "Project.html", "\\${module}.html");
-    regexFindAndReplaceFiles(".xml", "/workOnProjectDir/", "/\\${module}/"); // web.xml
-
+    regexFindAndReplaceFiles(".xml", "'project'", "'\\${module}'"); // module
+    regexFindAndReplaceFiles(".xml", "<display-name>Project</display-name>", "<display-name>\\${module}</display-name>"); // web.xml 
+    regexFindAndReplaceFiles(".xml", "<welcome-file>Project.html</welcome-file>", "<welcome-file>\\${module}.html</welcome-file>"); // web.xml
+    regexFindAndReplaceFiles(".xml", "/project/", "/\\${module}/"); // rpc
+    
+    regexFindAndReplaceFiles(".java", "/project/", "/\\${module}/"); // rpc
     regexFindAndReplaceFiles(".java", "Project", "\\${module}");
-    regexFindAndReplaceFiles(".java", "workOnProjectDir", "\\${module}");
     regexFindAndReplaceFiles(".html", "Project", "\\${module}");
-    regexFindAndReplaceFiles(".html", "workOnProjectDir", "\\${module}");
-    regexFindAndReplaceFiles(".properties", "workOnProjectDir", "\\${module}");
+    regexFindAndReplaceFiles(".html", "project", "\\${module}");
+//    regexFindAndReplaceFiles(".properties", "workOnProjectDir", "\\${module}"); // TODO ?
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
