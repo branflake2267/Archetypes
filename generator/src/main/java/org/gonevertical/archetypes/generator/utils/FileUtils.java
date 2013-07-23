@@ -131,4 +131,34 @@ public class FileUtils {
     return line;
   }
 
+  public static String fileToString(File file) {
+    if (file == null) {
+      return null;
+    }
+    FileInputStream fis = null;
+    BufferedInputStream bis = null;
+    DataInputStream dis = null;
+    BufferedReader br = null;
+    String ss = "";
+    try {
+      fis = new FileInputStream(file);
+      bis = new BufferedInputStream(fis);
+      dis = new DataInputStream(bis);
+      br = new BufferedReader(new InputStreamReader(dis));
+      String s = null;
+      while ((s = br.readLine()) != null) {
+        ss += s;
+      }
+      br.close();
+      fis.close();
+      bis.close();
+      dis.close();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return ss;
+  }
+
 }
