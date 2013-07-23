@@ -12,7 +12,7 @@
 
     <properties>
         <gae.version>1.8.0</gae.version>
-        <maven-gae-plugin.version>0.9.5</maven-gae-plugin.version>
+        <maven-gae-plugin.version>0.9.6</maven-gae-plugin.version>
         <guice.version>3.0</guice.version>
         <datanucleus.version>1.1.5</datanucleus.version>
         <slf4j.version>1.5.11</slf4j.version>

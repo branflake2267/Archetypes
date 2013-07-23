@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <?xml version='1.0' encoding='UTF-8'?>
-<module rename-to='project'>
+<module rename-to='${module}'>
     <inherits name='${package}.${module}'/>
     
     <!-- Allows the use of debugId for Selenium/Cucumber -->
