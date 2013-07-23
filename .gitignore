@@ -11,4 +11,4 @@ bin**
 .factorypath
 .apt_generated
 chromedriver.log
-
+.DS_Store

@@ -16,13 +16,13 @@
         <gwt.style>OBF</gwt.style>
 
         <!-- App Engine -->
-        <gae.version>1.7.5</gae.version>
+        <gae.version>1.8.0</gae.version>
         <guice.version>3.0</guice.version>
         <datanucleus.version>1.1.5</datanucleus.version>
         <slf4j.version>1.5.11</slf4j.version>
 
         <!-- Maven -->
-        <maven-gae-plugin.version>0.9.5</maven-gae-plugin.version>
+        <maven-gae-plugin.version>0.9.6</maven-gae-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>

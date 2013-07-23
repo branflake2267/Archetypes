@@ -24,7 +24,7 @@ public class RunProjectToArchetypeGenerator {
     
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
-    generate.setDeploy(false);
+    generate.setDeploy(true);
     generate.run();
   }
 
