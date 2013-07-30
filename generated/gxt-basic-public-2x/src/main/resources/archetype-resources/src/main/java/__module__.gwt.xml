@@ -1,5 +1,8 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
-<module rename-to='project'>
+<module rename-to='${module}'>
     <!-- Inherit the core Web Toolkit stuff. -->
     <inherits name='com.google.gwt.user.User' />
 
@@ -7,7 +10,7 @@
     <inherits name='com.extjs.gxt.ui.GXT' />
 
     <!-- Specify the app entry point class. -->
-    <entry-point class='com.sencha.gxt.project.client.ProjectEntryPoint' />
+    <entry-point class='${package}.client.${module}EntryPoint' />
 
     <!-- Specify the paths for translatable code -->
     <source path='client' />

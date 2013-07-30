@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>gxt-basic-public-2x</artifactId>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
   <packaging>war</packaging>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>gwt-basic-public-2x</name>
+  <version>${version}</version>
+  <name>gwt-basic-support-3x</name>
   <description>Very basic GXT maven setup</description>
 
   <properties>
     <!-- GXT -->
-    <gxt.version>2.3.0-gwt22</gxt.version>
+    <gxt.version>3.0.5</gxt.version>
 
     <!-- GWT -->
-    <gwt.version>2.4.0</gwt.version>
+    <gwt.version>2.5.1</gwt.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
-    <maven.gwt.version>2.4.0</maven.gwt.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
   </properties>
@@ -67,7 +65,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>${maven.gwt.version}</version>
+        <version>${gwt.version}</version>
         <configuration>
           <strict>true</strict>
 
@@ -83,8 +81,8 @@
           <copyWebapp>true</copyWebapp>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
 
-          <runTarget>Project.html</runTarget>
-          <module>com.sencha.gxt.project.Project</module>
+          <runTarget>${module}.html</runTarget>
+          <module>${package}.${module}</module>
         </configuration>
         <executions>
           <execution>
@@ -94,21 +92,24 @@
             </goals>
           </execution>
         </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${gwt.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
 
+  <repositories>
+    <repository>
+      <id>sencha-gxt-repository</id>
+      <name>Sencha GXT Repository</name>
+      <url>https://maven.sencha.com/repo/gxt-commercial-release</url>
+      <!-- <url>https://maven.sencha.com/repo/gxt-support-commercial-release</url> -->
+      <!-- <url>https://maven.sencha.com/repo/support-commercial-snapshot/</url> -->
+    </repository>
+  </repositories>
+
   <dependencies>
     <!-- GXT -->
     <dependency>
-      <groupId>com.extjs</groupId>
+      <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt</artifactId>
       <version>${gxt.version}</version>
     </dependency>

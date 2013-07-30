@@ -17,8 +17,8 @@ This is a very basic GXT Archetype.
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gwt-basic-support-3x-archetype \
--DarchetypeVersion=1.0-SNAPSHOT \
+-DarchetypeArtifactId=gxt-basic-support-3x-archetype \
+-DarchetypeVersion=1.0.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name
 ```
