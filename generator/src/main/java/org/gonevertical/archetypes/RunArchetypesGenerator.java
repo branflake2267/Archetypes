@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.gonevertical.archetypes.generator.GwtArchetypeGenerator;
 
-public class RunProjectToArchetypeGenerator {
+public class RunArchetypesGenerator {
 
   public static void main(String[] args) {
-    new RunProjectToArchetypeGenerator().run();
+    new RunArchetypesGenerator().run();
   }
 
   private void run() {
