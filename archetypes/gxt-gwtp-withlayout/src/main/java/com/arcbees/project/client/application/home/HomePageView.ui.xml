@@ -30,7 +30,7 @@
 
             <!-- VerticalLayoutContainer child with layoutData -->
             <container:child layoutData="{layoutData}">
-                <g:Label text="Vertical Layout Container..." />
+                <g:Label ui:field="version" />
             </container:child>
             <container:child layoutData="{layoutData}">
                 <g:HTML>Try navigating <a href='#links'>to the links.</a></g:HTML>
