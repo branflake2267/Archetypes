@@ -104,7 +104,8 @@
     </plugins>
   </build>
 
-  <!-- For GXT support subscribers only. Choose only one repository url in the list.
+  <!-- 
+  For GXT support subscribers only. Choose only one repository url in the list.
   In the ~/.m2/settings.xml file add server id 'sencha-gxt-repository' to login. 
   <repositories>
     <repository>
