@@ -1,0 +1,43 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:container='urn:import:com.sencha.gxt.widget.core.client.container'>
+  <ui:style>
+        .widget {
+        }
+        
+        .vlc {
+        }
+    </ui:style>
+
+    <!--VerticalLayoutData margins -->
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins">
+        <ui:attributes top="4" right="4" bottom="4" left="4" />
+    </ui:with>
+
+    <!-- VerticalLayoutData layoutData -->
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="layoutData">
+        <ui:attributes width="-1" height="-1" margins="{margins}" />
+    </ui:with>
+    
+    <container:SimpleContainer>
+        
+           <!-- VerticalLayoutContainer -->
+        <container:VerticalLayoutContainer addStyleNames="{style.vlc}" ui:field="vlc">
+
+            <!-- VerticalLayoutContainer child with layoutData -->
+            <container:child layoutData="{layoutData}">
+                <g:HTML>Try navigating back to <a href='#home'>home</a></g:HTML>
+            </container:child>
+            <container:child layoutData="{layoutData}">
+                <g:HTML><a href='http://sencha.com/'>Sencha.com</a></g:HTML>
+            </container:child>
+            <container:child layoutData="{layoutData}">
+                <g:HTML><a href='http://www.sencha.com/products/gxt/'>GXT Home</a></g:HTML>
+            </container:child>
+
+        </container:VerticalLayoutContainer>
+        
+    </container:SimpleContainer>
+</ui:UiBinder>
+
