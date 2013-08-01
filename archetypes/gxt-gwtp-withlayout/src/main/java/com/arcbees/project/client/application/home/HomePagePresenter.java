@@ -27,16 +27,16 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> {
-    public interface MyView extends View {
-    }
+  public interface MyView extends View {
+  }
 
-    @ProxyStandard
-    @NameToken(NameTokens.home)
-    public interface MyProxy extends ProxyPlace<HomePagePresenter> {
-    }
+  @ProxyStandard
+  @NameToken(NameTokens.home)
+  public interface MyProxy extends ProxyPlace<HomePagePresenter> {
+  }
 
-    @Inject
-    public HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy) {
-        super(eventBus, view, proxy, ApplicationPresenter.TYPE_SetMainContent);
-    }
+  @Inject
+  public HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy) {
+    super(eventBus, view, proxy, ApplicationPresenter.SLOT_SetCenter);
+  }
 }
