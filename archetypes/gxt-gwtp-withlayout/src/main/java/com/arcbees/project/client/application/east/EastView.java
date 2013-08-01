@@ -1,4 +1,4 @@
-package com.arcbees.project.client.application.north;
+package com.arcbees.project.client.application.east;
 
 import javax.inject.Inject;
 
@@ -10,23 +10,23 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 import com.sencha.gxt.widget.core.client.container.SimpleContainer;
 
-public class NorthView extends ViewImpl implements NorthPresenter.MyView {
-  interface Binder extends UiBinder<Widget, NorthView> {
+public class EastView extends ViewImpl implements EastPresenter.MyView {
+  interface Binder extends UiBinder<Widget, EastView> {
   }
 
   @UiField
   SimpleContainer main;
 
   @Inject
-  NorthView(Binder uiBinder) {
+  EastView(Binder uiBinder) {
     initWidget(uiBinder.createAndBindUi(this));
     
-    main.setWidget(new HTML("North Presenter"));
+    main.setWidget(new HTML("East Presenter"));
   }
 
   @Override
   public void setInSlot(Object slot, IsWidget content) {
-    if (slot == NorthPresenter.SLOT_North) {
+    if (slot == EastPresenter.SLOT_East) {
       main.setWidget(content);
     } else {
       super.setInSlot(slot, content);
