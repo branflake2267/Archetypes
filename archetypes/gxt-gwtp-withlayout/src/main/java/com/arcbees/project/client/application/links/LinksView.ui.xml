@@ -1,11 +1,8 @@
-<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-             xmlns:g='urn:import:com.google.gwt.user.client.ui'
-             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container">
-
-    <!-- http://docs.sencha.com/gxt-guides/3 - GXT guides -->
-    <!-- http://docs.sencha.com/gxt-guides/3/ui/layout/LayoutContainers.html - About layout containers -->
-    
-    <ui:style>
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:container='urn:import:com.sencha.gxt.widget.core.client.container'>
+  <ui:style>
         .widget {
         }
         
@@ -30,17 +27,17 @@
 
             <!-- VerticalLayoutContainer child with layoutData -->
             <container:child layoutData="{layoutData}">
-                <g:Label text="Vertical Layout Container..." />
+                <g:HTML>Try navigating back to <a href='#home'>home</a></g:HTML>
             </container:child>
             <container:child layoutData="{layoutData}">
-                <g:HTML>Try navigating <a href='#links'>to the links.</a></g:HTML>
+                <g:HTML><a href='http://sencha.com/'>Sencha.com</a></g:HTML>
             </container:child>
             <container:child layoutData="{layoutData}">
-                <g:HTML>Find more in the <a href='http://docs.sencha.com/gxt-guides/3'>GXT Guides.</a></g:HTML>
+                <g:HTML><a href='http://www.sencha.com/products/gxt/'>GXT Home</a></g:HTML>
             </container:child>
 
         </container:VerticalLayoutContainer>
         
     </container:SimpleContainer>
-    
 </ui:UiBinder>
+
