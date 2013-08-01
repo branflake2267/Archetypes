@@ -2,14 +2,14 @@
 # Test import archetype
 
 mvn clean
-mkdir target
-mkdir target/test
+mkdir -p target/test
 cd target/test
 
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
--DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gxt-basic-public-3x-archetype \
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots/ \
+-DarchetypeArtifactId=gxt-gwtp-withlayout-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
--DgroupId=com.projectname.project \
+-DgroupId=com.projectname \
 -DartifactId=new-project-name \
+-Dmodule=Project \
 -DinteractiveMode=false
