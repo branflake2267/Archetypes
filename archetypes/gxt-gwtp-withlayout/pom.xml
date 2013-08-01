@@ -12,6 +12,7 @@
 
   <properties>
     <!-- client -->
+    <!-- Get the latest GXT release through support 3.0.6... -->
     <gxt.version>3.0.1</gxt.version>
     <gwt.version>2.5.1</gwt.version>
     <gwtp.version>1.0</gwtp.version>
@@ -104,18 +105,19 @@
     </plugins>
   </build>
 
-  <!-- 
-  For GXT support subscribers only. Choose only one repository url in the list.
-  In the ~/.m2/settings.xml file add server id 'sencha-gxt-repository' to login. 
-  <repositories>
-    <repository>
-      <id>sencha-gxt-repository</id>
-      <name>Sencha GXT Repository</name>
-      <url>https://maven.sencha.com/repo/gxt-commercial-release</url>
-      <url>https://maven.sencha.com/repo/gxt-support-commercial-release</url>
-      <url>https://maven.sencha.com/repo/support-commercial-snapshot/</url>
-    </repository>
-  </repositories> -->
+  <!-- Get the latest release through support, 3.0.6... -->
+  <!-- <repositories> -->
+    <!-- <repository> -->
+      <!-- ~/.m2/settings.xml add <server/> with same id here with login credentials -->
+      <!-- <id>sencha-gxt-repository</id> -->
+      <!-- <name>Sencha GXT Repository</name> -->
+      <!-- Support Subscribers Only: Subscribe to support for -->
+      <!-- Latest GPL Support GXT Versions -->
+      <!-- <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url> -->
+      <!-- Commercial Support GXT Versions -->
+      <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
+    <!-- </repository> -->
+  <!-- </repositories> -->
 
   <dependencies>
     <!-- GXT -->
@@ -123,6 +125,11 @@
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt</artifactId>
+      <version>${gxt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sencha.gxt</groupId>
+      <artifactId>gxt-chart</artifactId>
       <version>${gxt.version}</version>
     </dependency>
 
