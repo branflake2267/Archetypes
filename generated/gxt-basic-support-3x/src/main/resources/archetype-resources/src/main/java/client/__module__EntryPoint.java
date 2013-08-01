@@ -5,6 +5,7 @@ package ${package}.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.sencha.gxt.core.client.GXT;
 import com.sencha.gxt.widget.core.client.box.MessageBox;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
@@ -17,7 +18,8 @@ public class ${module}EntryPoint implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    TextButton textButton = new TextButton("Verify GXT Works");
+    String version = GXT.getVersion().getRelease();
+    TextButton textButton = new TextButton("Verify GXT Works: Version=" + version);
     RootPanel.get().add(textButton);
     textButton.addSelectHandler(new SelectHandler() {
       @Override
