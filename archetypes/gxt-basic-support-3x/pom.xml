@@ -12,7 +12,7 @@
 
   <properties>
     <!-- GXT -->
-    <gxt.version>3.0.5</gxt.version>
+    <gxt.version>3.0.6</gxt.version>
 
     <!-- GWT -->
     <gwt.version>2.5.1</gwt.version>
@@ -99,11 +99,14 @@
 
   <repositories>
     <repository>
+      <!-- ~/.m2/settings.xml add <server/> with same id here with login credentials -->
       <id>sencha-gxt-repository</id>
       <name>Sencha GXT Repository</name>
-      <url>https://maven.sencha.com/repo/gxt-commercial-release</url>
-      <!-- <url>https://maven.sencha.com/repo/gxt-support-commercial-release</url> -->
-      <!-- <url>https://maven.sencha.com/repo/support-commercial-snapshot/</url> -->
+      <!-- Support Subscribers Only: Subscribe to support for -->
+      <!-- Latest GPL Support GXT Versions -->
+      <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url>
+      <!-- Commercial Support GXT Versions -->
+      <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
     </repository>
   </repositories>
 
@@ -112,6 +115,11 @@
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt</artifactId>
+      <version>${gxt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sencha.gxt</groupId>
+      <artifactId>gxt-chart</artifactId>
       <version>${gxt.version}</version>
     </dependency>
 
