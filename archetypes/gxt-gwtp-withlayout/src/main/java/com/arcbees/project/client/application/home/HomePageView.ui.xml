@@ -1,0 +1,43 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container">
+
+    <!-- http://docs.sencha.com/gxt-guides/3 - GXT guides -->
+    <!-- http://docs.sencha.com/gxt-guides/3/ui/layout/LayoutContainers.html - About layout containers -->
+    
+    <ui:style>
+        .widget {
+        }
+        
+        .vlc {
+        }
+    </ui:style>
+
+    <!--VerticalLayoutData margins -->
+    <ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins">
+        <ui:attributes top="4" right="4" bottom="4" left="4" />
+    </ui:with>
+
+    <!-- VerticalLayoutData layoutData -->
+    <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="layoutData">
+        <ui:attributes width="-1" height="-1" margins="{margins}" />
+    </ui:with>
+    
+    <container:SimpleContainer>
+        
+           <!-- VerticalLayoutContainer -->
+        <container:VerticalLayoutContainer addStyleNames="{style.vlc}" ui:field="vlc">
+
+            <!-- VerticalLayoutContainer child with layoutData -->
+            <container:child layoutData="{layoutData}">
+                <g:Label text="Hellow world..." />
+            </container:child>
+            <container:child layoutData="{layoutData}">
+                <g:HTML>Find more GXT guides here <a href='http://docs.sencha.com/gxt-guides/3'>GXT Guides</a></g:HTML>
+            </container:child>
+
+        </container:VerticalLayoutContainer>
+        
+    </container:SimpleContainer>
+    
+</ui:UiBinder>

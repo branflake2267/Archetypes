@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container">
+
+    <!-- http://docs.sencha.com/gxt-guides/3 - GXT guides -->
+    <!-- http://docs.sencha.com/gxt-guides/3/ui/layout/LayoutContainers.html - About layout containers -->
+             
+    <container:Viewport ui:field="main"/>
+    
+</ui:UiBinder>
