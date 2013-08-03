@@ -8,6 +8,11 @@ This is a basic GWTP Archetype with the GXT library setup.
 * [Guides](http://docs.sencha.com/gxt-guides/3/)
 * [LayoutContainers](http://docs.sencha.com/gxt-guides/3/ui/layout/LayoutContainers.html)
 
+##Highlights
+* [Presenters Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-gwtp-withlayout/src/main/java/com/arcbees/project/client/application)
+* [Nested Presenter Content Slots](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gxt-gwtp-withlayout/src/main/java/com/arcbees/project/client/application/ApplicationPresenter.java#L20)
+* [DockLayout with GXT ContentPanels](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gxt-gwtp-withlayout/src/main/java/com/arcbees/project/client/application/ApplicationView.ui.xml#L10)
+
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
