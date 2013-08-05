@@ -18,8 +18,8 @@
     <!-- https://code.google.com/p/selenium/wiki/Grid2 -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>${rootArtifactId}</artifactId>
-      <version>${version}</version>
+      <artifactId>selenium-server</artifactId>
+      <version>2.33.0</version>
     </dependency>
   </dependencies>
 </project>
