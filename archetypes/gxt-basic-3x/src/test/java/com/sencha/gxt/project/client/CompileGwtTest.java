@@ -3,6 +3,7 @@ package com.sencha.gxt.project.client;
 import com.google.gwt.junit.client.GWTTestCase;
 
 public class CompileGwtTest extends GWTTestCase {
+  
   @Override
   public String getModuleName() {
     return "com.sencha.gxt.project.Project";
@@ -11,4 +12,5 @@ public class CompileGwtTest extends GWTTestCase {
   public void testSandbox() {
     assertTrue(true);
   }
+  
 }

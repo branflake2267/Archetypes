@@ -1,14 +1,19 @@
-package com.sencha.gxt.project.client;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.client;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
 public class CompileGwtTest extends GWTTestCase {
+  
   @Override
   public String getModuleName() {
-    return "com.sencha.gxt.project.Project";
+    return "${package}.${module}";
   }
 
   public void testSandbox() {
     assertTrue(true);
   }
+  
 }
