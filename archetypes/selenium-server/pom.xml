@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>selenium-server</artifactId>
+  <artifactId>selenium-server-runner</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Selenium Server Runner</name>
