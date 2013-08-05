@@ -56,7 +56,9 @@
       </plugin>
 
       <!-- JUnit Testing - skip *.GwtTest cases -->
-      <!-- 'mvn test' - runs the Jukito tests -->
+      <!-- 'mvn test' - runs the Junit tests -->
+      <!-- 'mvn integration-test` - runs GWT test cases -->
+      <!-- 'mvn integration-test -P selenium-local` - runs GWT selenium unit test cases -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -81,9 +83,17 @@
         <artifactId>gwt-maven-plugin</artifactId>
         <version>${gwt.version}</version>
         <configuration>
-          <!-- With multiple tests use GwtTestSuite.java for speed -->
-          <includes>**/*GwtTest.java</includes>
+          <gwtSdkFirstInClasspath>true</gwtSdkFirstInClasspath>
+          <strict>true</strict>
+
+          <testTimeOut>180</testTimeOut>
+          <includes>**/*GwtTestSuite.java</includes>
+          <excludes>**/*GwtTest.java</excludes>
+          <mode>htmlunit</mode>
+
           <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
+          <logLevel>INFO</logLevel>
+          <style>${gwt.style}</style>
 
           <copyWebapp>true</copyWebapp>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
@@ -96,8 +106,8 @@
         <executions>
           <execution>
             <goals>
-              <goal>compile</goal>
               <goal>test</goal>
+              <goal>compile</goal>
             </goals>
           </execution>
         </executions>
@@ -197,5 +207,37 @@
       <version>${jukito.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>2.33.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.33.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  
+  <profiles>
+    <!-- run with 'mvn integration-test -P selenium-local' -->
+    <profile>
+      <id>selenium-local</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>gwt-maven-plugin</artifactId>
+            <configuration>
+              <mode>selenium</mode>
+              <productionMode>true</productionMode>
+              <selenium>localhost:4444/*firefox,localhost:4444/*opera</selenium>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

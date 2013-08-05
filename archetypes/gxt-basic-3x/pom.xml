@@ -4,15 +4,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>gxt-basic-support-3x</artifactId>
+  <artifactId>gxt-basic-3x</artifactId>
   <packaging>war</packaging>
   <version>1.0.0-SNAPSHOT</version>
-  <name>gwt-basic-support-3x</name>
+  <name>gwt-basic-3x</name>
   <description>Very basic GXT maven setup</description>
 
   <properties>
     <!-- GXT -->
-    <gxt.version>3.0.6</gxt.version>
+    <gxt.version>3.0.1</gxt.version>
+    <!-- GXT Support Subscribers 3.0.2+ -->
+    <!-- <gxt.version>3.0.6</gxt.version> -->
 
     <!-- GWT -->
     <gwt.version>2.5.1</gwt.version>
@@ -62,7 +64,7 @@
       <!-- 'mvn gwt:run' - runs development mode -->
       <!-- 'mvn gwt:debug' - runs debug mode -->
       <!-- 'mvn gwt:compile' - compiles gwt -->
-      <!-- 'mvn gwt:test' or 'mvn integration-test' - runs the gwt tests (*GwtTest.java), (run a suite its faster) -->
+      <!-- 'mvn gwt:test' or 'mvn integration-test' -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
@@ -98,16 +100,17 @@
   </build>
 
   <repositories>
-    <repository>
+    <!-- <repository> -->
+      <!-- For GXT 3.0.2+ Support Subscribers -->
       <!-- ~/.m2/settings.xml add <server/> with same id here with login credentials -->
-      <id>sencha-gxt-repository</id>
-      <name>Sencha GXT Repository</name>
+      <!-- <id>sencha-gxt-repository</id> -->
+      <!-- <name>Sencha GXT Repository</name> -->
       <!-- Support Subscribers Only: Subscribe to support for -->
       <!-- Latest GPL Support GXT Versions -->
-      <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url>
+      <!-- <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url> -->
       <!-- Commercial Support GXT Versions -->
       <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
-    </repository>
+    <!-- </repository> -->
   </repositories>
 
   <dependencies>
@@ -117,6 +120,7 @@
       <artifactId>gxt</artifactId>
       <version>${gxt.version}</version>
     </dependency>
+    <!-- GXT Charts -->
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt-chart</artifactId>
