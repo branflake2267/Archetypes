@@ -10,11 +10,11 @@
 
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>selenium-server-archetype</artifactId>
+  <artifactId>selenium-server-runner-archetype</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>selenium-server-archetype</name>
+  <name>selenium-server-runner-archetype</name>
 
   <build>
     <extensions>
