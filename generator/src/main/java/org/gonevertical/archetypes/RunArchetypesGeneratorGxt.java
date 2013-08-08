@@ -16,7 +16,7 @@ public class RunArchetypesGeneratorGxt {
 //    projects.add("gxt-basic-public-2x");
 //    projects.add("gxt-basic-public-3x");
 //    projects.add("gxt-basic-support-3x");
-//    projects.add("gxt-gwtp-withlayout");
+    projects.add("gxt-gwtp-withlayout");
 //    projects.add("gxt-basic-3x");
     projects.add("selenium-server");
 
