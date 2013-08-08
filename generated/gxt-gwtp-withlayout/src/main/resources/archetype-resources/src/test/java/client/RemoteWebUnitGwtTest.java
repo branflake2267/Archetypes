@@ -11,39 +11,36 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.Viewport;
 
-public class ManualGwtTest extends GWTTestCase { 
+public class RemoteWebUnitGwtTest extends GWTTestCase {
   @Override
   public String getModuleName() {
     return "${package}.${module}";
   }
-  
+
   public void testWorks() {
     assertTrue(true);
   }
 
   /**
-   * To Debug:
-   * 1. Right click and debug once
-   * 2. Then goto the debug configurations for this test
-   * 3. Then select the tab 'Arguments' in the debug configuration for this test
-   * 4. Then add -Dgwt.args="-runStyle Manual:1" to 'VM Arguments'
-   * 5. Then select debug or rerun the debug for this test
-   * 6. Copy debug url from console to FireFox.
-   * Optional: Keep the test running by goign to 'Test' tab and select Keep JUnit running after test run when debugging 
+   * To Debug: 
+   * 1. Debug RemoteWeb server on a windows computer
+   * 2. Debug this test once so the debug configuration is created
+   * 3. Edit this debug configuration and add to the VM arguments -Dgwt.args="-runStyle RemoteWeb:rmi://10.211.55.3/ie"
+   * 4. Debug this test again
    */
-  @DoNotRunWith({Platform.HtmlUnitLayout})
-  public void testLayout() {
+  @DoNotRunWith({ Platform.HtmlUnitLayout })
+  public void testRemoteWeb() {
     Viewport vp = new Viewport();
     RootPanel.get().add(vp);
-    
+
     ContentPanel contentPanel = new ContentPanel();
     contentPanel.setBorders(true);
     contentPanel.setHeadingText("Title");
     contentPanel.add(new HTML("works"));
     contentPanel.setPixelSize(400, 400);
-    
+
     vp.add(contentPanel);
-    
+
     assertTrue(contentPanel.isVisible());
   }
 }
