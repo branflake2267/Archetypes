@@ -3,7 +3,6 @@ package com.sencha.gxt.remotewebserver;
 import com.google.gwt.junit.remote.BrowserManagerServer;
 
 public class RunRemoteWebServer {
-
   public static void main(String[] args) {
     try {
       new RunRemoteWebServer().run();
@@ -19,5 +18,4 @@ public class RunRemoteWebServer {
     
     BrowserManagerServer.main(args);
   }
-
 }
