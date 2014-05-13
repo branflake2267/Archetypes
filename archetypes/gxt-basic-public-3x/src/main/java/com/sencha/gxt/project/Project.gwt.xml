@@ -2,19 +2,30 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.0//EN"
   "http://google-web-toolkit.googlecode.com/svn/tags/2.5.0/distro-source/core/src/gwt-module.dtd">
 <module rename-to='project'>
-    <!-- Inherit the core Web Toolkit stuff. -->
-    <inherits name='com.google.gwt.user.User' />
+  <!-- Inherit the core Web Toolkit stuff. -->
+  <inherits name='com.google.gwt.user.User' />
 
-    <!-- Other module inherits -->
-    <inherits name='com.sencha.gxt.ui.GXT' /> 
+  <!-- http://docs.sencha.com/gxt/3.1/getting_started/Getting_Started_31.html -->
 
-    <!-- GXT Stylesheet -->
-    <stylesheet src="reset.css" /> 
+  <!-- Other module inherits -->
+  <inherits name='com.sencha.gxt.ui.GXT' />
 
-    <!-- Specify the app entry point class. -->
-    <entry-point class='com.sencha.gxt.project.client.ProjectEntryPoint' />
+  <!-- GXT Stylesheet -->
+  <stylesheet src="reset.css" />
 
-    <!-- Specify the paths for translatable code -->
-    <source path='client' />
-    <source path='shared' />
+  <!-- GXT Theme -->
+  <!-- <inherits name='com.sencha.gxt.theme.blue.Blue'/> -->
+  <!-- <inherits name='com.sencha.gxt.theme.gray.Gray' /> -->
+  <inherits name="com.sencha.gxt.theme.neptune.Theme" />
+
+  <!-- Specify the app entry point class. -->
+  <entry-point class='com.sencha.gxt.project.client.ProjectEntryPoint' />
+
+  <!-- Specify the paths for translatable code -->
+  <source path='client' />
+  <source path='shared' />
+  
+  <!-- http://www.gwtproject.org/articles/superdevmode.html -->
+  <add-linker name="xsiframe" />
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
 </module>
