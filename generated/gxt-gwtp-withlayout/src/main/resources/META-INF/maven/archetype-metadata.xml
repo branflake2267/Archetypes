@@ -19,6 +19,7 @@
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.ico</include>
+        <include>**/*.css</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8" filtered="true" packaged="true">

@@ -11,12 +11,10 @@
 
   <properties>
     <!-- GXT -->
-    <gxt.version>3.0.1</gxt.version>
-    <!-- GXT Support Subscribers 3.0.2+ -->
-    <!-- <gxt.version>3.0.6</gxt.version> -->
+    <gxt.version>3.1.0</gxt.version>
 
     <!-- GWT -->
-    <gwt.version>2.5.1</gwt.version>
+    <gwt.version>2.6.0</gwt.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
@@ -39,8 +37,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.0</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
 
@@ -69,8 +67,6 @@
         <artifactId>gwt-maven-plugin</artifactId>
         <version>${gwt.version}</version>
         <configuration>
-          <strict>true</strict>
-
           <testTimeOut>180</testTimeOut>
           <includes>**/*GwtTestSuite.java</includes>
           <excludes>**/*GwtTest.java</excludes>
@@ -89,8 +85,8 @@
         <executions>
           <execution>
             <goals>
-              <goal>test</goal>
               <goal>compile</goal>
+              <goal>test</goal>
             </goals>
           </execution>
         </executions>
@@ -100,6 +96,7 @@
 
   <dependencies>
     <!-- GXT -->
+    <!-- http://docs.sencha.com/gxt/3.1/getting_started/maven/Maven.html -->
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt</artifactId>
@@ -111,11 +108,23 @@
       <artifactId>gxt-chart</artifactId>
       <version>${gxt.version}</version>
     </dependency>
+    <!-- GXT 3.1.0+ - Neptune Theme -->
+    <dependency>
+      <groupId>com.sencha.gxt</groupId>
+      <artifactId>gxt-theme-neptune</artifactId>
+      <version>${gxt.version}</version>
+    </dependency>
+
 
     <!-- GWT -->
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
+      <version>${gwt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-codeserver</artifactId>
       <version>${gwt.version}</version>
     </dependency>
 

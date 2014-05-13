@@ -20,7 +20,7 @@
 
     <!-- VerticalLayoutData layoutData -->
     <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="layoutData">
-        <ui:attributes width="-1" height="-1" margins="{margins}" />
+        <ui:attributes width="1" height="-1" margins="{margins}" />
     </ui:with>
     
     <container:SimpleContainer>

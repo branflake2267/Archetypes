@@ -27,7 +27,43 @@
         <include>**/*.java</include>
       </includes>
     </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>.idea</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>.idea/copyright</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>.idea/scopes</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>.idea/artifacts</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>.idea/libraries</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
     
+    <fileSet encoding="UTF-8">
+      <directory>.idea</directory>
+      <includes>
+        <include>**/*.name</include>
+      </includes>
+    </fileSet>
     
     
     

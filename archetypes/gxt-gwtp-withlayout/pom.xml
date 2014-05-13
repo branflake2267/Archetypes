@@ -116,11 +116,11 @@
   </build>
 
   <repositories>
-    <repository>
+    <!-- <repository> -->
       <!-- http://docs.sencha.com/gxt/3.1/getting_started/maven/Maven.html -->
       <!-- ~/.m2/settings.xml add <server/> with the support portal credentials -->
-      <id>sencha-gxt-repository</id>
-      <name>Sencha GXT Repository</name>
+      <!-- <id>sencha-gxt-repository</id> -->
+      <!-- <name>Sencha GXT Repository</name> -->
 
       <!-- Commercial (with Support) -->
       <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
@@ -134,7 +134,7 @@
       <!-- GPL with Support -->
       <!-- <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url> -->
 
-    </repository>
+    <!-- </repository> -->
   </repositories>
 
   <dependencies>
