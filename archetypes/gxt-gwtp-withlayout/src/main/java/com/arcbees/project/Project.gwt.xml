@@ -1,24 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <module rename-to='project'>
-    <!-- Inherit the core Web Toolkit stuff. -->
-    <inherits name='com.google.gwt.user.User' />
-    <inherits name='com.google.gwt.inject.Inject' />
+  <!-- Inherit the core Web Toolkit stuff. -->
+  <inherits name='com.google.gwt.user.User' />
+  <inherits name='com.google.gwt.inject.Inject' />
 
-    <!-- GXT -->
-    <stylesheet src="reset.css" />
-    <inherits name='com.sencha.gxt.ui.GXT' />
+  <!-- http://docs.sencha.com/gxt/3.1/getting_started/Getting_Started_31.html -->
 
-    <!-- GXT Theme -->
-    <!-- <inherits name='com.sencha.gxt.theme.blue.Blue'/> -->
-    <inherits name='com.sencha.gxt.theme.gray.Gray' />
+  <!-- Other module inherits -->
+  <inherits name='com.sencha.gxt.ui.GXT' />
 
-    <!-- GWTP -->
-    <inherits name='com.gwtplatform.dispatch.Dispatch' />
-    <inherits name='com.gwtplatform.mvp.MvpWithEntryPoint' />
+  <!-- GXT Stylesheet -->
+  <stylesheet src="reset.css" />
 
-    <source path='client' />
-    <source path='shared' />
+  <!-- GXT Theme -->
+  <!-- <inherits name='com.sencha.gxt.theme.blue.Blue'/> -->
+  <!-- <inherits name='com.sencha.gxt.theme.gray.Gray' /> -->
+  <inherits name="com.sencha.gxt.theme.neptune.Theme" />
 
-    <!-- Default GIN Module -->
-    <set-configuration-property name="gin.ginjector.modules" value="com.arcbees.project.client.gin.ClientModule" />
+  <!-- GWTP -->
+  <inherits name='com.gwtplatform.dispatch.Dispatch' />
+  <inherits name='com.gwtplatform.mvp.MvpWithEntryPoint' />
+
+  <source path='client' />
+  <source path='shared' />
+
+  <!-- Default GIN Module -->
+  <set-configuration-property name="gin.ginjector.modules" value="com.arcbees.project.client.gin.ClientModule" />
+  
+  <!-- http://www.gwtproject.org/articles/superdevmode.html -->
+  <add-linker name="xsiframe" />
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
 </module>
