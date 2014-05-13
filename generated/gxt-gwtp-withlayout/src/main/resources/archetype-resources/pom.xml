@@ -12,10 +12,10 @@
   <properties>
     <!-- client -->
     <!-- Get the latest GXT release through support 3.0.6... -->
-    <gxt.version>3.0.1</gxt.version>
-    <gwt.version>2.5.1</gwt.version>
+    <gxt.version>3.1.0</gxt.version>
+    <gwt.version>2.6.0</gwt.version>
     <gwtp.version>1.0</gwtp.version>
-    <gin.version>2.0.0</gin.version>
+    <gin.version>2.1.2</gin.version>
 
     <!-- server -->
     <guice.version>3.0</guice.version>
@@ -25,14 +25,14 @@
     <jukito.version>1.1</jukito.version>
 
     <!-- maven -->
-    <gwt-maven-plugin.version>2.5.1</gwt-maven-plugin.version>
+    <gwt-maven-plugin.version>2.6.0</gwt-maven-plugin.version>
     <maven-surefire-plugin.version>2.6</maven-surefire-plugin.version>
     <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
     <maven-resources-plugin.version>2.5</maven-resources-plugin.version>
     <maven-processor-plugin.version>2.0.5</maven-processor-plugin.version>
     <maven-build-helper-plugin.version>1.7</maven-build-helper-plugin.version>
 
-    <target.jdk>1.6</target.jdk>
+    <target.jdk>1.7</target.jdk>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -114,23 +114,9 @@
     </plugins>
   </build>
 
-  <!-- Get the latest release through support, 3.0.6... -->
-  <!-- <repositories> -->
-    <!-- <repository> -->
-      <!-- ~/.m2/settings.xml add <server/> with same id here with login credentials -->
-      <!-- <id>sencha-gxt-repository</id> -->
-      <!-- <name>Sencha GXT Repository</name> -->
-      <!-- Support Subscribers Only: Subscribe to support for -->
-      <!-- Latest GPL Support GXT Versions -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url> -->
-      <!-- Commercial Support GXT Versions -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
-    <!-- </repository> -->
-  <!-- </repositories> -->
-
   <dependencies>
     <!-- GXT -->
-    <!-- http://docs.sencha.com/gxt-guides/3/ -->
+    <!-- http://docs.sencha.com/gxt/3.1/getting_started/maven/Maven.html -->
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt</artifactId>
@@ -139,6 +125,12 @@
     <dependency>
       <groupId>com.sencha.gxt</groupId>
       <artifactId>gxt-chart</artifactId>
+      <version>${gxt.version}</version>
+    </dependency>
+    <!-- GXT 3.1.0+ - Neptune Theme -->
+    <dependency>
+      <groupId>com.sencha.gxt</groupId>
+      <artifactId>gxt-theme-neptune</artifactId>
       <version>${gxt.version}</version>
     </dependency>
 
@@ -219,7 +211,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+
   <profiles>
     <!-- run with 'mvn integration-test -P selenium-local' -->
     <profile>

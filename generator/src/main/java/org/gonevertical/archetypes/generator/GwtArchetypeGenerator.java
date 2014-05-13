@@ -33,7 +33,8 @@ public class GwtArchetypeGenerator {
   private String baseGeneratedDir;
 
   /**
-   * Build archetype for project directory like "gwt-basic", not the entire directory path only "gwt-basic-project"
+   * Build archetype for project directory like "gwt-basic", not the entire
+   * directory path only "gwt-basic-project"
    */
   private String workOnProjectDir;
 
@@ -67,7 +68,7 @@ public class GwtArchetypeGenerator {
   public void setDeploy(boolean deploy) {
     this.deploy = deploy;
   }
-  
+
   public void setFindInReplace(List<FindInReplace> findInReplaceList) {
     this.findInReplaceCustomList = findInReplaceList;
   }
@@ -81,7 +82,7 @@ public class GwtArchetypeGenerator {
     for (String projectDir : projects) {
       buildProject(projectDir);
     }
-    
+
     System.out.println("Finished generated all the projects!!!");
   }
 
@@ -106,10 +107,14 @@ public class GwtArchetypeGenerator {
 
     System.out.println("baseWorkingProjectDir=" + baseWorkingProjectDir);
 
-    runSteps();
+    try {
+      runSteps();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
-  private void runSteps() {
+  private void runSteps() throws Exception {
     // generate
     runMvnClean();
     runMvnArchetypeCreateFromProject();
@@ -142,7 +147,7 @@ public class GwtArchetypeGenerator {
 
   private void cleanCopyrightInFiles() {
     String archetypeBase = baseWorkingProjectDir + "target/generated-sources";
-    
+
     FileRegex fileRegex = new FileRegex("\\.java", "(\\/\\*\\*.*Copy.*\\*\\/.*?)package");
     fileRegex.start(new File(archetypeBase));
   }
@@ -164,29 +169,34 @@ public class GwtArchetypeGenerator {
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
 
     // remove includes won't work
-    // xnc.removeNode(filePath, "//includes/*[contains(text(),\".classpath\")]");
+    // xnc.removeNode(filePath,
+    // "//includes/*[contains(text(),\".classpath\")]");
     // xnc.removeNode(filePath, "//includes/*[contains(text(),\".project\")]");
     // xnc.removeNode(filePath, "//includes/*[contains(text(),\"README.md\")]");
-    // xnc.removeNode(filePath, "//includes/*[contains(text(),\"test-archtype.sh\")]");
+    // xnc.removeNode(filePath,
+    // "//includes/*[contains(text(),\"test-archtype.sh\")]");
 
     // TODO won't work
-    // xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
-    // xnc.removeParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
+    // xnc.removeParentNodeWithExpression(filePath,
+    // "//includes/*[contains(text(),\".classpath\")]");
+    // xnc.removeParentNodeWithExpression(filePath,
+    // "//includes/*[contains(text(),\"README.md\")]");
 
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\"README.md\")]");
     xnc.removeParentParentParentNodeWithExpression(filePath, "//includes/*[contains(text(),\".classpath\")]");
   }
 
-  private void deploy() {
-    runCommand(baseGeneratedArchetypeDir, "mvn", "deploy");
+  private void deploy() throws Exception {
+    runCommand(baseGeneratedArchetypeDir, "/usr/local/bin/mvn", "deploy");
   }
 
-  private void runMvnClean() {
-    runCommand(baseWorkingProjectDir, "mvn", "clean");
+  private void runMvnClean() throws Exception {
+    runCommand(baseWorkingProjectDir, "/usr/local/bin/mvn", "clean");
   }
 
-  private void runMvnArchetypeCreateFromProject() {
-    runCommand(baseWorkingProjectDir, "mvn", "archetype:create-from-project", "-Darchetype.properties=archetype.properties");
+  private void runMvnArchetypeCreateFromProject() throws Exception {
+    runCommand(baseWorkingProjectDir, "/usr/local/bin/mvn", "archetype:create-from-project",
+        "-Darchetype.properties=archetype.properties");
   }
 
   private void cleanRemoveFilesFromGeneratedArchetype() {
@@ -277,15 +287,17 @@ public class GwtArchetypeGenerator {
     regexFindAndReplaceFiles(".xml", "\\.Project", ".\\${module}");
     regexFindAndReplaceFiles(".xml", "Project.html", "\\${module}.html");
     regexFindAndReplaceFiles(".xml", "'project'", "'\\${module}'"); // module
-    regexFindAndReplaceFiles(".xml", "<display-name>Project</display-name>", "<display-name>\\${module}</display-name>"); // web.xml 
-    regexFindAndReplaceFiles(".xml", "<welcome-file>Project.html</welcome-file>", "<welcome-file>\\${module}.html</welcome-file>"); // web.xml
+    regexFindAndReplaceFiles(".xml", "<display-name>Project</display-name>", "<display-name>\\${module}</display-name>"); // web.xml
+    regexFindAndReplaceFiles(".xml", "<welcome-file>Project.html</welcome-file>",
+        "<welcome-file>\\${module}.html</welcome-file>"); // web.xml
     regexFindAndReplaceFiles(".xml", "/project/", "/\\${module}/"); // rpc
-    
+
     regexFindAndReplaceFiles(".java", "/project/", "/\\${module}/"); // rpc
     regexFindAndReplaceFiles(".java", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "Project", "\\${module}");
     regexFindAndReplaceFiles(".html", "project", "\\${module}");
-//    regexFindAndReplaceFiles(".properties", "workOnProjectDir", "\\${module}"); // TODO ?
+    // regexFindAndReplaceFiles(".properties", "workOnProjectDir",
+    // "\\${module}"); // TODO ?
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
   }
@@ -324,14 +336,14 @@ public class GwtArchetypeGenerator {
         regex).trim();
     return version;
   }
-  
+
   private String getParentPomGroupId() {
     String filePath = baseProjects + "/generated/pom.xml";
     XmlNodeUtils nodeUtils = new XmlNodeUtils();
     String groupId = nodeUtils.findNodeValue(filePath, "(//groupId)[1]");
     return groupId;
   }
-  
+
   private String getParentPomArtifactId() {
     String filePath = baseProjects + "/generated/pom.xml";
     XmlNodeUtils nodeUtils = new XmlNodeUtils();
@@ -386,7 +398,7 @@ public class GwtArchetypeGenerator {
     fc.start(startDir);
   }
 
-  private void runCommand(String directory, String... command) {
+  private void runCommand(String directory, String... command) throws Exception {
     ProcessBuilder pb = new ProcessBuilder(command);
     pb.directory(new File(directory));
 
@@ -403,8 +415,9 @@ public class GwtArchetypeGenerator {
       p.getErrorStream().close();
     } catch (IOException e) {
       e.printStackTrace();
+      throw new Exception(e.getMessage());
     } catch (InterruptedException e) {
-      e.printStackTrace();
+      throw new Exception(e.getMessage());
     }
   }
 
