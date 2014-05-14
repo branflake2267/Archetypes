@@ -1,4 +1,5 @@
-#GWT Basic Archetype
+#Deprecated
+##GXT Basic Archetype
 
 This is a very basic GXT Archetype. 
 
