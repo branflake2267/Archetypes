@@ -32,4 +32,7 @@
     <when-type-is class="${package}.client.ClientFactory"/>
   </replace-with>
   
+  <add-linker name="xsiframe"/>
+  <!-- <set-configuration-property name="devModeRedirectEnabled" value="true"/> -->
+  
 </module>

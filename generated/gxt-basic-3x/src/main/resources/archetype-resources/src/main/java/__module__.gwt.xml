@@ -30,5 +30,6 @@
 
   <!-- http://www.gwtproject.org/articles/superdevmode.html -->
   <add-linker name="xsiframe" />
-  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+  <!-- <set-configuration-property name="devModeRedirectEnabled" value="true"/> -->
+  
 </module>
