@@ -12,7 +12,7 @@
 
     <properties>
         <!-- GWT -->
-        <gwt.version>2.5.1</gwt.version>
+        <gwt.version>2.6.1</gwt.version>
         <gwt.style>OBF</gwt.style>
 
         <!-- App Engine -->
@@ -298,11 +298,11 @@
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
         </dependency>
-<!--         <dependency>
+        <dependency>
             <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
+            <artifactId>gwt-codeserver</artifactId>
             <version>${gwt.version}</version>
-        </dependency> -->
+        </dependency>
 
         <!-- Datanuclues -->
         <!-- JPA1: datanucleus appengine plugin v1 (1.0.10) + datanucleus 

@@ -119,6 +119,11 @@
             <version>${gwt.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-codeserver</artifactId>
+            <version>${gwt.version}</version>
+        </dependency>
 
         <!-- RequestFactory -->
         <dependency>
