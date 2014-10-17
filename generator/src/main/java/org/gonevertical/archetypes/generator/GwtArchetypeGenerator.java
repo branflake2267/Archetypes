@@ -165,6 +165,7 @@ public class GwtArchetypeGenerator {
     // remove with directory
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"www-test\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".settings\")]");
+    xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".idea\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\".gwt\")]");
     xnc.removeParentNodeWithExpression(filePath, "//fileSet//*[contains(text(),\"gwt-unitCache\")]");
 
