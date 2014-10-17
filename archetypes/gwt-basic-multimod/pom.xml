@@ -4,18 +4,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>gxt-basic-3x</artifactId>
+  <artifactId>gwt-basic-snapshot</artifactId>
   <packaging>war</packaging>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>gwt-basic-3x</name>
-  <description>Very basic GXT maven setup</description>
+  <version>1.0-SNAPSHOT</version>
+  <name>gwt-basic-snapshot</name>
+  <description>Basic GWT Maven setup.</description>
 
   <properties>
-    <!-- GXT -->
-    <gxt.version>3.1.0</gxt.version>
-
     <!-- GWT -->
-    <gwt.version>2.6.1</gwt.version>
+    <gwt.version>2.7.0-SNAPSHOT</gwt.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
@@ -59,21 +56,25 @@
       </plugin>
 
       <!-- GWT -->
-      <!-- 'mvn gwt:run' - runs development mode -->
-      <!-- 'mvn gwt:debug' - runs debug mode -->
-      <!-- 'mvn gwt:compile' - compiles gwt -->
+      <!-- 'mvn gwt:run' -->
+      <!-- 'mvn gwt:debug' -->
+      <!-- 'mvn gwt:compile' -->
       <!-- 'mvn gwt:test' or 'mvn integration-test' -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
         <version>${gwt.version}</version>
         <configuration>
-          <testTimeOut>180</testTimeOut>
-          <includes>**/*GwtTestSuite.java</includes>
-          <excludes>**/*GwtTest.java</excludes>
-          <mode>htmlunit</mode>
+          <strict>true</strict>
 
-          <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
+          <testTimeOut>180</testTimeOut>
+          <mode>htmlunit</mode>
+          <!-- Switch to a suite to run tests faster -->
+          <!-- <includes>**/*GwtTestSuite.java</includes> -->
+          <!-- <excludes>**/*GwtTest.java</excludes> -->
+          <includes>**/*GwtTest.java</includes>
+
+          <extraJvmArgs>-Xss1024K -Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
@@ -81,7 +82,7 @@
           <hostedWebapp>${webappDirectory}</hostedWebapp>
 
           <runTarget>Project.html</runTarget>
-          <module>com.sencha.gxt.project.Project</module>
+          <module>org.gonevertical.project.Project</module>
         </configuration>
         <executions>
           <execution>
@@ -95,61 +96,59 @@
     </plugins>
   </build>
 
-  <repositories>
-    <!-- <repository> -->
-      <!-- http://docs.sencha.com/gxt/3.1/getting_started/maven/Maven.html -->
-      <!-- ~/.m2/settings.xml add <server/> with the support portal credentials -->
-      <!-- <id>sencha-gxt-repository</id> -->
-      <!-- <name>Sencha GXT Repository</name> -->
-
-      <!-- Commercial (with Support) -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-commercial-release</url> -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-support-commercial-release</url> -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-commercial-snapshot</url> -->
-
-      <!-- GPL -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-gpl-release</url> -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-gpl-snapshot</url> -->
-
-      <!-- GPL with Support -->
-      <!-- <url>https://maven.sencha.com/repo/gxt-support-gpl-release</url> -->
-
-    <!-- </repository> -->
-  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>codehaus-snapshots</id>
+      <url>https://nexus.codehaus.org/content/groups/snapshots-group/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>google-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt</artifactId>
+        <version>${gwt.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
-    <!-- GXT -->
-    <!-- http://docs.sencha.com/gxt/3.1/getting_started/maven/Maven.html -->
-    <dependency>
-      <groupId>com.sencha.gxt</groupId>
-      <artifactId>gxt</artifactId>
-      <version>${gxt.version}</version>
-    </dependency>
-    <!-- GXT Charts -->
-    <dependency>
-      <groupId>com.sencha.gxt</groupId>
-      <artifactId>gxt-chart</artifactId>
-      <version>${gxt.version}</version>
-    </dependency>
-    <!-- GXT 3.1.0+ - Neptune Theme -->
-    <dependency>
-      <groupId>com.sencha.gxt</groupId>
-      <artifactId>gxt-theme-neptune</artifactId>
-      <version>${gxt.version}</version>
-    </dependency>
-
-
     <!-- GWT -->
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
-      <version>${gwt.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-codeserver</artifactId>
-      <version>${gwt.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-elemental</artifactId>
+    </dependency> 
 
     <!-- Testing -->
     <dependency>
