@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>gwt-basic-snapshot</artifactId>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>${version}</version>
   <name>gwt-basic-snapshot</name>
   <description>Basic GWT Maven setup.</description>
 
@@ -78,8 +77,8 @@
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <runTarget>Project.html</runTarget>
-          <module>org.gonevertical.project.Project</module>
+          <runTarget>${module}.html</runTarget>
+          <module>${package}.${module}</module>
         </configuration>
         <executions>
           <execution>
@@ -101,7 +100,6 @@
         <enabled>false</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
@@ -114,7 +112,6 @@
         <enabled>false</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
     <pluginRepository>
@@ -124,7 +121,6 @@
         <enabled>false</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
