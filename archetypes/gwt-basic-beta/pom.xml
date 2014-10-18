@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${groupId}</groupId>
-  <artifactId>${artifactId}</artifactId>
+  <groupId>com.github.branflake2267.archetypes</groupId>
+  <artifactId>gwt-basic-beta</artifactId>
   <packaging>war</packaging>
-  <version>${version}</version>
-  <name>gwt-basic-snapshot</name>
+  <version>1.0-SNAPSHOT</version>
+  <name>gwt-basic-beta</name>
   <description>Basic GWT Maven setup.</description>
 
   <properties>
     <!-- GWT -->
-    <gwt.version>2.7.0-SNAPSHOT</gwt.version>
+    <gwt.version>2.7.0-beta1</gwt.version>
+    <gwt.plugin.version>2.7.0-beta1</gwt.plugin.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
@@ -62,7 +64,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>${gwt.version}</version>
+        <version>${gwt.plugin.version}</version>
         <configuration>
           <strict>true</strict>
 
@@ -73,12 +75,12 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xss1024K -Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <runTarget>${module}.html</runTarget>
-          <module>${package}.${module}</module>
+          <runTarget>Project.html</runTarget>
+          <module>org.gonevertical.project.Project</module>
         </configuration>
         <executions>
           <execution>
@@ -92,40 +94,7 @@
     </plugins>
   </build>
 
-  <repositories>
-    <repository>
-      <id>google-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>codehaus-snapshots</id>
-      <url>https://nexus.codehaus.org/content/groups/snapshots-group/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-      </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>google-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <!-- Install Maven 3.2.3+ to use this -->
+  <!-- GWT (BOM) -->
   <dependencyManagement>
     <dependencies>
       <dependency>

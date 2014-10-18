@@ -14,7 +14,7 @@
     <!-- GWT -->
     <gwt.version>2.7.0-SNAPSHOT</gwt.version>
     <gwt.style>OBF</gwt.style>
-    
+
     <!-- Maven -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
@@ -63,7 +63,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.6.1</version>
+        <version>${gwt.version}</version>
         <configuration>
           <strict>true</strict>
 
@@ -74,7 +74,7 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xss1024K -Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
@@ -94,6 +94,7 @@
   </build>
 
   <repositories>
+    <!-- GWT snapshot repo -->
     <repository>
       <id>google-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
@@ -105,8 +106,9 @@
       </snapshots>
     </repository>
   </repositories>
-  
+
   <pluginRepositories>
+    <!-- GWT plugin snapshot repo -->
     <pluginRepository>
       <id>codehaus-snapshots</id>
       <url>https://nexus.codehaus.org/content/groups/snapshots-group/</url>
@@ -128,8 +130,8 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-  
-  <!-- Install Maven 3.2.3+ -->
+
+  <!-- GWT (BOM) -->
   <dependencyManagement>
     <dependencies>
       <dependency>
