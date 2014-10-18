@@ -13,6 +13,7 @@
   <properties>
     <!-- GWT -->
     <gwt.version>2.7.0-SNAPSHOT</gwt.version>
+    <gwt.plugin.version>2.7.0-SNAPSHOT</gwt.plugin.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
@@ -63,7 +64,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>${gwt.version}</version>
+        <version>${gwt.plugin.version}</version>
         <configuration>
           <strict>true</strict>
 
@@ -96,6 +97,7 @@
     </plugins>
   </build>
 
+  <!-- When using the GWT snapshot version -->
   <pluginRepositories>
     <pluginRepository>
       <id>codehaus-snapshots</id>
@@ -118,7 +120,7 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-  
+ 
   <dependencyManagement>
     <dependencies>
       <dependency>
