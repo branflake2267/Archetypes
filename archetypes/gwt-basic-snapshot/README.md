@@ -10,8 +10,6 @@ This is a very basic GWT archetype, using a GWT Snapshot.
 4. Rename parameter `-Dmodule=Project` to a name that starts with a capital. Name it like `MyAppModule` or `Application`.
 5. Run the mvn archetype generator below.
 
-* This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
-
 ```
 mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
