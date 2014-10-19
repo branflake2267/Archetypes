@@ -2,14 +2,6 @@
 
 This is a very basic GWT archetype, using a GWT Snapshot. 
 
-##Highlights
-* [pom.xml](archetypes/gwt-basic-snapshot/pom.xml)
-* [Project Directory](archetypes/gwt-basic-snapshot/src/main/java/org/gonevertical/project)
-* [Entry Point Class](archetypes/gwt-basic-snapshot/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
-* [web.xml](archetypes/gwt-basic-snapshot/src/main/webapp/WEB-INF/web.xml)
-* [Welcome Page Project.html](archetypes/gwt-basic-snapshot/src/main/webapp/Project.html)
-* [GWT Test Case](archetypes/gwt-basic-snapshot/src/test/java/org/gonevertical/project/client)
-
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
