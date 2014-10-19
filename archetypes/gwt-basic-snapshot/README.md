@@ -7,7 +7,7 @@ This is a very basic GWT archetype, using a GWT Snapshot.
 1. Goto directory you want the project.
 2. Rename parameter below `com.projectname.project` to a package naming scheme you like.
 3. Rename parameter `new-project-name` to a project title you like.
-4. Rename parameter `-dmodule=Project` to a name that starts with a capital. Name it like `MyAppModule` or `Application`.
+4. Rename parameter `-Dmodule=Project` to a name that starts with a capital. Name it like `MyAppModule` or `Application`.
 5. Run the mvn archetype generator below.
 
 * This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
