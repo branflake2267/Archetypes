@@ -1,4 +1,4 @@
-#GWT Basic Archetype
+#GWT Basic GWT Snapshot Archetype
 
 This is a very basic GWT archetype, using a GWT Snapshot. 
 
