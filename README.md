@@ -44,10 +44,16 @@
 		<td>Simple GWT project with Cucumber andn Selenium testing</td>
 	</tr>
 	<tr>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-basic-3x">GXT Basic</a></td>
+		<td>Barebones GXT</td>
+	</tr>
+	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-gwtp-withlayout">GXT with a basic Dock Layout</a></td>
 		<td>GWTP and GXT with a basic dock layout using nested presenters</td>
 	</tr>
 </table>
+
+Don't see your archetype here? Find them all at https://github.com/branflake2267/Archetypes/tree/master/archetypes.
 
 ###Incubating
 These archetype projects are in the works and need some tuning. 
