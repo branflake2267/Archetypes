@@ -1,4 +1,4 @@
-package org.gonevertical.server.domain;
+package org.gonevertical.server.entities;
 
 import java.io.Serializable;
 
