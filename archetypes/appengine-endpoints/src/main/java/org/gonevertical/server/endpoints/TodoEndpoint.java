@@ -13,7 +13,7 @@ import org.gonevertical.server.entities.Todo;
 import com.google.api.server.spi.config.Api;
 import com.google.inject.Provider;
 
-@Api(name = "Todoendpoint")
+@Api(name = "todoendpoint")
 public class TodoEndpoint {
   
   /**
@@ -103,14 +103,14 @@ public class TodoEndpoint {
    */
   public Todo removeTodo(@Named("id") Long id) {
     EntityManager mgr = getEntityManager();
-    Todo Todo = null;
+    Todo todo = null;
     try {
-      Todo = mgr.find(Todo.class, id);
-      mgr.remove(Todo);
+      todo = mgr.find(Todo.class, id);
+      mgr.remove(todo);
     } finally {
       mgr.close();
     }
-    return Todo;
+    return todo;
   }
 
   private EntityManager getEntityManager() {
