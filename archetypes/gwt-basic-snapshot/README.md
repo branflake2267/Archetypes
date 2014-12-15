@@ -1,24 +1,14 @@
-#GWT Basic Archetype
+#GWT Basic GWT Snapshot Archetype
 
 This is a very basic GWT archetype, using a GWT Snapshot. 
-
-##Highlights
-* [pom.xml](archetypes/gwt-basic-snapshot/pom.xml)
-* [Project Directory](archetypes/gwt-basic-snapshot/src/main/java/org/gonevertical/project)
-* [Entry Point Class](archetypes/gwt-basic-snapshot/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
-* [web.xml](archetypes/gwt-basic-snapshot/src/main/webapp/WEB-INF/web.xml)
-* [Welcome Page Project.html](archetypes/gwt-basic-snapshot/src/main/webapp/Project.html)
-* [GWT Test Case](archetypes/gwt-basic-snapshot/src/test/java/org/gonevertical/project/client)
 
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
 2. Rename parameter below `com.projectname.project` to a package naming scheme you like.
 3. Rename parameter `new-project-name` to a project title you like.
-4. Rename parameter `-dmodule=Project` to a name that starts with a capital. Name it like `MyAppModule` or `Application`.
+4. Rename parameter `-Dmodule=Project` to a name that starts with a capital. Name it like `MyAppModule` or `Application`.
 5. Run the mvn archetype generator below.
-
-* This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
 
 ```
 mvn archetype:generate \

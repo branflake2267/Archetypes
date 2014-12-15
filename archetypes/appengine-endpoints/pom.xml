@@ -39,6 +39,7 @@
         <artifactId>versions-maven-plugin</artifactId>
         <version>2.1</version>
         <executions>
+          <!-- Eclipse ignore this -->
           <execution>
             <phase>compile</phase>
             <goals>
@@ -91,7 +92,6 @@
       </plugin>
 
       <!-- Persistence Enhancer -->
-      <!-- http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html -->
       <plugin>
         <groupId>org.datanucleus</groupId>
         <artifactId>maven-datanucleus-plugin</artifactId>
@@ -117,13 +117,11 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
-
 
     <pluginManagement>
       <plugins>
-        <!-- Eclipse m2e Enhancing-->
+        <!-- Eclipse m2e Enhancing -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -144,6 +142,20 @@
                     <execute>
                       <runOnIncremental>false</runOnIncremental>
                     </execute>
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <versionRange>[2.1,)</versionRange>
+                    <goals>
+                      <goal>display-plugin-updates</goal>
+                      <goal>display-dependency-updates</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -179,6 +191,7 @@
     </dependency>
 
     <!-- Persistence -->
+    <!-- Datanucleus Entities Enhancer -->
     <dependency>
       <groupId>org.datanucleus</groupId>
       <artifactId>datanucleus-api-jpa</artifactId>
@@ -197,6 +210,7 @@
       <!-- <exclusions> <exclusion> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-enhancer</artifactId> </exclusion> 
         </exclusions> -->
     </dependency>
+    <!-- JPA/JDO -->
     <dependency>
       <groupId>javax.jdo</groupId>
       <artifactId>jdo-api</artifactId>

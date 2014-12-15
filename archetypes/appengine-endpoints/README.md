@@ -8,6 +8,9 @@ https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archet
 ##GAE and Eclipse
 http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html
 
+##Eclipse WTP
+https://cloud.google.com/appengine/docs/java/webtoolsplatform
+
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
