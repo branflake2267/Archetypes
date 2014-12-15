@@ -1,6 +1,5 @@
-#App Engine Guice JPAv1
-
-This is a simple App Engine application using Guice injection with JPA version 1. 
+#App Engine Endpoints using JPA
+This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##More App Engine Archetypes
 https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes
