@@ -13,6 +13,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 @SuppressWarnings("serial")
 public class HomeServlet extends HttpServlet {
+  
   private static Logger logger = Logger.getLogger(HomeServlet.class.getName());
   
   @Inject
@@ -20,6 +21,8 @@ public class HomeServlet extends HttpServlet {
   }
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    logger.info("HomeServlet.doGet() info message");
+    
     UserService userService = UserServiceFactory.getUserService();
 
     String thisURL = request.getRequestURI();

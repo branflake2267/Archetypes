@@ -2,6 +2,7 @@ package org.gonevertical.server.guice;
 
 import org.gonevertical.server.endpoints.EndpointsModule;
 import org.gonevertical.server.servlets.ServletsModule;
+import org.gonevertical.server.servlets.paths.ServletsPathModule;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.persist.jpa.JpaPersistModule;
@@ -16,7 +17,8 @@ public class ServerModule extends AbstractModule {
     install(new JpaPersistModule("transactions-optional"));
     bind(JpaInitilization.class).asEagerSingleton();
     
-    install(new ServletPathModule());
+    install(new EndpointClassesModule());
+    install(new ServletsPathModule());
     install(new ServletsModule());
     install(new EndpointsModule());
   }
