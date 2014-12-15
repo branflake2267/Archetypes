@@ -11,6 +11,7 @@ public class EndpointsModule extends AbstractModule {
   @Override
   protected void configure() {
     bind(SystemUserEndpoint.class).in(Singleton.class);
+    bind(TodoEndpoint.class).in(Singleton.class);
   }
   
 }

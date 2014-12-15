@@ -8,7 +8,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.gonevertical.server.domain.SystemUser;
+import org.gonevertical.server.entities.SystemUser;
 
 import com.google.api.server.spi.config.Api;
 import com.google.inject.Provider;
