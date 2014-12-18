@@ -101,7 +101,7 @@ public class GwtArchetypeGenerator {
     File file = new File(baseWorkingProjectDir);
     boolean isDir = file.isDirectory();
     if (!isDir) {
-      System.out.println("Exiting, directory problem");
+      System.out.println("Exiting, directory problem. Could not find the archetype project directory. baseWorkingProjectDir=" + baseWorkingProjectDir);
       System.exit(0);
     }
 
