@@ -14,9 +14,9 @@ public class RunArchetypesGenerator {
   private void run() {
     List<String> projects = new ArrayList<String>();
     // projects.add("gwt-basic");
-//    projects.add("gwt-basic-snapshot");
-    //projects.add("gwt-basic-beta");
-    
+    // projects.add("gwt-basic-snapshot");
+    // projects.add("gwt-basic-beta");
+
     // projects.add("gwt-basic-rpc");
     // projects.add("gwt-basic-rpc-appengine-guice");
     // projects.add("gwt-basic-requestfactory");
@@ -24,11 +24,11 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-activitiesandplaces-requestfactory-maps");
     // projects.add("gwt-css");
     // projects.add("gwt-basic-cucumber-guice");
-    
-    projects.add("gwt-gpe-test-gwt24");
-    projects.add("gwt-gpe-test-gwt25");
-    projects.add("gwt-gpe-test-gwt26");
-    projects.add("gwt-gpe-test-gwt27");
+
+    // projects.add("gwt-gpe-test-gwt24");
+    // projects.add("gwt-gpe-test-gwt25");
+    // projects.add("gwt-gpe-test-gwt26");
+    // projects.add("gwt-gpe-test-gwt27");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
