@@ -213,9 +213,12 @@ public class GwtArchetypeGenerator {
     cleanArchetypeExt(".gwt-tmp");
     cleanArchetypeExt("README.md");
     cleanArchetypeExt("EmptyNess.java");
+    cleanArchetypeExt("EmptyNesss.java");
+    cleanArchetypeExt(".idea");
     cleanArchetypeExt(".project");
     cleanArchetypeExt(".classpath");
     cleanArchetypeExt("chromedriver.log");
+    cleanArchetypeExt("gwt-unitCache");
   }
 
   /**
@@ -301,6 +304,9 @@ public class GwtArchetypeGenerator {
     // "\\${module}"); // TODO ?
 
     regexFindAndReplaceFiles(".xml", "ProjectEntryPoint", "\\${module}EntryPoint");
+    
+    // GXT - basePackage = "tld.domain.project"
+    regexFindAndReplaceFiles(".theme", "basePackage.*?=.*?\"/*.?\"", "basePackage = \"${package}\"");
   }
 
   private void renameProjectFiles() {
