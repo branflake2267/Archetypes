@@ -130,6 +130,39 @@ public class FileUtils {
     }
     return line;
   }
+  
+  public static boolean findInFile(File file, String regex) {
+    if (file == null) {
+      return false;
+    }
+    FileInputStream fis = null;
+    BufferedInputStream bis = null;
+    DataInputStream dis = null;
+    BufferedReader br = null;
+    boolean found = false;
+    try {
+      fis = new FileInputStream(file);
+      bis = new BufferedInputStream(fis);
+      dis = new DataInputStream(bis);
+      br = new BufferedReader(new InputStreamReader(dis));
+      String s = null;
+      while ((s = br.readLine()) != null) {
+        found = StringUtils.findMatch(regex, s);
+        if (found == true) {
+          break;
+        }
+      }
+      br.close();
+      fis.close();
+      bis.close();
+      dis.close();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return found;
+  }
 
   public static String fileToString(File file) {
     if (file == null) {
