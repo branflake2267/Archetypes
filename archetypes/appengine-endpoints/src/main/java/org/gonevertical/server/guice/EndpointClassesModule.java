@@ -15,13 +15,12 @@ public class EndpointClassesModule extends GuiceSystemServiceServletModule {
   @Override
   public void configureServlets() {
     super.configureServlets();
-    
+
     Class<?> removeModule = EndpointsModule.class;
-    
+
     List<Class<?>> endpointClasses = ClassFinder.find("org.gonevertical.server.endpoints");
     endpointClasses.remove(removeModule);
     serveGuiceSystemServiceServlet("/_ah/spi/*", endpointClasses);
   }
 
-  
 }
