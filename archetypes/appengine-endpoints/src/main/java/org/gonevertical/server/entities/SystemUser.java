@@ -2,11 +2,14 @@ package org.gonevertical.server.entities;
 
 import javax.persistence.Entity;
 
+/**
+ * Represents a Person/User, which may have a linked Google Account.
+ */
 @Entity
 public class SystemUser extends BaseEntity {
-  
+
   private String googleId;
-  
+
   private String name;
 
   public SystemUser() {
@@ -37,5 +40,5 @@ public class SystemUser extends BaseEntity {
     s += ")";
     return s;
   }
-  
+
 }

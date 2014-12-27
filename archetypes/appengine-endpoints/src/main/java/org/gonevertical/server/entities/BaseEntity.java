@@ -10,6 +10,10 @@ import javax.persistence.MappedSuperclass;
 
 import com.google.appengine.api.datastore.Key;
 
+/**
+ * This base entity contains the basics for the other entities. 
+ *
+ */
 @Entity
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
