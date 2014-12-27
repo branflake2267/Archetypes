@@ -24,7 +24,7 @@ mvn archetype:generate \
 -DarchetypeArtifactId=appengine-endpoints-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
--DartifactId=new-project-name \
+-DartifactId=new-project-name
 ```
 
 
