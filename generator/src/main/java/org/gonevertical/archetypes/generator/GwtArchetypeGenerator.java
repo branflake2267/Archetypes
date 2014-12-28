@@ -262,7 +262,7 @@ public class GwtArchetypeGenerator {
     cleanArchetypeExt("chromedriver.log");
     cleanArchetypeExt("gwt-unitCache");
     
-    cleanArchetypeExt(".api"); // app-engine endpoints
+    // TODO cleanArchetypeExt(".api"); // app-engine endpoints
   }
 
   /**
