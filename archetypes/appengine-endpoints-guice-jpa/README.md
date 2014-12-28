@@ -7,10 +7,6 @@ This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 * [Guice Classes](src/main/java/org/gonevertical/server/guice)
 * [Servlet Classes](src/main/java/org/gonevertical/server/servlets)
 
-##More App Engine Archetypes
-* [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
-* [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
-
 ##Maven Archetype Usage
 1. Goto directory you want the project.
 2. Rename parameter below `com.projectname.project` to a package naming scheme you like.
@@ -41,7 +37,7 @@ mvn archetype:generate \
 
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
-
+* [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
 
 A skeleton application for Google Cloud Endpoints in Java.
 
