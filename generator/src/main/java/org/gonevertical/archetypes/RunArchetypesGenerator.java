@@ -30,7 +30,7 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-gpe-test-gwt26");
     // projects.add("gwt-gpe-test-gwt27");
 
-    projects.add("appengine-endpoints");
+    projects.add("appengine-endpoints-guice-jpa");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
