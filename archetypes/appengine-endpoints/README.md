@@ -27,7 +27,8 @@ mvn archetype:generate \
 
 ##IDE Import
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/5QPOAXLGB2Y?list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh" frameborder="0" allowfullscreen></iframe>
+* [Create Archetype in Eclipse Video](https://www.youtube.com/watch?v=5QPOAXLGB2Y&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=1)
+* [Create Archetype in IntelliJ IDEA](https://www.youtube.com/watch?v=XD9anp_p4mc&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=2)
 
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
