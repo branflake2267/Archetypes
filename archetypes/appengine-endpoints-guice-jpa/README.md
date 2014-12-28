@@ -2,15 +2,10 @@
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##More App Engine Archetypes
- * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
- * [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
-
-##Eclipse WTP
-* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
-* [Create WTP App Engine Server Launcher for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
+* [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
+* [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
 
 ##Maven Archetype Usage
-
 1. Goto directory you want the project.
 2. Rename parameter below `com.projectname.project` to a package naming scheme you like.
 3. Rename parameter `new-project-name` to a project title you like.
@@ -27,12 +22,17 @@ mvn archetype:generate \
 ```
 
 ###IDE Import
-
 * [Create Archetype in Eclipse Video](https://www.youtube.com/watch?v=5QPOAXLGB2Y&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=1)
 * [Create Archetype in IntelliJ IDEA Video](https://www.youtube.com/watch?v=XD9anp_p4mc&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=2)
 
-##After Import
-1. Either run `mvn clean install` or Eclipse `Project Clean`
+###After Import
+* Run `mvn clean install` or Eclipse `Project Clean`
+
+###Eclipse WTP Configuring
+* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
+* [Create WTP App Engine Server Launcher for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
+
+
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
 
