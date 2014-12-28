@@ -28,7 +28,7 @@ mvn archetype:generate \
 ###After Import
 * Run `mvn clean install` or Eclipse `Project Clean`
 
-###Eclipse WTP Configuring
+###Eclipse WTP Setup
 * [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
 * [Create WTP App Engine Server Launcher for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
 
