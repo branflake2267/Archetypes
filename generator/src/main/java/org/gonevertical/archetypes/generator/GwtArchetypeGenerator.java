@@ -242,7 +242,7 @@ public class GwtArchetypeGenerator {
         "-Darchetype.properties=archetype.properties");
   }
 
-  private void cleanRemoveFilesFromGeneratedArchetype() {
+  protected void cleanRemoveFilesFromGeneratedArchetype() {
     cleanArchetypeExt(".sh");
     cleanArchetypeExt(".DS_Store");
     cleanArchetypeExt(".iml");
@@ -261,6 +261,8 @@ public class GwtArchetypeGenerator {
     cleanArchetypeExt(".classpath");
     cleanArchetypeExt("chromedriver.log");
     cleanArchetypeExt("gwt-unitCache");
+    
+    cleanArchetypeExt(".api"); // app-engine endpoints
   }
 
   /**
