@@ -1,6 +1,9 @@
 #App Engine Endpoints using JPA
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
+##Highlights
+* [Endpoint Classes](src/main/java/org/gonevertical/server/endpoints)
+
 ##More App Engine Archetypes
 * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
 * [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
