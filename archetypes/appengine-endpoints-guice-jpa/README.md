@@ -14,7 +14,7 @@ This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 1. Goto directory you want the project.
 2. Rename parameter below `com.projectname.project` to a package naming scheme you like.
 3. Rename parameter `new-project-name` to a project title you like.
-4. Run the mvn archetype generator
+4. Run the mvn archetype generator.
 
 ```
 mvn archetype:generate \
