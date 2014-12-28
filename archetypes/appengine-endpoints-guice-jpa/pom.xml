@@ -206,9 +206,6 @@
       <groupId>com.google.appengine.orm</groupId>
       <artifactId>datanucleus-appengine</artifactId>
       <version>2.1.2</version>
-      <!-- TODO test - Need to exclude the enhancer since it interfere with the enhancer plugin. -->
-      <!-- <exclusions> <exclusion> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-enhancer</artifactId> </exclusion> 
-        </exclusions> -->
     </dependency>
     <!-- JPA/JDO -->
     <dependency>
