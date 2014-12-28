@@ -1,13 +1,12 @@
 package org.gonevertical.project.server.servlets;
 
-
 import org.gonevertical.project.server.servlets.rpc.RpcServiceImpl;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 
 /**
- * bind servlets in singleton here
+ * Bind servlets in singleton here
  */
 public class ServletsModule extends AbstractModule {
   

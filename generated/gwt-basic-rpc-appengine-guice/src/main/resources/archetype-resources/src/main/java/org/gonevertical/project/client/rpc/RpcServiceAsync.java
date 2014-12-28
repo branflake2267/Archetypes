@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.client.rpc;
+package org.gonevertical.project.client.rpc;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

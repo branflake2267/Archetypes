@@ -10,7 +10,7 @@
     
     <!-- Servlet disptach intercepter -->
     <listener>
-        <listener-class>${package}.server.guice.GuiceServletConfig</listener-class>
+        <listener-class>org.gonevertical.project.server.guice.GuiceServletConfig</listener-class>
     </listener>
     <filter>
         <filter-name>guiceFilter</filter-name>

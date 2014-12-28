@@ -8,25 +8,24 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>gwt-basic-rpc-appengine-guice</name>
-  <description>GWT with RPC using App Engin with Guice.</description>
+  <description>GWT with RPC using App Engine with Guice.</description>
 
   <properties>
     <!-- GWT -->
-    <gwt.version>2.6.1</gwt.version>
+    <gwt.version>2.7.0</gwt.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- App Engine -->
-    <gae.version>1.9.13</gae.version>
+    <appengine.version>1.9.17a</appengine.version>
     <guice.version>3.0</guice.version>
 
     <!-- Maven -->
+    <guice.version>4.0-beta5</guice.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-    <gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk/appengine-java-sdk-${gae.version}</gae.home>
   </properties>
 
   <build>
-    <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 
     <resources>
       <resource>
@@ -38,7 +37,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.1</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
@@ -50,7 +49,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12</version>
+        <version>2.18</version>
         <configuration>
           <includes>
             <include>**/*Test.java</include>
@@ -80,16 +79,11 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <copyWebapp>true</copyWebapp>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
-
-          <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-          <appEngineVersion>${gae.version}</appEngineVersion>
-         <appEngineHome>${gae.home}</appEngineHome>
 
           <runTarget>Project.html</runTarget>
           <modules>
@@ -104,23 +98,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <!-- App Engine -->
-      <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${gae.version}</version>
-      </plugin>
-
-      <!-- skip deployment -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -142,12 +119,18 @@
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
-      <version>${gae.version}</version>
+      <version>${appengine.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-labs</artifactId>
-      <version>${gae.version}</version>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
     </dependency>
 
     <!-- DI Guice -->
@@ -180,24 +163,22 @@
 
     <!-- Testing -->
     <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-stubs</artifactId>
-      <version>${gae.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-testing</artifactId>
-      <version>${gae.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-testing</artifactId>
+      <version>${appengine.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-stubs</artifactId>
+      <version>${appengine.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

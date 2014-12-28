@@ -28,8 +28,7 @@ public class HomeServlet extends HttpServlet {
           "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=\""
               + userService.createLogoutURL(thisURL) + "\">sign out</a>.</p>");
     } else {
-      response.getWriter()
-          .println("<p>Please <a href=\"" + userService.createLoginURL(thisURL) + "\">sign in</a>.</p>");
+      response.getWriter().println("<p>Please <a href=\"" + userService.createLoginURL(thisURL) + "\">sign in</a>.</p>");
     }
   }
 

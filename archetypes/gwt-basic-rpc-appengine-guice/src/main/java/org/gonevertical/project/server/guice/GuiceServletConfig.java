@@ -8,7 +8,7 @@ import com.google.inject.servlet.GuiceServletContextListener;
  * This starts in the web.xml. All requests are intercepted and processed
  * through Guice.
  * 
- * @see ServletPathModule
+ * @see ServletsPathModule
  */
 public class GuiceServletConfig extends GuiceServletContextListener {
 
