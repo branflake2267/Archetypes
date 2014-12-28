@@ -36,7 +36,7 @@ mvn archetype:generate \
 
 
 
-## More about endpoints (from the endpoints-sekeleton archetype)
+##endpoints-sekeleton Archetype Readme
 * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
 
 A skeleton application for Google Cloud Endpoints in Java.
