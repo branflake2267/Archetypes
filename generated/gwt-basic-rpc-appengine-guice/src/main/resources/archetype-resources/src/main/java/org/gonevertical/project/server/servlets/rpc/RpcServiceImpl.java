@@ -1,11 +1,11 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.server.servlets.rpc;
+package org.gonevertical.project.server.servlets.rpc;
 
 import javax.inject.Inject;
 
-import ${package}.client.rpc.RpcService;
+import org.gonevertical.project.client.rpc.RpcService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 

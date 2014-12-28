@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.0//EN"
-  "http://google-web-toolkit.googlecode.com/svn/tags/2.5.0/distro-source/core/src/gwt-module.dtd">
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD GWT 2.7.0//EN"
+    "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='project'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User'/>
 
-  <!-- Inherit the default GWT style sheet.  You can change       -->
-  <!-- the theme of your GWT application by uncommenting          -->
-  <!-- any one of the following lines.                            -->
+  <!-- Inherit the default GWT style sheet.                       -->
   <inherits name='com.google.gwt.user.theme.clean.Clean'/>
   <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
@@ -22,7 +20,7 @@
   <source path='client'/>
   <source path='shared'/>
 
-  <add-linker name="xsiframe"/>
-  <!-- <set-configuration-property name="devModeRedirectEnabled" value="true"/> -->
+  <!-- GWT < 2.7 -->
+  <!-- <add-linker name="xsiframe"/> -->
 
 </module>

@@ -35,5 +35,5 @@
     </pluginManagement>
   </build>
 
-  <description>GWT with RPC using App Engin with Guice.</description>
+  <description>GWT with RPC using App Engine with Guice.</description>
 </project>

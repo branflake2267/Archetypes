@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="gwt-basic-rpc-appengine-guice" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
   <fileSets>
-    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/main/java</directory>
       <includes>
-        <include>**/*.xml</include>
         <include>**/*.java</include>
+        <include>**/*.xml</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8" filtered="true">
@@ -21,12 +21,13 @@
         <include>**/*.css</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/test/java</directory>
       <includes>
         <include>**/*.java</include>
       </includes>
     </fileSet>
+    
     
     
     

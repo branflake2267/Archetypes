@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.server.servlets;
+package org.gonevertical.project.server.servlets;
 
 import java.io.IOException;
 
@@ -31,8 +31,7 @@ public class HomeServlet extends HttpServlet {
           "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=${symbol_escape}""
               + userService.createLogoutURL(thisURL) + "${symbol_escape}">sign out</a>.</p>");
     } else {
-      response.getWriter()
-          .println("<p>Please <a href=${symbol_escape}"" + userService.createLoginURL(thisURL) + "${symbol_escape}">sign in</a>.</p>");
+      response.getWriter().println("<p>Please <a href=${symbol_escape}"" + userService.createLoginURL(thisURL) + "${symbol_escape}">sign in</a>.</p>");
     }
   }
 

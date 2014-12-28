@@ -1,9 +1,9 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.server.guice;
+package org.gonevertical.project.server.guice;
 
-import ${package}.server.servlets.ServletsModule;
+import org.gonevertical.project.server.servlets.ServletsModule;
 
 import com.google.inject.AbstractModule;
 
@@ -14,7 +14,7 @@ public class ServerModule extends AbstractModule {
   
   @Override
   protected void configure() {
-    install(new ServletPathModule());
+    install(new ServletsPathModule());
     install(new ServletsModule());
   }
   

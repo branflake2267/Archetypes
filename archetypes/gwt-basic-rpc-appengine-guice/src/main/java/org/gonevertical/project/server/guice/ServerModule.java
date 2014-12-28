@@ -11,7 +11,7 @@ public class ServerModule extends AbstractModule {
   
   @Override
   protected void configure() {
-    install(new ServletPathModule());
+    install(new ServletsPathModule());
     install(new ServletsModule());
   }
   
