@@ -31,6 +31,8 @@ mvn archetype:generate \
 * [Create Archetype in Eclipse Video](https://www.youtube.com/watch?v=5QPOAXLGB2Y&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=1)
 * [Create Archetype in IntelliJ IDEA Video](https://www.youtube.com/watch?v=XD9anp_p4mc&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=2)
 
+##After Import
+1. Either run `mvn clean install` or Eclipse `Project Clean`
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
 
