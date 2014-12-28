@@ -2,7 +2,10 @@
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##Highlights
+* [Entity Classes](https://github.com/branflake2267/Archetypes/tree/master/archetypes/appengine-endpoints-guice-jpa/src/main/java/org/gonevertical/server/entities)
 * [Endpoint Classes](src/main/java/org/gonevertical/server/endpoints)
+* [Guice Classes](src/main/java/org/gonevertical/server/guice)
+* [Servlet Classes](src/main/java/org/gonevertical/server/servlets)
 
 ##More App Engine Archetypes
 * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
