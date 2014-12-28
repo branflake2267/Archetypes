@@ -7,7 +7,7 @@ This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##Eclipse WTP
 * [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
-* [Google WTP for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
+* [Create WTP App Engine Server Launcher for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
 
 ##Maven Archetype Usage
 
