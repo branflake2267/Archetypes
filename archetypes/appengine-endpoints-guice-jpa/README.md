@@ -1,7 +1,7 @@
 #App Engine Endpoints using JPA
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
-##Highlights
+##Project Source Highlights
 * [Entity Classes](src/main/java/org/gonevertical/server/entities)
 * [Endpoint Classes](src/main/java/org/gonevertical/server/endpoints)
 * [Guice Classes](src/main/java/org/gonevertical/server/guice)
