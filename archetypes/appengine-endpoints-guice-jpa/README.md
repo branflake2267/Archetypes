@@ -1,4 +1,4 @@
-#App Engine Endpoints using JPA
+#App Engine Endpoints using Maven, Guice and JPA
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##More App Engine Archetypes
@@ -21,7 +21,7 @@ https://cloud.google.com/appengine/docs/java/webtoolsplatform
 mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots
 -DarchetypeGroupId=com.github.branflake2267.archetypes
--DarchetypeArtifactId=appengine-endpoints-archetype \
+-DarchetypeArtifactId=appengine-endpoints-guice-jpa-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
