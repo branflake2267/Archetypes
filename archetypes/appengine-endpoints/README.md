@@ -2,10 +2,8 @@
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##More App Engine Archetypes
-https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes
-
-##GAE and Eclipse
-http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html
+ * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
+ * [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
 
 ##Eclipse WTP
 https://cloud.google.com/appengine/docs/java/webtoolsplatform
@@ -19,8 +17,8 @@ https://cloud.google.com/appengine/docs/java/webtoolsplatform
 
 ```
 mvn archetype:generate \
--DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots
--DarchetypeGroupId=com.github.branflake2267.archetypes
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
+-DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=appengine-endpoints-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
