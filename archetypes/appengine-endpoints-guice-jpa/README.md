@@ -1,14 +1,12 @@
-#App Engine Endpoints using Maven, Guice and JPA
+#App Engine Endpoints using JPA
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
 ##More App Engine Archetypes
-https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes
-
-##GAE and Eclipse
-http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html
+ * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
+ * [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
 
 ##Eclipse WTP
-https://cloud.google.com/appengine/docs/java/webtoolsplatform
+* [Using Eclipse WTP](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
 
 ##Maven Archetype Usage
 
@@ -19,13 +17,18 @@ https://cloud.google.com/appengine/docs/java/webtoolsplatform
 
 ```
 mvn archetype:generate \
--DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots
--DarchetypeGroupId=com.github.branflake2267.archetypes
--DarchetypeArtifactId=appengine-endpoints-guice-jpa-archetype \
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
+-DarchetypeGroupId=com.github.branflake2267.archetypes \
+-DarchetypeArtifactId=appengine-endpoints-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
--DartifactId=new-project-name \
+-DartifactId=new-project-name
 ```
+
+###IDE Import
+
+* [Create Archetype in Eclipse Video](https://www.youtube.com/watch?v=5QPOAXLGB2Y&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=1)
+* [Create Archetype in IntelliJ IDEA Video](https://www.youtube.com/watch?v=XD9anp_p4mc&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=2)
 
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
