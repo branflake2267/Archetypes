@@ -25,6 +25,10 @@ mvn archetype:generate \
 -DartifactId=new-project-name
 ```
 
+##IDE Import
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/5QPOAXLGB2Y?list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh" frameborder="0" allowfullscreen></iframe>
+
 
 ## More about endpoints (from the endpoints-sekeleton archetype)
 
