@@ -5,6 +5,10 @@
     version="2.5">
     <display-name>gwt-basic-rpc-appengine-guice</display-name>
     
+    <welcome-file-list>
+        <welcome-file>Project.html</welcome-file>
+    </welcome-file-list>
+    
     <!-- Servlet disptach intercepter -->
     <listener>
         <listener-class>org.gonevertical.project.server.guice.GuiceServletConfig</listener-class>

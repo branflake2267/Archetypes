@@ -21,9 +21,9 @@ public class ProjectEntryPoint implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new HTML("GWT App has loaded.<br/>"));
+    RootPanel.get().add(new HTML("GWT App has loaded...<br/>"));
     
-    rpcService.testCallServer("Hello...", new AsyncCallback<String>() {
+    rpcService.testCallServer("Hello ...", new AsyncCallback<String>() {
       @Override
       public void onSuccess(String result) {
         RootPanel.get().add(new HTML(result));
