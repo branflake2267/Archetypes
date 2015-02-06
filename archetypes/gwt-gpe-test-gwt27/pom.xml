@@ -12,11 +12,11 @@
 
     <properties>
         <!-- GWT -->
-        <gwt.version>2.7.0-rc1</gwt.version>
+        <gwt.version>2.7.0</gwt.version>
         <gwt.style>OBF</gwt.style>
 
         <!-- Maven -->
-        <gwt.plugin.version>2.7.0-beta1</gwt.plugin.version>
+        <gwt.plugin.version>2.7.0</gwt.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     </properties>

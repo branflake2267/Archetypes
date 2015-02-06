@@ -14,7 +14,7 @@ public class RunArchetypesGenerator {
   private void run() {
     List<String> projects = new ArrayList<String>();
     // projects.add("gwt-basic");
-    // projects.add("gwt-basic-snapshot");
+    // projects.add("gwt-basic-snapshot"); 
     // projects.add("gwt-basic-beta");
 
     // projects.add("gwt-basic-rpc");

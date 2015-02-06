@@ -305,7 +305,7 @@ public class GwtArchetypeGenerator {
     }
   }
 
-  protected void findAndReplaceInFileTypes() {
+  protected void findAndReplaceInFileTypes() { 
     regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>");
 
     // Only do cap Project in .xml files
