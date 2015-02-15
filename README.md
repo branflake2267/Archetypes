@@ -57,6 +57,22 @@
 	</tr>
 </table>
 
+## App Engine Archetypes
+<table>
+	<tr>
+		<th>Archetype</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints JPA</a></td>
+		<td>App Engine Endpoints with guice, JPA, datanucleus</td>
+	</tr>
+	<tr>
+		<td><a href="archetypes/appengine-endpoints-guice-jdo">App Engine Endpoints JDO</a></td>
+		<td>App Engine Endpoints with guice, JDO, datanucleus</td>
+	</tr>
+</table>
+
 Don't see your archetype here? Find them all at https://github.com/branflake2267/Archetypes/tree/master/archetypes.
 
 
