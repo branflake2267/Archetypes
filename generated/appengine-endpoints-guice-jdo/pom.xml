@@ -10,11 +10,11 @@
 
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>appengine-endpoints-guice-jpa-archetype</artifactId>
+  <artifactId>appengine-endpoints-guice-jdo-archetype</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>appengine-endpoints-guice-jpa-archetype</name>
+  <name>appengine-endpoints-guice-jdo-archetype</name>
 
   <build>
     <extensions>
@@ -35,5 +35,5 @@
     </pluginManagement>
   </build>
 
-  <description>App Engine Endpoints with JPA ORM</description>
+  <description>App Engine Endpoints with JDO ORM</description>
 </project>

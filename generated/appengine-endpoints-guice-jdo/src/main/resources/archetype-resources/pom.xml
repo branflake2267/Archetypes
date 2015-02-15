@@ -6,8 +6,8 @@
   <artifactId>${artifactId}</artifactId>
   <packaging>war</packaging>
   <version>${version}</version>
-  <name>appengine-endpoints-guice-jpa</name>
-  <description>App Engine Endpoints with JPA ORM</description>
+  <name>appengine-endpoints-guice-jdo</name>
+  <description>App Engine Endpoints with JDO ORM</description>
 
   <!-- App Engine Goals -->
   <!-- mvn help:describe -Dplugin=appengine -->
@@ -79,7 +79,7 @@
         <configuration>
           <enableJarClasses>false</enableJarClasses>
           <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
-          <!-- address>0.0.0.0</address> <port>8080</port -->
+          <!-- <address>0.0.0.0</address> <port>8080</port -->
           <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
             or IntelliJ -->
           <!-- jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> </jvmFlags -->
@@ -99,7 +99,7 @@
         <artifactId>maven-datanucleus-plugin</artifactId>
         <version>${datanucleus.version}</version>
         <configuration>
-          <api>JPA</api>
+          <api>JDO</api>
           <mappingIncludes>**/entities/*.class</mappingIncludes>
           <verbose>true</verbose>
         </configuration>
@@ -142,7 +142,7 @@
                   </pluginExecutionFilter>
                   <action>
                     <execute>
-                      <runOnIncremental>false</runOnIncremental>
+                      <runOnIncremental>true</runOnIncremental>
                     </execute>
                   </action>
                 </pluginExecution>
@@ -196,12 +196,12 @@
     <!-- Datanucleus Entities Enhancer -->
     <dependency>
       <groupId>org.datanucleus</groupId>
-      <artifactId>datanucleus-api-jpa</artifactId>
+      <artifactId>datanucleus-core</artifactId>
       <version>${datanucleus.version}</version>
     </dependency>
     <dependency>
       <groupId>org.datanucleus</groupId>
-      <artifactId>datanucleus-core</artifactId>
+      <artifactId>datanucleus-api-jdo</artifactId>
       <version>${datanucleus.version}</version>
     </dependency>
     <dependency>
