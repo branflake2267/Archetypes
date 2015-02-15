@@ -5,11 +5,6 @@ This is a simple App Engine application with Maven, Guice, JDO, and Datanucleus.
 
  * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
 
-##Eclipse WTP
-
-* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
-* [Google WTP for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
-
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
@@ -43,3 +38,9 @@ Running App Engine from the terminal.
 * `mvn clean install`
 * `mvn mvn appengine:devserver_start` - start web server
 * `mvn mvn appengine:devserver_stop` - stop web server
+* `curl --header "Content-Type: application/json" -X POST -d '{"name": "Brandon Donnelson"}' http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser` - Test out creating an entity. 
+
+##Eclipse WTP
+
+* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
+* [Google WTP for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
