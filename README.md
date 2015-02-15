@@ -1,7 +1,11 @@
 #Maven Archtypes
 * I want to publish a variety of Archetypes to help quicken project creation.
 
-##ArcheTypes in this Project 
+### IDE Videos
+* [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
+* [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
+
+##Archetypes
 * Follow the links for the desired archetype below for project creation instructions.
 * [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse.
 * [IDEA Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/intellij-idea) - How to import a Maven project into IntelliJ IDEA.
@@ -74,10 +78,6 @@ Don't see your archetype here? Find them all at https://github.com/branflake2267
 
 ### GXT Archetypes
 * [GXT Archetypes List](http://docs.sencha.com/gxt/3.1/getting_started/maven/Archetypes.html)
-
-### IDE Videos
-* [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
-* [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
 
 ##Maven Notes
 * [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
