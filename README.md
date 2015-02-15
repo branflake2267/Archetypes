@@ -72,6 +72,12 @@
 
 Don't see your archetype here? Find them all at https://github.com/branflake2267/Archetypes/tree/master/archetypes.
 
+### GXT Archetypes
+* [GXT Archetypes List](http://docs.sencha.com/gxt/3.1/getting_started/maven/Archetypes.html)
+
+### IDE Videos
+* [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
+* [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
 
 ##Maven Notes
 * [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
