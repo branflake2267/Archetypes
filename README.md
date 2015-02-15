@@ -51,15 +51,13 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-gwtp-withlayout">GXT with a basic Dock Layout</a></td>
 		<td>GWTP and GXT with a basic dock layout using nested presenters</td>
 	</tr>
+	<tr>
+		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints</a></td>
+		<td>App Engine Endpoints with guice, jpa, datanucleus</td>
+	</tr>
 </table>
 
 Don't see your archetype here? Find them all at https://github.com/branflake2267/Archetypes/tree/master/archetypes.
-
-###Incubating
-These archetype projects are in the works and need some tuning. 
-
-* [GWT App Engine Guice JPA1](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-appengine-guice-jpa1) - Basic GWT and App Engine using guice with JPA1
-* [App Engine Guice JPA1](https://github.com/branflake2267/Archetypes/tree/master/archetypes/appengine-guice-jpa1) - Basic App Engine using guice with JPA1
 
 
 ##Maven Notes
@@ -71,10 +69,3 @@ These archetype projects are in the works and need some tuning.
 * [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
-##News
-* 2/17/2013 - Created gwt-activitiesandplaces-requestfactory-maps.
-* 1/23/2013 - Created gwt-css archetype.
-* 1/20/2013 - Created gwt-activitiesandplaces-requestfactory archetype.
-* 1/16/2013 - Created gwt-basic-rpc-appengine-guice archetype.
-* 1/15/2013 - Created gwt-basic-rpc and made gwt-basic simpler. 
-* 1/14/2013 - Created this project. Created a GWT basic archetype. 

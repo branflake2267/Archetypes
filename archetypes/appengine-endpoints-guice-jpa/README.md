@@ -1,13 +1,11 @@
 #App Engine Endpoints using JPA
 This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 
-##More App Engine Archetypes
- * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
- * [Good App Engine, JPA, Maven blog post](http://www.loop81.com/2013/02/gae-google-app-engine-jpa2-maven-and.html)
-
-##Eclipse WTP
-* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
-* [Google WTP for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
+##Project Source Highlights
+* [Entity Classes](src/main/java/org/gonevertical/server/entities)
+* [Endpoint Classes](src/main/java/org/gonevertical/server/endpoints)
+* [Guice Classes](src/main/java/org/gonevertical/server/guice)
+* [Servlet Classes](src/main/java/org/gonevertical/server/servlets)
 
 ##Maven Archetype Usage
 
@@ -34,10 +32,13 @@ mvn archetype:generate \
 ##After Import
 1. Either run `mvn clean install` or Eclipse `Project Clean`
 
-##Running
+##Running 
 Running App Engine from the terminal. 
 
 * `mvn clean install`
 * `mvn mvn appengine:devserver_start` - start web server
 * `mvn mvn appengine:devserver_stop` - stop web server
 
+##Eclipse WTP Setup
+* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
+* [Create WTP App Engine Server Launcher for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
