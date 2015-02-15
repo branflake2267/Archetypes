@@ -7,7 +7,7 @@
 
 ##Archetypes
 * Follow the links for the desired archetype below for project creation instructions.
-* Don't see your archetype here? Find them all at [here](https://github.com/branflake2267/Archetypes/tree/master/archetypes).
+* Don't see your archetype here? Find them all [here](https://github.com/branflake2267/Archetypes/tree/master/archetypes).
 
 ### GWT Archetypes
 <table>
