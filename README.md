@@ -52,10 +52,6 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-gwtp-withlayout">GXT with a basic Dock Layout</a></td>
 		<td>GWTP and GXT with a basic dock layout using nested presenters</td>
 	</tr>
-	<tr>
-		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints</a></td>
-		<td>App Engine Endpoints with guice, jpa, datanucleus</td>
-	</tr>
 </table>
 
 ### App Engine Archetypes
