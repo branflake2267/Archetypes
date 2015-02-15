@@ -6,6 +6,7 @@
 * [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse.
 * [IDEA Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/intellij-idea) - How to import a Maven project into IntelliJ IDEA.
 
+### GWT Archetypes
 <table>
 	<tr>
 		<th>Archetype</th>
@@ -57,7 +58,7 @@
 	</tr>
 </table>
 
-## App Engine Archetypes
+### App Engine Archetypes
 <table>
 	<tr>
 		<th>Archetype</th>
