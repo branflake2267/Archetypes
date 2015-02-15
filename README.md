@@ -6,6 +6,7 @@
 * [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse.
 * [IDEA Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/intellij-idea) - How to import a Maven project into IntelliJ IDEA.
 
+### GWT Archetypes
 <table>
 	<tr>
 		<th>Archetype</th>
@@ -51,9 +52,21 @@
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gxt-gwtp-withlayout">GXT with a basic Dock Layout</a></td>
 		<td>GWTP and GXT with a basic dock layout using nested presenters</td>
 	</tr>
+</table>
+
+### App Engine Archetypes
+<table>
 	<tr>
-		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints</a></td>
-		<td>App Engine Endpoints with guice, jpa, datanucleus</td>
+		<th>Archetype</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints JPA</a></td>
+		<td>App Engine Endpoints with guice, JPA, datanucleus</td>
+	</tr>
+	<tr>
+		<td><a href="archetypes/appengine-endpoints-guice-jdo">App Engine Endpoints JDO</a></td>
+		<td>App Engine Endpoints with guice, JDO, datanucleus</td>
 	</tr>
 </table>
 
