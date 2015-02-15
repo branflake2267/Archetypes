@@ -17,8 +17,8 @@ import com.google.inject.Provider;
  * Entity to store simple Todos.
  * 
  * Testing <br/>
- * Goto: http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
- * curl --header "Content-Type: application/json" http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
+ * Goto: http://localhost:8080/_ah/api/todoendpoint/v1/todo <br/>
+ * curl --header "Content-Type: application/json" http://localhost:8080/_ah/api/todoendpoint/v1/todo <br/>
  */
 @Api(name = "todoendpoint")
 public class TodoEndpoint {
@@ -33,8 +33,8 @@ public class TodoEndpoint {
    * This method lists all the entities inserted in datastore. It uses HTTP GET method.
    *
    * Testing <br/>
-   * Goto: http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
-   * curl --header "Content-Type: application/json" http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
+   * Goto: http://localhost:8080/_ah/api/todoendpoint/v1/todo <br/>
+   * curl --header "Content-Type: application/json" http://localhost:8080/_ah/api/todoendpoint/v1/todo <br/>
    *
    * @return List of all entities persisted.
    */
@@ -74,7 +74,7 @@ public class TodoEndpoint {
    * This inserts the entity into App Engine datastore. It uses HTTP POST method.
    *
    * Testing <br/>
-   * curl --header "Content-Type: application/json" -X POST -d '{"task": "Testing 1 2 3?"}' http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
+   * curl --header "Content-Type: application/json" -X POST -d '{"task": "Testing 1 2 3?"}' http://localhost:8080/_ah/api/todoendpoint/v1/todo <br/>
    *
    * @param todo the entity to be inserted.
    * @return The inserted entity.
