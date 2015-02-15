@@ -64,12 +64,16 @@
 		<th>Description</th>
 	</tr>
 	<tr>
+		<td><a href="archetypes/appengine-basic-guice">App Engine Basic</a></td>
+		<td>Basic App Engine with Guice</td>
+	</tr>
+	<tr>
 		<td><a href="archetypes/appengine-endpoints-guice-jpa">App Engine Endpoints JPA</a></td>
-		<td>App Engine Endpoints with guice, JPA, datanucleus</td>
+		<td>App Engine Endpoints with Guice, JPA, datanucleus</td>
 	</tr>
 	<tr>
 		<td><a href="archetypes/appengine-endpoints-guice-jdo">App Engine Endpoints JDO</a></td>
-		<td>App Engine Endpoints with guice, JDO, datanucleus</td>
+		<td>App Engine Endpoints with Guice, JDO, datanucleus</td>
 	</tr>
 </table>
 
