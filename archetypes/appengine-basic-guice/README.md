@@ -2,15 +2,9 @@
 
 This is a very basic GWT archetype and has a simple RPC setup using App Engine and Guice Dependency Injection.
 
-##Highlights
-* [pom.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-rpc-appengine-guice/pom.xml)
-* [Project Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/java/org/gonevertical/project)
-* [Entry Point Class](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
-* [RPC Client Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/java/org/gonevertical/project/client/rpc)
-* [RPC Server Directory](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/java/org/gonevertical/project/server/servlets/rpc)
-* [web.xml](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/webapp/WEB-INF/web.xml)
-* [Welcome Page Project.html](https://github.com/branflake2267/Archetypes/blob/master/archetypes/gwt-basic-rpc-appengine-guice/src/main/webapp/Project.html)
-* [GWT Test Case](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice/src/test/java/org/gonevertical/project/client)
+##More App Engine Archetypes
+
+ * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
 
 ##Maven Archetype Usage
 
@@ -29,6 +23,29 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name 
 ```
+
+###IDE Import
+
+* [Create Archetype in Eclipse Video](https://www.youtube.com/watch?v=5QPOAXLGB2Y&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=1)
+* [Create Archetype in IntelliJ IDEA Video](https://www.youtube.com/watch?v=XD9anp_p4mc&list=PLBbgqtDgdc_RBdHY5TpQRRvjo1_1BTVkh&index=2)
+
+
+##After Import
+1. Either run `mvn clean install` or Eclipse `Project Clean`
+
+
+##Running
+Running App Engine from the terminal. 
+
+* `mvn clean install`
+* `mvn appengine:devserver_start` - start web server
+* `mvn appengine:devserver_stop` - stop web server
+
+##Eclipse WTP
+
+* [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
+* [Google WTP for Eclipse](https://cloud.google.com/appengine/docs/java/webtoolsplatform)
+
 
 
 

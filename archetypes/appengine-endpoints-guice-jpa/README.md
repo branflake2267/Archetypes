@@ -7,6 +7,10 @@ This is a simple App Engine application with Maven, Guice, JPA, and Datanucleus.
 * [Guice Classes](src/main/java/org/gonevertical/server/guice)
 * [Servlet Classes](src/main/java/org/gonevertical/server/servlets)
 
+##More App Engine Archetypes
+
+ * [Google Maven App Engine Archetypes](https://cloud.google.com/appengine/docs/java/tools/maven#maven_app_engine_archetypes)
+
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
@@ -36,9 +40,9 @@ mvn archetype:generate \
 Running App Engine from the terminal. 
 
 * `mvn clean install`
-* `mvn mvn appengine:devserver_start` - start web server
-* `mvn mvn appengine:devserver_stop` - stop web server
+* `mvn appengine:devserver_start` - start web server
 * `curl --header "Content-Type: application/json" -X POST -d '{"name": "Brandon Donnelson"}' http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser` - Test out creating an entity. 
+* `mvn appengine:devserver_stop` - stop web server
 
 ##Eclipse WTP Setup
 * [Install WTP for Eclipse](http://wiki.eclipse.org/WTP_FAQ#How_do_I_install_WTP.3F)
