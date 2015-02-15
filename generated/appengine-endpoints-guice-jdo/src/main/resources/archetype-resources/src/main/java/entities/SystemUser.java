@@ -1,4 +1,7 @@
-package org.gonevertical.server.entities;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.entities;
 
 import java.io.Serializable;
 

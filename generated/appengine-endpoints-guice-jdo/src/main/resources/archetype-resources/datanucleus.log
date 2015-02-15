@@ -1,0 +1,11 @@
+11:03:25,154 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+11:03:25,323 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:03:25,551 (main) INFO  [DataNucleus.Enhancer] - Class "org.gonevertical.server.entities.BaseEntity" is already enhanced.
+11:03:25,552 (main) INFO  [DataNucleus.Enhancer] - Class "org.gonevertical.server.entities.SystemUser" is already enhanced.
+11:03:25,553 (main) INFO  [DataNucleus.Enhancer] - Class "org.gonevertical.server.entities.Todo" is already enhanced.
+11:03:25,553 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 3 classes. Timings : input=206 ms, enhance=23 ms, total=229 ms. Consult the log for full details
+11:12:18,778 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+11:12:18,947 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:12:19,173 (main) INFO  [DataNucleus.Enhancer] - Class "org.gonevertical.server.entities.SystemUser" is already enhanced.
+11:12:19,175 (main) INFO  [DataNucleus.Enhancer] - Class "org.gonevertical.server.entities.Todo" is already enhanced.
+11:12:19,175 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=204 ms, enhance=23 ms, total=227 ms. Consult the log for full details

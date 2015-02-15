@@ -8,13 +8,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
 
 import ${package}.entities.SystemUser;
 
 import com.google.api.server.spi.config.Api;
-import com.google.inject.Provider;
 
 /**
  * Represent a user in the applications system.
@@ -27,10 +27,14 @@ import com.google.inject.Provider;
 public class SystemUserEndpoint {
 
   /**
-   * Use a EntityManager Provider for the DAO singleton.
-   */
-  @Inject
-  protected Provider<EntityManager> entityManagerProvider;
+  * Provided from the ServerModule
+  */
+ final protected PersistenceManagerFactory pmf;
+
+ @Inject
+ public SystemUserEndpoint(PersistenceManagerFactory pmf) {
+   this.pmf = pmf;
+ }
 
   /**
    * This method lists all the entities inserted in datastore. It uses HTTP GET method.
@@ -43,17 +47,18 @@ public class SystemUserEndpoint {
    */
   @SuppressWarnings({"cast", "unchecked"})
   public List<SystemUser> listSystemUser() {
-    EntityManager mgr = getEntityManager();
-    List<SystemUser> result = new ArrayList<SystemUser>();
+    PersistenceManager pm = pmf.getPersistenceManager();
+    List<SystemUser> list = new ArrayList<SystemUser>();
     try {
-      Query query = mgr.createQuery("select from SystemUser as SystemUser");
-      for (Object obj : (List<Object>) query.getResultList()) {
-        result.add(((SystemUser) obj));
+      Query query = pm.newQuery(SystemUser.class);
+      List<SystemUser> results = (List<SystemUser>) query.execute();
+      for (SystemUser systemUser : results) {
+        list.add(systemUser);
       }
     } finally {
-      mgr.close();
+      pm.close();
     }
-    return result;
+    return list;
   }
 
   /**
@@ -63,13 +68,13 @@ public class SystemUserEndpoint {
    * @return The entity with primary key id.
    */
   public SystemUser getSystemUser(@Named("id") Long id) {
-    EntityManager mgr = getEntityManager();
+    PersistenceManager pm = pmf.getPersistenceManager();
     SystemUser systemuser = null;
     try {
-      systemuser = mgr.find(SystemUser.class, id);
+      systemuser = pm.getObjectById(SystemUser.class, id);
     } finally {
-      mgr.close();
-    }
+      pm.close();
+    } 
     return systemuser;
   }
 
@@ -83,11 +88,11 @@ public class SystemUserEndpoint {
    * @return The inserted entity.
    */
   public SystemUser insertSystemUser(SystemUser systemuser) {
-    EntityManager mgr = getEntityManager();
+    PersistenceManager pm = pmf.getPersistenceManager();
     try {
-      mgr.persist(systemuser);
+      pm.makePersistent(systemuser);
     } finally {
-      mgr.close();
+      pm.close();
     }
     return systemuser;
   }
@@ -99,11 +104,11 @@ public class SystemUserEndpoint {
    * @return The updated entity.
    */
   public SystemUser updateSystemUser(SystemUser systemuser) {
-    EntityManager mgr = getEntityManager();
+    PersistenceManager pm = pmf.getPersistenceManager();
     try {
-      mgr.persist(systemuser);
+      pm.makePersistent(systemuser);
     } finally {
-      mgr.close();
+      pm.close();
     }
     return systemuser;
   }
@@ -115,19 +120,15 @@ public class SystemUserEndpoint {
    * @return The deleted entity.
    */
   public SystemUser removeSystemUser(@Named("id") Long id) {
-    EntityManager mgr = getEntityManager();
+    PersistenceManager pm = pmf.getPersistenceManager();
     SystemUser systemuser = null;
     try {
-      systemuser = mgr.find(SystemUser.class, id);
-      mgr.remove(systemuser);
+      systemuser = pm.getObjectById(SystemUser.class, id);
+      pm.deletePersistent(systemuser);
     } finally {
-      mgr.close();
+      pm.close();
     }
     return systemuser;
-  }
-
-  private EntityManager getEntityManager() {
-    return entityManagerProvider.get();
   }
 
 }

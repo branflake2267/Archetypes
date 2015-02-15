@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="appengine-endpoints-guice-jpa" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="appengine-endpoints-guice-jdo" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
   <fileSets>
     <fileSet encoding="UTF-8" filtered="true" packaged="true">
       <directory>src/main/java</directory>
@@ -23,7 +23,6 @@
     <fileSet encoding="UTF-8">
       <directory>src/main/webapp</directory>
       <includes>
-        <include>**/*.api</include>
         <include>**/*.ico</include>
       </includes>
     </fileSet>
