@@ -24,6 +24,22 @@
     "maxAge" : 0
   },
   "methods" : {
+    "systemuserendpoint.systemUserEndpoint.insertSystemUser" : {
+      "path" : "systemuser",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
       "path" : "systemuser/{id}",
       "httpMethod" : "GET",
@@ -40,22 +56,6 @@
           }
         },
         "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "systemuserendpoint.systemUserEndpoint.insertSystemUser" : {
-      "path" : "systemuser",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -173,15 +173,15 @@
       }
     },
     "methods" : {
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
-        "response" : {
-          "$ref" : "SystemUser"
-        }
-      },
       "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser" : {
         "request" : {
           "$ref" : "SystemUser"
         },
+        "response" : {
+          "$ref" : "SystemUser"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
         "response" : {
           "$ref" : "SystemUser"
         }
