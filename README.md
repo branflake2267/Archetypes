@@ -76,11 +76,11 @@
 ### GXT Archetypes
 * [GXT Archetypes List](http://docs.sencha.com/gxt/3.1/getting_started/maven/Archetypes.html)
 
-##Maven Notes
-* [My Snapshots Repo](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
+##Maven
+* [The Snapshots Repository](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
 
 
-##My Favorite Archetype Destinations
+##Favorite Archetype Destinations
 * [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
 * [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
 * [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
