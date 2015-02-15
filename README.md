@@ -7,6 +7,7 @@
 
 ##Archetypes
 * Follow the links for the desired archetype below for project creation instructions.
+* Don't see your archetype here? Find them all at [here](https://github.com/branflake2267/Archetypes/tree/master/archetypes).
 
 ### GWT Archetypes
 <table>
@@ -71,8 +72,6 @@
 		<td>App Engine Endpoints with guice, JDO, datanucleus</td>
 	</tr>
 </table>
-
-Don't see your archetype here? Find them all at https://github.com/branflake2267/Archetypes/tree/master/archetypes.
 
 ### GXT Archetypes
 * [GXT Archetypes List](http://docs.sencha.com/gxt/3.1/getting_started/maven/Archetypes.html)
