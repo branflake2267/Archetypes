@@ -1,14 +1,12 @@
 #Maven Archtypes
 * I want to publish a variety of Archetypes to help quicken project creation.
 
-### IDE Videos
+## IDE Videos
 * [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
 * [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
 
 ##Archetypes
 * Follow the links for the desired archetype below for project creation instructions.
-* [Eclipse Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/eclipse) - How to import a Maven project into Eclipse.
-* [IDEA Maven Import Instructions](http://c.gwt-examples.com/home/maven/ide-import/intellij-idea) - How to import a Maven project into IntelliJ IDEA.
 
 ### GWT Archetypes
 <table>
