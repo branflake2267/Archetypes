@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${groupId}</groupId>
-  <artifactId>${artifactId}</artifactId>
+  <groupId>com.github.branflake2267.archetypes</groupId>
+  <artifactId>gwt-basic-rpc-appengine</artifactId>
   <packaging>war</packaging>
-  <version>${version}</version>
-  <name>gwt-basic-rpc-appengine-guice</name>
-  <description>GWT with RPC using App Engine with Guice.</description>
+  <version>1.0-SNAPSHOT</version>
+  <name>gwt-basic-rpc-appengine</name>
+  <description>GWT with RPC using App Engine</description>
 
   <!-- App Engine Goals -->
   <!-- mvn help:describe -Dplugin=appengine -->
+
+  <!-- Running with Maven -->
+  <!-- mvn clean install -->
+  <!-- mvn appengine:devserver_start - start web server -->
+  <!-- mvn gwt:run-codeserver - start gwt code server -->
+  <!-- goto http://localhost:8080 -->
+  <!-- mvn appengine:devserver_stop - stop web server -->
 
   <properties>
     <!-- GWT -->
@@ -19,7 +27,6 @@
 
     <!-- App Engine -->
     <appengine.version>1.9.17a</appengine.version>
-    <guice.version>4.0-beta5</guice.version>
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
@@ -46,7 +53,7 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
@@ -92,27 +99,20 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
+          <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
 
-          <runTarget>${module}.html</runTarget>
+          <runTarget>Project.html</runTarget>
           <modules>
-            <module>${package}.${module}</module>
+            <module>org.gonevertical.project.Project</module>
           </modules>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
-      
+
       <!-- appengine:devserver_start - start web server -->
       <!-- appengine:devserver_stop - stop web server -->
       <plugin>
@@ -123,20 +123,14 @@
           <enableJarClasses>false</enableJarClasses>
           <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
           <!-- <address>0.0.0.0</address> <port>8080</port> -->
-          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse or IntelliJ -->
+          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
+            or IntelliJ -->
           <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>endpoints_get_discovery_doc</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
-    
-     <pluginManagement>
+
+    <pluginManagement>
       <plugins>
         <!-- Eclipse m2e Enhancing -->
         <plugin>
@@ -157,7 +151,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
+                    <ignore/>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -182,7 +176,7 @@
     </dependency>
 
     <!-- Google App Engine -->
-     <dependency>
+    <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
       <version>${appengine.version}</version>
@@ -202,28 +196,6 @@
       <groupId>javax.inject</groupId>
       <artifactId>javax.inject</artifactId>
       <version>1</version>
-    </dependency>
-
-    <!-- DI Guice -->
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-servlet</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-assistedinject</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-persist</artifactId>
-      <version>${guice.version}</version>
     </dependency>
 
     <!-- Testing -->

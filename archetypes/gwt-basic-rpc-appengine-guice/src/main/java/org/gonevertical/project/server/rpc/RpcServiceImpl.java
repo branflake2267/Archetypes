@@ -1,4 +1,4 @@
-package org.gonevertical.project.server.servlets.rpc;
+package org.gonevertical.project.server.rpc;
 
 import javax.inject.Inject;
 

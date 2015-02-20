@@ -166,8 +166,7 @@ public class GwtArchetypeGenerator {
 
     File foundFile = found.get(0);
 
-    String packageName = org.gonevertical.archetypes.generator.utils.FileUtils.findInFileAndReturnLine(foundFile,
-        "package.*?;");
+    String packageName = org.gonevertical.archetypes.generator.utils.FileUtils.findInFileAndReturnLine(foundFile, "package(.*?;)");
     packageName = packageName.replaceFirst("package", "");
     packageName = packageName.replace(";", "");
     packageName = packageName.replace(".client", "");

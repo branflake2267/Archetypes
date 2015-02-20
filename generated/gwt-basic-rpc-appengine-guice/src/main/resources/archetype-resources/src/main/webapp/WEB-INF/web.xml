@@ -8,6 +8,10 @@
     version="2.5">
     <display-name>${artifactId}</display-name>
     
+    <welcome-file-list>
+        <welcome-file>${module}.html</welcome-file>
+    </welcome-file-list>
+    
     <!-- Servlet disptach intercepter -->
     <listener>
         <listener-class>org.gonevertical.project.server.guice.GuiceServletConfig</listener-class>
