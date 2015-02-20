@@ -11,7 +11,7 @@ public class StringUtils {
     }
 
     if (regex != null && regex.contains(")") == false) {
-      System.err.println("oops!!! - you forgot to use parentheses to catch a group");
+      System.err.println("oops!!! - you forgot to use parentheses to catch a group in regex=" + regex + " s=" + s);
     }
 
     boolean found = false;

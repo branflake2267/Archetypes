@@ -3,8 +3,8 @@
 #set( $symbol_escape = '\' )
 package org.gonevertical.project.server.guice;
 
-import org.gonevertical.project.server.servlets.HomeServlet;
-import org.gonevertical.project.server.servlets.rpc.RpcServiceImpl;
+import org.gonevertical.project.server.rpc.RpcServiceImpl;
+import org.gonevertical.project.server.servlets.SomethingServlet;
 
 import com.google.inject.servlet.ServletModule;
 
@@ -21,7 +21,7 @@ public class ServletsPathModule extends ServletModule {
     serve("/${module}/rpcService*").with(RpcServiceImpl.class);
 
     // ignore _ah (http://localhost:8888/_ah/*)
-    serveRegex("^/(?!_ah.*)home").with(HomeServlet.class);
+    serveRegex("^/(?!_ah.*)something").with(SomethingServlet.class);
   }
 
 }

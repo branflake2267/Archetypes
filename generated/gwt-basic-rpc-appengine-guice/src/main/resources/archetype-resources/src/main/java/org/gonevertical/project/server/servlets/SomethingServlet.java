@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 package org.gonevertical.project.server.servlets;
 
 import java.io.IOException;
@@ -11,10 +14,10 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 @SuppressWarnings("serial")
-public class HomeServlet extends HttpServlet {
+public class SomethingServlet extends HttpServlet {
 
   @Inject
-  public HomeServlet() {
+  public SomethingServlet() {
   }
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,10 +28,10 @@ public class HomeServlet extends HttpServlet {
     response.setContentType("text/html");
     if (request.getUserPrincipal() != null) {
       response.getWriter().println(
-          "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=\""
-              + userService.createLogoutURL(thisURL) + "\">sign out</a>.</p>");
+          "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=${symbol_escape}""
+              + userService.createLogoutURL(thisURL) + "${symbol_escape}">sign out</a>.</p>");
     } else {
-      response.getWriter().println("<p>Please <a href=\"" + userService.createLoginURL(thisURL) + "\">sign in</a>.</p>");
+      response.getWriter().println("<p>Please <a href=${symbol_escape}"" + userService.createLoginURL(thisURL) + "${symbol_escape}">sign in</a>.</p>");
     }
   }
 

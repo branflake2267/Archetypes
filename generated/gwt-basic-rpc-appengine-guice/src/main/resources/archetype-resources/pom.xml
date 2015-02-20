@@ -9,6 +9,16 @@
   <name>gwt-basic-rpc-appengine-guice</name>
   <description>GWT with RPC using App Engine with Guice.</description>
 
+  <!-- App Engine Goals -->
+  <!-- mvn help:describe -Dplugin=appengine -->
+
+  <!-- Running with Maven -->
+  <!-- mvn clean install -->
+  <!-- mvn appengine:devserver_start - start web server -->
+  <!-- mvn gwt:run-codeserver - start gwt code server -->
+  <!-- goto http://localhost:8080 -->
+  <!-- mvn appengine:devserver_stop - stop web server -->
+
   <properties>
     <!-- GWT -->
     <gwt.version>2.7.0</gwt.version>
@@ -16,7 +26,6 @@
 
     <!-- App Engine -->
     <appengine.version>1.9.17a</appengine.version>
-    <guice.version>4.0-beta5</guice.version>
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
@@ -44,6 +53,21 @@
         </configuration>
       </plugin>
 
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>display-dependency-updates</goal>
+              <goal>display-plugin-updates</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <!-- Ignore GWTTestCases when running JUnit Runner -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -60,10 +84,6 @@
       </plugin>
 
       <!-- GWT -->
-      <!-- 'mvn gwt:run' -->
-      <!-- 'mvn gwt:debug' -->
-      <!-- 'mvn gwt:compile' -->
-      <!-- 'mvn gwt:test' or 'mvn integration-test' -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
@@ -82,23 +102,63 @@
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
+          <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
 
           <runTarget>${module}.html</runTarget>
           <modules>
             <module>${package}.${module}</module>
           </modules>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
+      </plugin>
+
+      <!-- appengine:devserver_start - start web server -->
+      <!-- appengine:devserver_stop - stop web server -->
+      <plugin>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>${appengine.version}</version>
+        <configuration>
+          <enableJarClasses>false</enableJarClasses>
+          <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
+          <!-- <address>0.0.0.0</address> <port>8080</port> -->
+          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
+            or IntelliJ -->
+          <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
+        </configuration>
       </plugin>
     </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <!-- Eclipse m2e Enhancing -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <versionRange>[2.1,)</versionRange>
+                    <goals>
+                      <goal>display-plugin-updates</goal>
+                      <goal>display-dependency-updates</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <dependencies>
@@ -118,6 +178,11 @@
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>${appengine.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-endpoints</artifactId>
       <version>${appengine.version}</version>
     </dependency>
     <dependency>
@@ -154,17 +219,17 @@
       <version>${guice.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-    </dependency>
-
     <!-- Testing -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>2.0.2-beta</version>
       <scope>test</scope>
     </dependency>
     <dependency>

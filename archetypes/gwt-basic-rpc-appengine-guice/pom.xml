@@ -13,6 +13,13 @@
   <!-- App Engine Goals -->
   <!-- mvn help:describe -Dplugin=appengine -->
 
+  <!-- Running with Maven -->
+  <!-- mvn clean install -->
+  <!-- mvn appengine:devserver_start - start web server -->
+  <!-- mvn gwt:run-codeserver - start gwt code server -->
+  <!-- goto http://localhost:8080 -->
+  <!-- mvn appengine:devserver_stop - stop web server -->
+
   <properties>
     <!-- GWT -->
     <gwt.version>2.7.0</gwt.version>
@@ -20,7 +27,6 @@
 
     <!-- App Engine -->
     <appengine.version>1.9.17a</appengine.version>
-    <guice.version>3.0</guice.version>
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
@@ -47,7 +53,7 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
@@ -97,23 +103,16 @@
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
-          <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
+          <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
 
           <runTarget>Project.html</runTarget>
           <modules>
             <module>org.gonevertical.project.Project</module>
           </modules>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
-      
+
       <!-- appengine:devserver_start - start web server -->
       <!-- appengine:devserver_stop - stop web server -->
       <plugin>
@@ -124,20 +123,14 @@
           <enableJarClasses>false</enableJarClasses>
           <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
           <!-- <address>0.0.0.0</address> <port>8080</port> -->
-          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse or IntelliJ -->
+          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
+            or IntelliJ -->
           <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>endpoints_get_discovery_doc</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
-    
-     <pluginManagement>
+
+    <pluginManagement>
       <plugins>
         <!-- Eclipse m2e Enhancing -->
         <plugin>
@@ -183,7 +176,7 @@
     </dependency>
 
     <!-- Google App Engine -->
-     <dependency>
+    <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
       <version>${appengine.version}</version>
