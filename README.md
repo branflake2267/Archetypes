@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-cucumber-guice">GWT Basic Cucumber Guice</a></td>
-		<td>Simple GWT project with Cucumber andn Selenium testing</td>
+		<td>Simple GWT project with Cucumber and Selenium testing</td>
 	</tr>
 </table>
 
