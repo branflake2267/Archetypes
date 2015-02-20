@@ -2,6 +2,7 @@
 This is a simple App Engine application with Maven, Guice, JDO, and Datanucleus.
 
 ##Project Source Highlights
+
 * [Entity Classes](src/main/java/org/gonevertical/server/entities)
 * [Endpoint Classes](src/main/java/org/gonevertical/server/endpoints)
 * [Guice Classes](src/main/java/org/gonevertical/server/guice)
