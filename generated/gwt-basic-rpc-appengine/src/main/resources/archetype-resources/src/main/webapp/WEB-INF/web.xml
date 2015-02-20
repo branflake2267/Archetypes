@@ -15,7 +15,7 @@
 
   <servlet>
     <servlet-name>RpcServlet</servlet-name>
-    <servlet-class>org.gonevertical.project.server.rpc.RpcServiceImpl</servlet-class>
+    <servlet-class>${package}.server.rpc.RpcServiceImpl</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RpcServlet</servlet-name>
@@ -24,7 +24,7 @@
 
   <servlet>
     <servlet-name>HomeServlet</servlet-name>
-    <servlet-class>org.gonevertical.project.server.servlets.SomethingServlet</servlet-class>
+    <servlet-class>${package}.server.servlets.SomethingServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HomeServlet</servlet-name>

@@ -6,7 +6,7 @@
     xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     version="2.5">
-    <display-name>${artifactId}</display-name>
+    <display-name>${artifactId}-guice</display-name>
     
     <welcome-file-list>
         <welcome-file>${module}.html</welcome-file>
@@ -14,7 +14,7 @@
     
     <!-- Servlet disptach intercepter -->
     <listener>
-        <listener-class>org.gonevertical.project.server.guice.GuiceServletConfig</listener-class>
+        <listener-class>${package}.server.guice.GuiceServletConfig</listener-class>
     </listener>
     <filter>
         <filter-name>guiceFilter</filter-name>

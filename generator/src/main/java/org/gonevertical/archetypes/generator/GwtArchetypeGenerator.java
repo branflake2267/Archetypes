@@ -122,6 +122,9 @@ public class GwtArchetypeGenerator {
   }
 
   private void runSteps() throws Exception {
+    // Be sure to use a archetype.properties
+    System.out.println("\n\nDo you have a: archetype.properties?\n\n");
+    
     runMvnClean();
 
     parseGwtClientPackage();
@@ -136,7 +139,10 @@ public class GwtArchetypeGenerator {
 
     // archetype-metadata.xml resources
     turnOnFilteredForPaths();
-    setupRequiredArchetypeVars();
+    
+    // Disabling, this is provided through archetype.properties
+    //setupRequiredArchetypeVars();
+    
     // setupTestResourcesPackaging();
 
     // ${module}lize velocity variables
@@ -147,11 +153,12 @@ public class GwtArchetypeGenerator {
 
     // deploy items
     addPomParent();
-    moveArchetypeToGeneratedDirectory();
-
+    
     if (deploy) {
       deploy();
     }
+    
+    moveArchetypeToGeneratedDirectory();
 
     System.out.println("Finished generating pom for " + baseWorkingProjectDir);
   }
@@ -229,14 +236,20 @@ public class GwtArchetypeGenerator {
   }
 
   private void deploy() throws Exception {
-    runCommand(baseGeneratedArchetypeDir, "/usr/local/bin/mvn", "deploy");
+    System.out.println("----------------------");
+    System.out.println("Running: mvn deploy");
+    runCommand(baseGeneratedArchetypeDir, "/usr/local/bin/mvn", "deploy", "-X");
   }
 
   private void runMvnClean() throws Exception {
+    System.out.println("----------------------");
+    System.out.println("Running: mvn clean");
     runCommand(baseWorkingProjectDir, "/usr/local/bin/mvn", "clean");
   }
 
   private void runMvnArchetypeCreateFromProject() throws Exception {
+    System.out.println("----------------------");
+    System.out.println("Running: archetype:create-from-project");
     runCommand(baseWorkingProjectDir, "/usr/local/bin/mvn", "archetype:create-from-project",
         "-Darchetype.properties=archetype.properties");
   }
@@ -305,7 +318,11 @@ public class GwtArchetypeGenerator {
   }
 
   protected void findAndReplaceInFileTypes() { 
-    regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>");
+    regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>"); // pom.xml
+    
+    // This is done by the default generator
+    // For some reason the ${package} is not getting replaced in the entrypoint
+    //regexFindAndReplaceFiles(".xml", gwtClientPackage, "\\${package}"); // pom.xml entrypoint
 
     // Only do cap Project in .xml files
     regexFindAndReplaceFiles(".xml", "\\.Project", ".\\${module}");
