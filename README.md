@@ -81,8 +81,12 @@
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td><a href="archetypes/gwt-basic-rpc-appengine">Basic GWT with Appengine</a></td>
+		<td><a href="archetypes/gwt-basic-rpc-appengine">Basic GWT with Appengine, RPC</a></td>
 		<td>GWT with App Engine and RPC</td>
+	</tr>
+	<tr>
+		<td><a href="archetypes/gwt-basic-rpc-appengine">Basic GWT with Appengine, RCP/Guice</a></td>
+		<td>GWT with App Engine, RPC and Guice</td>
 	</tr>
 </table>
 
