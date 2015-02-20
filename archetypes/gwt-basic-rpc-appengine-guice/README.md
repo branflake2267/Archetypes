@@ -2,6 +2,7 @@
 This is a very basic GWT archetype and has a simple RPC setup using App Engine and Guice Dependency Injection.
 
 ##Highlights
+
 * [web.xml](src/main/webapp/WEB-INF/web.xml)
 * [Main Project Directory](src/main/java/org/gonevertical/project)
 * [Welcome Page Project.html](src/main/webapp/Project.html)
