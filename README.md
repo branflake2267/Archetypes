@@ -75,6 +75,15 @@
 		<td><a href="archetypes/appengine-endpoints-guice-jdo">App Engine Endpoints JDO</a></td>
 		<td>App Engine Endpoints with Guice, JDO, datanucleus</td>
 	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><a href="archetypes/gwt-basic-rpc-appengine">Basic GWT with Appengine</a></td>
+		<td>GWT with App Engine and RPC</td>
+	</tr>
 </table>
 
 ### GXT Archetypes
