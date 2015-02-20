@@ -23,7 +23,7 @@ This is a very basic GWT archetype and has a simple RPC setup using App Engine a
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gwt-basic-rpc-appengine-guice-archetype \
+-DarchetypeArtifactId=gwt-basic-rpc-appengine-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name 

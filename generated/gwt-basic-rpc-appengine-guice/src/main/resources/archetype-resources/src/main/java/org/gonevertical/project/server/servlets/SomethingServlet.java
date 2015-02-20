@@ -14,10 +14,10 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 @SuppressWarnings("serial")
-public class HomeServlet extends HttpServlet {
+public class SomethingServlet extends HttpServlet {
 
   @Inject
-  public HomeServlet() {
+  public SomethingServlet() {
   }
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

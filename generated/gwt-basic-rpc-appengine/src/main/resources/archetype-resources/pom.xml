@@ -6,8 +6,8 @@
   <artifactId>${artifactId}</artifactId>
   <packaging>war</packaging>
   <version>${version}</version>
-  <name>gwt-basic-rpc-appengine-guice</name>
-  <description>GWT with RPC using App Engine with Guice.</description>
+  <name>gwt-basic-rpc-appengine</name>
+  <description>GWT with RPC using App Engine</description>
 
   <!-- App Engine Goals -->
   <!-- mvn help:describe -Dplugin=appengine -->
@@ -98,7 +98,7 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
           <style>${gwt.style}</style>
 
@@ -150,7 +150,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
+                    <ignore />
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -195,28 +195,6 @@
       <groupId>javax.inject</groupId>
       <artifactId>javax.inject</artifactId>
       <version>1</version>
-    </dependency>
-
-    <!-- DI Guice -->
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-servlet</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-assistedinject</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-persist</artifactId>
-      <version>${guice.version}</version>
     </dependency>
 
     <!-- Testing -->
