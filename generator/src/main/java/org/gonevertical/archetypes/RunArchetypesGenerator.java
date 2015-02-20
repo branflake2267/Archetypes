@@ -28,10 +28,9 @@ public class RunArchetypesGenerator {
     // App Engine (Updated Feb, 15 2015)
     // projects.add("appengine-basic-guice");
     // projects.add("appengine-endpoints-guice-jpa");
-//     projects.add("appengine-endpoints-guice-jdo");
+    // projects.add("appengine-endpoints-guice-jdo");
     projects.add("gwt-basic-rpc-appengine");
     projects.add("gwt-basic-rpc-appengine-guice");
-    
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
