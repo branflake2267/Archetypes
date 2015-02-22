@@ -32,7 +32,7 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 
 ##Running
 1. `mvn clean install`
-2. `mvn appengine:devserver_start` - start web server
-3. `mvn gwt:run-codeserver` - start gwt code server
+2. `mvn appengine:devserver_start` - start the web server
+3. `mvn gwt:run-codeserver` - start the GWT SDM code server
 4. goto http://localhost:8080 
-5. `mvn appengine:devserver_stop` - stop web server
+5. `mvn appengine:devserver_stop` - stop the web server
