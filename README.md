@@ -82,6 +82,18 @@
 	</tr>
 </table>
 
+### Tomcat Archetypes
+<table>
+	<tr>
+		<th>Archetype</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><a href="archetypes/gwt-basic-rpc-tomcat">GWT with Tomcat</a></td>
+		<td>Basic GWT with RPC and tomcat</td>
+	</tr>
+</table>
+
 ### GXT Archetypes
 * [GXT Archetypes List](http://docs.sencha.com/gxt/3.1/getting_started/maven/Archetypes.html)
 
