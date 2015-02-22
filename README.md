@@ -20,11 +20,11 @@
 		<td>Very basic GWT maven setup</td>
 	</tr>
 	<tr>
-		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">GWT Basic RPC</a></td>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">Basic GWT RPC</a></td>
 		<td>Very basic GWT maven setup with RPC</td>
 	</tr>
 	<tr>
-		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice">GWT Basic RPC using GAE</a></td>
+		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc-appengine-guice">Basic GWT RPC using GAE</a></td>
 		<td>Very basic GWT with RPC using App Engine and Guice dependency injection</td>
 	</tr>
 	<tr>
@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-css">GWT CSS</a></td>
-		<td>Simple project using ClientBunble Resources; CssResource and ImageResource </td>
+		<td>Simple project using ClientBunble Resources; CssResource and ImageResource</td>
 	</tr>
 	<tr>
 		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-cucumber-guice">GWT Basic Cucumber Guice</a></td>
@@ -89,7 +89,7 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td><a href="archetypes/gwt-basic-rpc-tomcat">GWT with Tomcat</a></td>
+		<td><a href="archetypes/gwt-basic-rpc-tomcat">GWT with RPC using Tomcat</a></td>
 		<td>Basic GWT with RPC and tomcat</td>
 	</tr>
 </table>
