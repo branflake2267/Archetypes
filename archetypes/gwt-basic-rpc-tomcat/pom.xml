@@ -11,14 +11,14 @@
   <description>GWT with RPC using Tomcat</description>
 
   <!-- Tomcat -->
-  <!-- mvn help:describe -Dplugin=appengine -->
+  <!-- mvn help:describe -Dplugin=tomcat7 -->
 
   <!-- Running with Maven -->
   <!-- mvn clean install -->
-  <!-- mvn tomcat6:start - start web server -->
+  <!-- mvn tomcat7:start - start web server -->
   <!-- mvn gwt:run-codeserver - start gwt code server -->
   <!-- goto http://localhost:8080 -->
-  <!-- mvn tomcat6:stop - stop web server -->
+  <!-- mvn tomcat7:stop - stop web server -->
 
   <properties>
     <!-- GWT -->
@@ -177,6 +177,12 @@
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
       <version>${gwt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <version>${gwt.version}</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>

@@ -25,7 +25,7 @@
     <gwt.style>OBF</gwt.style>
 
     <!-- App Engine -->
-    <appengine.version>1.9.17a</appengine.version>
+    <appengine.version>1.9.18</appengine.version>
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
