@@ -89,7 +89,7 @@
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td><a href="archetypes/gwt-basic-rpc-tomcat">GWT with RPC using Tomcat</a></td>
+		<td><a href="archetypes/gwt-basic-rpc-tomcat">Basic GWT with RPC</a></td>
 		<td>Basic GWT with RPC and tomcat</td>
 	</tr>
 </table>
