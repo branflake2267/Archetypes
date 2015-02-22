@@ -1,7 +1,10 @@
-package org.gonevertical.project.client;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.client;
 
-import org.gonevertical.project.client.rpc.RpcService;
-import org.gonevertical.project.client.rpc.RpcServiceAsync;
+import ${package}.client.rpc.RpcService;
+import ${package}.client.rpc.RpcServiceAsync;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -12,7 +15,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class ProjectEntryPoint implements EntryPoint {
+public class ${module}EntryPoint implements EntryPoint {
 
   /**
    * Sets up RPC
@@ -21,7 +24,7 @@ public class ProjectEntryPoint implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new HTML("<br/><br/><a href=\"./something\">Something Servlet</a><br/><br/><br/>"));
+    RootPanel.get().add(new HTML("<br/><br/><a href=${symbol_escape}"./something${symbol_escape}">Something Servlet</a><br/><br/><br/>"));
 
     RootPanel.get().add(new HTML("GWT App has loaded...<br/>"));
 
