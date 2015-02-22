@@ -23,11 +23,11 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>HomeServlet</servlet-name>
+    <servlet-name>SomethingServlet</servlet-name>
     <servlet-class>${package}.server.servlets.SomethingServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomeServlet</servlet-name>
+    <servlet-name>SomethingServlet</servlet-name>
     <url-pattern>/something</url-pattern>
   </servlet-mapping>
 
