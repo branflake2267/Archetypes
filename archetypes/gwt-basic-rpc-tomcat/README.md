@@ -6,16 +6,6 @@ This is a very basic GWT archetype and has a simple RPC setup using Tomcat
 * [Installing the Tomcat Runtime Server](https://www.youtube.com/watch?v=6w87lVYT-MM&list=PLBbgqtDgdc_THrws_LhHs84ARxy7pUhkv)
 * [Super Dev Mode debugging with GWT and the Tomcat Rumtime Server](https://www.youtube.com/watch?v=w9270Yqt-5I&list=PLBbgqtDgdc_THrws_LhHs84ARxy7pUhkv&index=2)
 
-##Highlights
-
-* [web.xml](src/main/webapp/WEB-INF/web.xml)
-* [Main Project Directory](src/main/java/org/gonevertical/project)
-* [Welcome Page Project.html](src/main/webapp/Project.html)
-* [Entry Point Class](src/main/java/org/gonevertical/project/client/ProjectEntryPoint.java)
-* [RPC Client Directory](src/main/java/org/gonevertical/project/client/rpc)
-* [RPC Server Directory](src/main/java/org/gonevertical/project/server/servlets/rpc)
-* [GWT Test Cases](src/test/java/org/gonevertical/project/client)
-
 ##Maven Archetype Usage
 
 1. Goto directory you want the project.
