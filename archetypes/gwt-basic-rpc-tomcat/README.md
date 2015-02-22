@@ -1,5 +1,5 @@
-#GWT Basic with RPC using App Engine
-This is a very basic GWT archetype and has a simple RPC setup using App Engine.
+#GWT Basic with RPC using Tomcat
+This is a very basic GWT archetype and has a simple RPC setup using Tomcat
 
 ##Highlights
 
@@ -23,7 +23,7 @@ This is a very basic GWT archetype and has a simple RPC setup using App Engine.
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gwt-basic-rpc-appengine-archetype \
+-DarchetypeArtifactId=gwt-basic-rpc-tomcat-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
@@ -32,7 +32,7 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 
 ##Running
 1. `mvn clean install`
-2. `mvn appengine:devserver_start` - start web server
+2. `TODO` - start web server
 3. `mvn gwt:run-codeserver` - starg gwt code server
 4. goto http://localhost:8080 
-5. `mvn appengine:devserver_stop` - stop web server
+5. `TODO` - stop web server

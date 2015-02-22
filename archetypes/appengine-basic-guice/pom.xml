@@ -15,7 +15,7 @@
 
   <properties>
     <!-- App Engine -->
-    <appengine.version>1.9.17a</appengine.version>
+    <appengine.version>1.9.18</appengine.version>
 
     <guice.version>4.0-beta5</guice.version>
 

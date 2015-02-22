@@ -1,6 +1,9 @@
-package org.gonevertical.project.server.rpc;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.server.rpc;
 
-import org.gonevertical.project.client.rpc.RpcService;
+import ${package}.client.rpc.RpcService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 

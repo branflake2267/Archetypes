@@ -153,13 +153,12 @@ public class GwtArchetypeGenerator {
 
     // deploy items
     addPomParent();
+    moveArchetypeToGeneratedDirectory();
     
     if (deploy) {
+      // deploys from the generated directory
       deploy();
     }
-    
-    moveArchetypeToGeneratedDirectory();
-
     System.out.println("Finished generating pom for " + baseWorkingProjectDir);
   }
 

@@ -26,7 +26,7 @@
     <gwt.style>OBF</gwt.style>
 
     <!-- App Engine -->
-    <appengine.version>1.9.17a</appengine.version>
+    <appengine.version>1.9.18</appengine.version>
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
@@ -191,11 +191,6 @@
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-      <version>1</version>
     </dependency>
 
     <!-- Testing -->

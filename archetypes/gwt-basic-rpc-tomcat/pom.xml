@@ -4,29 +4,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>gwt-basic-rpc-appengine-guice</artifactId>
+  <artifactId>gwt-basic-rpc-tomcat</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>gwt-basic-rpc-appengine-guice</name>
-  <description>GWT with RPC using App Engine with Guice.</description>
+  <name>gwt-basic-rpc-tomcat</name>
+  <description>GWT with RPC using Tomcat</description>
 
-  <!-- App Engine Goals -->
+  <!-- Tomcat -->
   <!-- mvn help:describe -Dplugin=appengine -->
 
   <!-- Running with Maven -->
   <!-- mvn clean install -->
-  <!-- mvn appengine:devserver_start - start web server -->
+  <!-- mvn tomcat6:start - start web server -->
   <!-- mvn gwt:run-codeserver - start gwt code server -->
   <!-- goto http://localhost:8080 -->
-  <!-- mvn appengine:devserver_stop - stop web server -->
+  <!-- mvn tomcat6:stop - stop web server -->
 
   <properties>
     <!-- GWT -->
     <gwt.version>2.7.0</gwt.version>
-    <gwt.style>OBF</gwt.style>
 
-    <!-- App Engine -->
-    <appengine.version>1.9.18</appengine.version>
+    <!-- Tomcat -->
 
     <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
@@ -39,6 +37,9 @@
     <resources>
       <resource>
         <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>/src/main/webapp</directory>
       </resource>
     </resources>
 
@@ -99,9 +100,9 @@
           <!-- <excludes>**/*GwtTest.java</excludes> -->
           <includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xmx1g -XX:MaxPermSize=256M</extraJvmArgs>
+          <extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
           <logLevel>INFO</logLevel>
-          <style>${gwt.style}</style>
+          <style>OBF</style>
 
           <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
           <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
@@ -113,21 +114,29 @@
         </configuration>
       </plugin>
 
-      <!-- appengine:devserver_start - start web server -->
-      <!-- appengine:devserver_stop - stop web server -->
       <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${appengine.version}</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
         <configuration>
-          <enableJarClasses>false</enableJarClasses>
-          <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
-          <!-- <address>0.0.0.0</address> <port>8080</port> -->
-          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
-            or IntelliJ -->
-          <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
+          <webResources>
+            <resource>
+              <directory>src/main/webapp</directory>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
+
+      <!-- http://tomcat.apache.org/maven-plugin-2.2/context-goals.html - goals -->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <webappDirectory>src/main/webapp</webappDirectory>
+        </configuration>
+      </plugin>
+
     </plugins>
 
     <pluginManagement>
@@ -151,7 +160,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
+                    <ignore />
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -175,49 +184,12 @@
       <version>${gwt.version}</version>
     </dependency>
 
-    <!-- Google App Engine -->
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-1.0-sdk</artifactId>
-      <version>${appengine.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-endpoints</artifactId>
-      <version>${appengine.version}</version>
-    </dependency>
+    <!-- Server -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
+      <version>3.0-alpha-1</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-      <version>1</version>
-    </dependency>
-
-    <!-- DI Guice -->
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-servlet</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-assistedinject</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-persist</artifactId>
-      <version>${guice.version}</version>
     </dependency>
 
     <!-- Testing -->
@@ -225,24 +197,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>2.0.2-beta</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-testing</artifactId>
-      <version>${appengine.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-stubs</artifactId>
-      <version>${appengine.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

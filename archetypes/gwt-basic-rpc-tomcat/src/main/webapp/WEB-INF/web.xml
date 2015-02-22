@@ -4,7 +4,7 @@
   xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   version="2.5">
-  <display-name>gwt-basic-rpc-appengine</display-name>
+  <display-name>gwt-basic-rpc-tomcat</display-name>
 
   <welcome-file-list>
     <welcome-file>Project.html</welcome-file>
