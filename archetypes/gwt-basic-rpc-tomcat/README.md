@@ -1,6 +1,11 @@
 #GWT Basic with RPC using Tomcat
 This is a very basic GWT archetype and has a simple RPC setup using Tomcat
 
+##Videos
+
+* [Installing Tomcat Runtime Server](https://www.youtube.com/watch?v=6w87lVYT-MM&list=PLBbgqtDgdc_THrws_LhHs84ARxy7pUhkv)
+* [Super Dev Mode debugging with GWT and the Tomcat Rumtime Server](https://www.youtube.com/watch?v=w9270Yqt-5I&list=PLBbgqtDgdc_THrws_LhHs84ARxy7pUhkv&index=2)
+
 ##Highlights
 
 * [web.xml](src/main/webapp/WEB-INF/web.xml)
