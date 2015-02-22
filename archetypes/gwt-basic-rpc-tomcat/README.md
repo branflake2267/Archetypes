@@ -27,7 +27,7 @@ mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 
 ##Running
 1. `mvn clean install`
-2. `TODO` - start web server
+2. `mvn tomcat7:start` - start web server
 3. `mvn gwt:run-codeserver` - starg gwt code server
 4. goto http://localhost:8080 
-5. `TODO` - stop web server
+5. `mvn tomcat7:stop` - stop web server
