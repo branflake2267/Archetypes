@@ -15,10 +15,10 @@
 
   <!-- Running with Maven -->
   <!-- mvn clean install -->
-  <!-- mvn tomcat7:start - start web server -->
+  <!-- mvn tomcat7:run - start web server -->
   <!-- mvn gwt:run-codeserver - start gwt code server -->
   <!-- goto http://localhost:8080 -->
-  <!-- mvn tomcat7:stop - stop web server -->
+  <!-- mvn tomcat7:shutdown - stop web server -->
 
   <properties>
     <!-- GWT -->
