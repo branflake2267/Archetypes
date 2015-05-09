@@ -13,7 +13,7 @@ public class RunArchetypesGenerator {
 
   private void run() {
     List<String> projects = new ArrayList<String>();
-    // projects.add("gwt-basic");
+     projects.add("gwt-basic");
     // projects.add("gwt-basic-snapshot");
     // projects.add("gwt-basic-beta");
 
@@ -31,7 +31,7 @@ public class RunArchetypesGenerator {
     // projects.add("appengine-endpoints-guice-jdo");
     // projects.add("gwt-basic-rpc-appengine");
     // projects.add("gwt-basic-rpc-appengine-guice");
-    projects.add("gwt-basic-rpc-tomcat");
+//    projects.add("gwt-basic-rpc-tomcat");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
