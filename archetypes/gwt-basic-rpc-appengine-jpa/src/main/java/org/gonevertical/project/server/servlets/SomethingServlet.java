@@ -1,13 +1,13 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.server.servlets;
+package org.gonevertical.project.server.servlets;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.gonevertical.project.server.endpoints.TodoEndpoint;
+import org.gonevertical.project.shared.domain.Todo;
 
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -26,11 +26,13 @@ public class SomethingServlet extends HttpServlet {
     response.setContentType("text/html");
     if (request.getUserPrincipal() != null) {
       response.getWriter().println(
-          "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=${symbol_escape}""
-              + userService.createLogoutURL(thisURL) + "${symbol_escape}">sign out</a>.</p>");
+          "<p>Hello, " + request.getUserPrincipal().getName() + "!  You can <a href=\""
+              + userService.createLogoutURL(thisURL) + "\">sign out</a>.</p>");
     } else {
-      response.getWriter().println("<p>Please <a href=${symbol_escape}"" + userService.createLoginURL(thisURL) + "${symbol_escape}">sign in</a>.</p>");
+      response.getWriter().println("<p>Please <a href=\"" + userService.createLoginURL(thisURL) + "\">sign in</a>.</p>");
     }
+    
+    new TodoEndpoint().insertTodo(new Todo());
   }
 
 }

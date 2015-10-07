@@ -8,8 +8,8 @@
     <fileSet encoding="UTF-8" filtered="true" packaged="true">
       <directory>src/main/java</directory>
       <includes>
-        <include>**/*.xml</include>
         <include>**/*.java</include>
+        <include>**/*.xml</include>
       </includes>
       <excludes>
         <exclude>META-INF/persistence.xml</exclude>
@@ -32,6 +32,7 @@
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.css</include>
+        <include>**/*.MF</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8" filtered="true" packaged="true">

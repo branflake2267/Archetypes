@@ -4,40 +4,54 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.branflake2267.archetypes</groupId>
-  <artifactId>appengine-endpoints-guice-jpa</artifactId>
+  <artifactId>gwt-basic-rpc-appengine-jpa</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>appengine-endpoints-guice-jpa</name>
-  <description>App Engine Endpoints with JPA ORM</description>
+  <name>gwt-basic-rpc-appengine-jpa</name>
+  <description>GWT with RPC using App Engine and JPA persistence</description>
 
   <!-- App Engine Goals -->
   <!-- mvn help:describe -Dplugin=appengine -->
-  
+
   <!-- Running with Maven -->
   <!-- mvn clean install -->
   <!-- mvn appengine:devserver_start - start web server -->
+  <!-- mvn gwt:run-codeserver - start gwt code server -->
+  <!-- goto http://localhost:8080 -->
   <!-- mvn appengine:devserver_stop - stop web server -->
 
   <properties>
-    <appengine.app.version>1</appengine.app.version>
-    <appengine.version>1.9.21</appengine.version>
+    <!-- GWT -->
+    <gwt.version>2.7.0</gwt.version>
+    <gwt.style>OBF</gwt.style>
 
+    <!-- App Engine -->
+    <appengine.version>1.9.21</appengine.version>
     <datanucleus.version>3.1.1</datanucleus.version>
+
+    <!-- Maven -->
     <guice.version>4.0-beta5</guice.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
   </properties>
 
   <build>
     <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.1</version>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
 
@@ -56,23 +70,47 @@
         </executions>
       </plugin>
 
+      <!-- Ignore GWTTestCases when running JUnit Runner -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.4</version>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18</version>
         <configuration>
-          <webXml>${project.build.directory}/generated-sources/appengine-endpoints/WEB-INF/web.xml</webXml>
-          <webResources>
-            <resource>
-              <!-- this is relative to the pom.xml directory -->
-              <directory>${project.build.directory}/generated-sources/appengine-endpoints</directory>
-              <!-- the list has a default value of ** -->
-              <includes>
-                <include>WEB-INF/*.discovery</include>
-                <include>WEB-INF/*.api</include>
-              </includes>
-            </resource>
-          </webResources>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*GwtTest.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <!-- GWT -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwt.version}</version>
+        <configuration>
+          <strict>true</strict>
+
+          <testTimeOut>180</testTimeOut>
+          <mode>htmlunit</mode>
+          <!-- Switch to a suite to run tests faster -->
+          <!-- <includes>**/*GwtTestSuite.java</includes> -->
+          <!-- <excludes>**/*GwtTest.java</excludes> -->
+          <includes>**/*GwtTest.java</includes>
+
+          <extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
+          <logLevel>INFO</logLevel>
+          <style>${gwt.style}</style>
+
+          <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
+          <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
+
+          <runTarget>Project.html</runTarget>
+          <modules>
+            <module>org.gonevertical.project.Project</module>
+          </modules>
         </configuration>
       </plugin>
 
@@ -98,7 +136,27 @@
           </execution>
         </executions>
       </plugin>
-
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <webXml>${project.build.directory}/generated-sources/appengine-endpoints/WEB-INF/web.xml</webXml>
+          <webResources>
+            <resource>
+              <!-- this is relative to the pom.xml directory -->
+              <directory>${project.build.directory}/generated-sources/appengine-endpoints</directory>
+              <!-- the list has a default value of ** -->
+              <includes>
+                <include>WEB-INF/*.discovery</include>
+                <include>WEB-INF/*.api</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+      
       <!-- Persistence Enhancer -->
       <plugin>
         <groupId>org.datanucleus</groupId>
@@ -139,21 +197,6 @@
               <pluginExecutions>
                 <pluginExecution>
                   <pluginExecutionFilter>
-                    <groupId>org.datanucleus</groupId>
-                    <artifactId>maven-datanucleus-plugin</artifactId>
-                    <versionRange>${datanucleus.version}</versionRange>
-                    <goals>
-                      <goal>enhance</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <execute>
-                      <runOnIncremental>false</runOnIncremental>
-                    </execute>
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <versionRange>[2.1,)</versionRange>
@@ -163,7 +206,38 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.datanucleus</groupId>
+                    <artifactId>maven-datanucleus-plugin</artifactId>
+                    <versionRange>${datanucleus.version}</versionRange>
+                    <goals>
+                      <goal>enhance</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>com.google.appengine</groupId>
+                    <artifactId>appengine-maven-plugin</artifactId>
+                    <versionRange>[${appengine.version},)</versionRange>
+                    <goals>
+                      <goal>endpoints_get_client_lib</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                      <runOnConfiguration>true</runOnConfiguration>
+                    </execute>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -175,7 +249,26 @@
   </build>
 
   <dependencies>
-    <!-- Compile/runtime -->
+    <!-- GWT -->
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-codeserver</artifactId>
+      <version>${gwt.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <version>${gwt.version}</version>
+    </dependency>
+
+    <!-- Google App Engine -->
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -199,7 +292,7 @@
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
-
+    
     <!-- Persistence -->
     <!-- Datanucleus Entities Enhancer -->
     <dependency>
@@ -228,33 +321,6 @@
       <groupId>org.apache.geronimo.specs</groupId>
       <artifactId>geronimo-jpa_2.0_spec</artifactId>
       <version>1.1</version>
-    </dependency>
-
-    <!-- DI Guice -->
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-      <version>1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-servlet</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-assistedinject</artifactId>
-      <version>${guice.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject.extensions</groupId>
-      <artifactId>guice-persist</artifactId>
-      <version>${guice.version}</version>
     </dependency>
 
     <!-- Testing -->

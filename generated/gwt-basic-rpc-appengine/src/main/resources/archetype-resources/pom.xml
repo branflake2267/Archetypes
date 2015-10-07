@@ -1,221 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>${groupId}</groupId>
-  <artifactId>${artifactId}</artifactId>
-  <packaging>war</packaging>
-  <version>${version}</version>
-  <name>gwt-basic-rpc-appengine</name>
-  <description>GWT with RPC using App Engine</description>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<packaging>war</packaging>
+	<version>${version}</version>
+	<name>gwt-basic-rpc-appengine</name>
+	<description>GWT with RPC using App Engine</description>
 
-  <!-- App Engine Goals -->
-  <!-- mvn help:describe -Dplugin=appengine -->
+	<!-- App Engine Goals -->
+	<!-- mvn help:describe -Dplugin=appengine -->
 
-  <!-- Running with Maven -->
-  <!-- mvn clean install -->
-  <!-- mvn appengine:devserver_start - start web server -->
-  <!-- mvn gwt:run-codeserver - start gwt code server -->
-  <!-- goto http://localhost:8080 -->
-  <!-- mvn appengine:devserver_stop - stop web server -->
+	<!-- Running with Maven -->
+	<!-- mvn clean install -->
+	<!-- mvn appengine:devserver_start - start web server -->
+	<!-- mvn gwt:run-codeserver - start gwt code server -->
+	<!-- goto http://localhost:8080 -->
+	<!-- mvn appengine:devserver_stop - stop web server -->
 
-  <properties>
-    <!-- GWT -->
-    <gwt.version>2.7.0</gwt.version>
-    <gwt.style>OBF</gwt.style>
+	<properties>
+		<!-- GWT -->
+		<gwt.version>2.7.0</gwt.version>
+		<gwt.style>OBF</gwt.style>
 
-    <!-- App Engine -->
-    <appengine.version>1.9.18</appengine.version>
+		<!-- App Engine -->
+		<appengine.version>1.9.20</appengine.version>
 
-    <!-- Maven -->
-    <guice.version>4.0-beta5</guice.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+		<!-- Maven -->
+		<guice.version>4.0-beta5</guice.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <build>
-    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+	<build>
+		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>2.1</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>display-dependency-updates</goal>
-              <goal>display-plugin-updates</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>display-dependency-updates</goal>
+							<goal>display-plugin-updates</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-      <!-- Ignore GWTTestCases when running JUnit Runner -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18</version>
-        <configuration>
-          <includes>
-            <include>**/*Test.java</include>
-          </includes>
-          <excludes>
-            <exclude>**/*GwtTest.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
+			<!-- Ignore GWTTestCases when running JUnit Runner -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/*GwtTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 
-      <!-- GWT -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>gwt-maven-plugin</artifactId>
-        <version>${gwt.version}</version>
-        <configuration>
-          <strict>true</strict>
+			<!-- GWT -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.version}</version>
+				<configuration>
+					<strict>true</strict>
 
-          <testTimeOut>180</testTimeOut>
-          <mode>htmlunit</mode>
-          <!-- Switch to a suite to run tests faster -->
-          <!-- <includes>**/*GwtTestSuite.java</includes> -->
-          <!-- <excludes>**/*GwtTest.java</excludes> -->
-          <includes>**/*GwtTest.java</includes>
+					<testTimeOut>180</testTimeOut>
+					<mode>htmlunit</mode>
+					<!-- Switch to a suite to run tests faster -->
+					<!-- <includes>**/*GwtTestSuite.java</includes> -->
+					<!-- <excludes>**/*GwtTest.java</excludes> -->
+					<includes>**/*GwtTest.java</includes>
 
-          <extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
-          <logLevel>INFO</logLevel>
-          <style>${gwt.style}</style>
+					<extraJvmArgs>-Xmx1G -XX:MaxPermSize=256M</extraJvmArgs>
+					<logLevel>INFO</logLevel>
+					<style>${gwt.style}</style>
 
-          <!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
-          <launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
+					<!-- mvn gwt:run-codeserver - won't have to use the bookmarklet -->
+					<launcherDir>${project.build.directory}/${project.build.finalName}</launcherDir>
 
-          <runTarget>${module}.html</runTarget>
-          <modules>
-            <module>${package}.${module}</module>
-          </modules>
-        </configuration>
-      </plugin>
+					<runTarget>${module}.html</runTarget>
+					<modules>
+						<module>${package}.${module}</module>
+					</modules>
+				</configuration>
+			</plugin>
 
-      <!-- appengine:devserver_start - start web server -->
-      <!-- appengine:devserver_stop - stop web server -->
-      <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${appengine.version}</version>
-        <configuration>
-          <enableJarClasses>false</enableJarClasses>
-          <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
-          <!-- <address>0.0.0.0</address> <port>8080</port> -->
-          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
-            or IntelliJ -->
-          <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
-        </configuration>
-      </plugin>
-    </plugins>
+			<!-- appengine:devserver_start - start web server -->
+			<!-- appengine:devserver_stop - stop web server -->
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>${appengine.version}</version>
+				<configuration>
+					<enableJarClasses>false</enableJarClasses>
+					<!-- Comment in the below snippet to bind to all IPs instead of just 
+						localhost -->
+					<!-- <address>0.0.0.0</address> <port>8080</port> -->
+					<!-- Comment in the below snippet to enable local debugging with a remove 
+						debugger like those included with Eclipse or IntelliJ -->
+					<!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
+				</configuration>
+			</plugin>
 
-    <pluginManagement>
-      <plugins>
-        <!-- Eclipse m2e Enhancing -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <versionRange>[2.1,)</versionRange>
-                    <goals>
-                      <goal>display-plugin-updates</goal>
-                      <goal>display-dependency-updates</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+			<!-- Unpack the the AppEngine java sdk into the m2 repo -->
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.google.appengine</groupId>
+									<artifactId>appengine-java-sdk</artifactId>
+									<version>${appengine.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${appengine.version}/appengine-java-sdk</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+		</plugins>
 
-  <dependencies>
-    <!-- GWT -->
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>${gwt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-codeserver</artifactId>
-      <version>${gwt.version}</version>
-    </dependency>
+		<pluginManagement>
+			<plugins>
+				<!-- Eclipse m2e Enhancing -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>versions-maven-plugin</artifactId>
+										<versionRange>[2.1,)</versionRange>
+										<goals>
+											<goal>display-plugin-updates</goal>
+											<goal>display-dependency-updates</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
-    <!-- Google App Engine -->
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-1.0-sdk</artifactId>
-      <version>${appengine.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-endpoints</artifactId>
-      <version>${appengine.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
-    </dependency>
+	<dependencies>
+		<!-- GWT -->
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-codeserver</artifactId>
+			<version>${gwt.version}</version>
+		</dependency>
 
-    <!-- Testing -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>2.0.2-beta</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-testing</artifactId>
-      <version>${appengine.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-stubs</artifactId>
-      <version>${appengine.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+		<!-- Google App Engine -->
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${appengine.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-endpoints</artifactId>
+			<version>${appengine.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-java-sdk</artifactId>
+			<version>${appengine.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>2.0.2-beta</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-testing</artifactId>
+			<version>${appengine.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-stubs</artifactId>
+			<version>${appengine.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

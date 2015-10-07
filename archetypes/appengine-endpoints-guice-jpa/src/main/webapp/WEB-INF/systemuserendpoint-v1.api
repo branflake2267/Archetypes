@@ -24,22 +24,17 @@
     "maxAge" : 0
   },
   "methods" : {
-    "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
-      "path" : "systemuser/{id}",
-      "httpMethod" : "GET",
+    "systemuserendpoint.systemUserEndpoint.insertSystemUser" : {
+      "path" : "systemuser",
+      "httpMethod" : "POST",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser",
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser",
       "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -61,17 +56,37 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "systemuserendpoint.systemUserEndpoint.insertSystemUser" : {
+    "systemuserendpoint.systemUserEndpoint.listSystemUser" : {
       "path" : "systemuser",
-      "httpMethod" : "POST",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser",
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
+      "path" : "systemuser/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -92,21 +107,6 @@
             "required" : true
           }
         },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "systemuserendpoint.systemUserEndpoint.listSystemUser" : {
-      "path" : "systemuser",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser",
-      "request" : {
         "body" : "empty"
       },
       "response" : {
@@ -148,14 +148,14 @@
           "name" : {
             "type" : "string"
           },
-          "complete" : {
-            "type" : "boolean"
+          "parent" : {
+            "$ref" : "Key"
           },
           "namespace" : {
             "type" : "string"
           },
-          "parent" : {
-            "$ref" : "Key"
+          "complete" : {
+            "type" : "boolean"
           }
         }
       },
@@ -173,7 +173,10 @@
       }
     },
     "methods" : {
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser" : {
+        "request" : {
+          "$ref" : "SystemUser"
+        },
         "response" : {
           "$ref" : "SystemUser"
         }
@@ -186,10 +189,12 @@
           "$ref" : "SystemUser"
         }
       },
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser" : {
-        "request" : {
-          "$ref" : "SystemUser"
-        },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser" : {
+        "response" : {
+          "$ref" : "SystemUserCollection"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
         "response" : {
           "$ref" : "SystemUser"
         }
@@ -197,11 +202,6 @@
       "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser" : {
         "response" : {
           "$ref" : "SystemUser"
-        }
-      },
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser" : {
-        "response" : {
-          "$ref" : "SystemUserCollection"
         }
       }
     }
