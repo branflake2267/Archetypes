@@ -13,5 +13,5 @@ public class ProjectEntryPoint implements EntryPoint {
   public void onModuleLoad() {
     RootPanel.get().add(new HTML("GWT App has loaded."));
   }
-  
+
 }

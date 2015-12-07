@@ -60,22 +60,6 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "todoendpoint.todoEndpoint.insertTodo" : {
-      "path" : "todo",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.TodoEndpoint.insertTodo",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "todoendpoint.todoEndpoint.updateTodo" : {
       "path" : "todo",
       "httpMethod" : "PUT",
@@ -84,6 +68,22 @@
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "org.gonevertical.server.endpoints.TodoEndpoint.updateTodo",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "todoendpoint.todoEndpoint.insertTodo" : {
+      "path" : "todo",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.TodoEndpoint.insertTodo",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -145,14 +145,14 @@
           "name" : {
             "type" : "string"
           },
-          "complete" : {
-            "type" : "boolean"
+          "parent" : {
+            "$ref" : "Key"
           },
           "namespace" : {
             "type" : "string"
           },
-          "parent" : {
-            "$ref" : "Key"
+          "complete" : {
+            "type" : "boolean"
           }
         }
       },
@@ -180,7 +180,7 @@
           "$ref" : "Todo"
         }
       },
-      "org.gonevertical.server.endpoints.TodoEndpoint.insertTodo" : {
+      "org.gonevertical.server.endpoints.TodoEndpoint.updateTodo" : {
         "request" : {
           "$ref" : "Todo"
         },
@@ -188,7 +188,7 @@
           "$ref" : "Todo"
         }
       },
-      "org.gonevertical.server.endpoints.TodoEndpoint.updateTodo" : {
+      "org.gonevertical.server.endpoints.TodoEndpoint.insertTodo" : {
         "request" : {
           "$ref" : "Todo"
         },

@@ -5,7 +5,6 @@ package ${package}.server.servlets;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import com.google.appengine.api.users.UserServiceFactory;
 @SuppressWarnings("serial")
 public class SomethingServlet extends HttpServlet {
 
-  @Inject
   public SomethingServlet() {
   }
 
