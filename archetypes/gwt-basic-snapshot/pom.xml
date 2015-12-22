@@ -12,7 +12,7 @@
 
   <properties>
     <!-- GWT -->
-    <gwt.version>2.7.0-SNAPSHOT</gwt.version>
+    <gwt.version>2.8.0-SNAPSHOT</gwt.version>
     <gwt.style>OBF</gwt.style>
 
     <!-- Maven -->
@@ -109,16 +109,6 @@
 
   <pluginRepositories>
     <!-- GWT plugin snapshot repo -->
-    <pluginRepository>
-      <id>codehaus-snapshots</id>
-      <url>https://nexus.codehaus.org/content/groups/snapshots-group/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
     <pluginRepository>
       <id>google-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
