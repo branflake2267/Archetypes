@@ -25,7 +25,7 @@ mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=gwt-basic-archetype \
--DarchetypeVersion=1.6-SNAPSHOT \
+-DarchetypeVersion=2.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \
 -Dmodule=Project
