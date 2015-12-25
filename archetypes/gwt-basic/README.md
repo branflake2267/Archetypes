@@ -26,7 +26,6 @@ mvn archetype:generate \
 -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=gwt-basic-archetype \
 -DarchetypeVersion=2.0-SNAPSHOT \
--DgroupId=com.projectname.project \
--DartifactId=new-project-name \
--Dmodule=Project
+-DgroupId=com.example.project \
+-DartifactId=new-project-name
 ```

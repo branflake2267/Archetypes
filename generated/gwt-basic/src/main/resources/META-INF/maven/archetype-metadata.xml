@@ -9,6 +9,11 @@
       <directory>src/main/java</directory>
       <includes>
         <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>src/main</directory>
+      <includes>
         <include>**/*.xml</include>
       </includes>
     </fileSet>
@@ -32,7 +37,6 @@
         <include>**/*.java</include>
       </includes>
     </fileSet>
-    
     
     
     
