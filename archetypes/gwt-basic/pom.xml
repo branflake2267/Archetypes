@@ -36,13 +36,15 @@
       <!-- GWT -->
       <!-- https://tbroyer.github.io/gwt-maven-plugin/usage.html -->
       <!-- http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22net.ltgt.gwt.maven%22%20AND%20a%3A%22gwt-maven-plugin%22 -->
+      <!-- Requires Java 1.7+ -->
       <plugin>
         <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
         <version>${gwt.maven.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <moduleName>org.gonevertical.project.Project</moduleName>
+          <!-- Eclipse will need the module to be named "module.gwt.xml" -->
+          <moduleName>org.gonevertical.project.module</moduleName>
           <moduleShortName>project</moduleShortName>
           <startupUrls>
             <startupUrl>Project.html</startupUrl>

@@ -318,6 +318,7 @@ public class GwtArchetypeGenerator {
 
   protected void findAndReplaceInFileTypes() { 
     regexFindAndReplaceFiles(".xml", "<module>.*\\.(.*)</module>", "<module>\\${package}.$1</module>"); // pom.xml
+    regexFindAndReplaceFiles(".xml", "<moduleName>.*\\.(.*)</moduleName>", "<moduleName>\\${package}.$1</moduleName>"); // pom.xml
     
     // This is done by the default generator
     // For some reason the ${package} is not getting replaced in the entrypoint
