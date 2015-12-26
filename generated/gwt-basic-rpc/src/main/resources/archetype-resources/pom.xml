@@ -1,119 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
-    <packaging>war</packaging>
-    <version>${version}</version>
-    <name>gwt-basic-rpc</name>
-    <description>Basic GWT maven setup with RPC.</description>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <packaging>gwt-app</packaging>
+  <version>${version}</version>
 
-    <properties>
-        <!-- GWT -->
-        <gwt.version>2.6.1</gwt.version>
-        <gwt.style>OBF</gwt.style>
+  <name>${artifactId}</name>
+  <description>Basic GWT maven setup with RPC.</description>
 
-        <!-- Maven -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-    </properties>
+  <properties>
+    <!-- GWT -->
+    <gwt.version>2.8.0-beta1</gwt.version>
+    <gwt.maven.plugin.version>1.0-rc-5</gwt.maven.plugin.version>
 
-    <build>
-        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+    <!-- Maven -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
+    <!-- WebApp/War Output Directory -->
+    <webappDirectory>${project.build.directory}/webapp</webappDirectory>
+  </properties>
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
+  <build>
+    <!-- Compiled Classes -->
+    <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
-            <!-- Skips the GWTTestCases during Junit Testing -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*GwtTest.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+    <plugins>
+      <!-- Java -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
 
-            <!-- GWT -->
-            <!-- 'mvn gwt:run' -->
-            <!-- 'mvn gwt:debug' -->
-            <!-- 'mvn gwt:compile' -->
-            <!-- 'mvn gwt:test' or 'mvn integration-test' -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <version>${gwt.version}</version>
-                <configuration>
-                    <strict>true</strict>
+      <!-- GWT -->
+      <!-- https://tbroyer.github.io/gwt-maven-plugin/usage.html -->
+      <!-- http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22net.ltgt.gwt.maven%22%20AND%20a%3A%22gwt-maven-plugin%22 -->
+      <!-- Requires Java 1.7+ -->
+      <!-- run: mvn gwt:devmode -->
+      <plugin>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwt.maven.plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <!-- Eclipse will work with module naming in the gwt-app config only -->
+          <moduleName>${package}.module</moduleName>
+          <moduleShortName>module</moduleShortName>
+          <webappDirectory>${webappDirectory}</webappDirectory>
+          <startupUrls>
+            <startupUrl>${module}.html</startupUrl>
+          </startupUrls>
+        </configuration>
+      </plugin>
 
-                    <testTimeOut>180</testTimeOut>
-                    <mode>htmlunit</mode>
-                    <!-- Switch to a suite to run tests faster -->
-                    <!-- <includes>**/*GwtTestSuite.java</includes> -->
-                    <!-- <excludes>**/*GwtTest.java</excludes> -->
-                    <includes>**/*GwtTest.java</includes>
+      <!-- WebApp/War -->
+      <!-- run: mvn clean package -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <webappDirectory>${webappDirectory}</webappDirectory>
+          <warName>webapp</warName>
+        </configuration>
+        <executions>
+          <execution>
+            <id>package-webapp</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exploded</goal>
+              <goal>war</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
-                    <extraJvmArgs>-Xss1024K -Xmx1024M -XX:MaxPermSize=256M</extraJvmArgs>
-                    <logLevel>INFO</logLevel>
-                    <style>${gwt.style}</style>
-
-                    <copyWebapp>true</copyWebapp>
-                    <hostedWebapp>${webappDirectory}</hostedWebapp>
-
-                    <runTarget>${module}.html</runTarget>
-                    <module>${package}.${module}</module>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
+  <!-- GWT BOM -->
+  <dependencyManagement>
     <dependencies>
-        <!-- GWT -->
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-codeserver</artifactId>
-            <version>${gwt.version}</version>
-        </dependency>
-
-        <!-- Testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt</artifactId>
+        <version>${gwt.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- GWT -->
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-codeserver</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+    </dependency>
+
+    <!-- Testing -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
 </project>
