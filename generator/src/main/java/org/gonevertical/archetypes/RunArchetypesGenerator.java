@@ -13,11 +13,13 @@ public class RunArchetypesGenerator {
 
   private void run() {
     List<String> projects = new ArrayList<String>();
-    projects.add("gwt-basic");
+    // Testing
     // projects.add("gwt-basic-snapshot");
     // projects.add("gwt-basic-beta");
 
-    // projects.add("gwt-basic-rpc");
+    projects.add("gwt-basic"); // Upgraded
+    projects.add("gwt-basic-rpc"); // Upgraded
+
     // projects.add("gwt-basic-rpc-appengine-guice");
     // projects.add("gwt-basic-requestfactory");
     // projects.add("gwt-activitiesandplaces-requestfactory");

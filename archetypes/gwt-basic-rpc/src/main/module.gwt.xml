@@ -1,10 +1,6 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.0//EN"
-  "http://google-web-toolkit.googlecode.com/svn/tags/2.5.0/distro-source/core/src/gwt-module.dtd">
-<module rename-to='${module}'>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD GWT 2.7.0//EN" "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
+<module rename-to='project'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User'/>
 
@@ -17,13 +13,13 @@
   <!-- Other module inherits                                      -->
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='${package}.client.${module}EntryPoint'/>
+  <entry-point class='org.gonevertical.project.client.ProjectEntryPoint'/>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
   <source path='shared'/>
 
-  <add-linker name="xsiframe"/>
-  <!-- <set-configuration-property name="devModeRedirectEnabled" value="true"/> -->
+  <!-- CSS Resource Style options: obf,pretty,... -->
+  <set-configuration-property name="CssResource.style" value="obf" />
 
 </module>
