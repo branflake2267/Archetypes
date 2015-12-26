@@ -49,7 +49,7 @@
         <version>${gwt.maven.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <!-- Eclipse will work with .module only -->
+          <!-- Eclipse will work with module naming in the gwt-app config only -->
           <moduleName>org.gonevertical.project.module</moduleName>
           <moduleShortName>module</moduleShortName>
           <webappDirectory>${webappDirectory}</webappDirectory>
