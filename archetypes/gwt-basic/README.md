@@ -20,12 +20,24 @@ This is a very basic GWT archetype.
 
 * This project Project.gwt.xml module name is hard coded and will will not be changed from the parameters below at this time.
 
+## *nix
 ```
 mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=gwt-basic-archetype \
 -DarchetypeVersion=2.0-SNAPSHOT \
--DgroupId=com.example.project \
--DartifactId=new-project-name
+-DgroupId=com.example.project.ChangeMe \
+-DartifactId=new-project-name-ChangeMe
+```
+
+## *Windows
+```
+mvn archetype:generate ^
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots ^
+-DarchetypeGroupId=com.github.branflake2267.archetypes ^
+-DarchetypeArtifactId=gwt-basic-archetype ^
+-DarchetypeVersion=2.0-SNAPSHOT ^
+-DgroupId=com.example.project.ChangeMe ^
+-DartifactId=new-project-name-ChangeMe
 ```
