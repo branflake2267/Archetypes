@@ -17,7 +17,7 @@
   <!-- Running with Maven -->
   <!-- mvn clean install -->
   <!-- mvn appengine:devserver_start - start web server -->
-  <!-- mvn gwt:run-codeserver - start gwt code server -->
+  <!-- mvn gwt:codeserver - start gwt code server -->
   <!-- goto http://localhost:8080 -->
   <!-- mvn appengine:devserver_stop - stop web server -->
 
