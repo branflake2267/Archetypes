@@ -15,43 +15,28 @@
 
   <properties>
     <!-- App Engine -->
-    <appengine.version>1.9.18</appengine.version>
+    <appengine.version>1.9.30</appengine.version>
 
     <guice.version>4.0-beta5</guice.version>
 
     <!-- Maven -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
   </properties>
 
   <build>
-    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+    <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.3</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
           <encoding>UTF-8</encoding>
         </configuration>
-      </plugin>
-
-      <!-- Display possible version updates in output -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>2.1</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>display-dependency-updates</goal>
-              <goal>display-plugin-updates</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
       <!-- appengine:devserver_start - start web server -->
@@ -100,6 +85,14 @@
       <groupId>javax.inject</groupId>
       <artifactId>javax.inject</artifactId>
       <version>1</version>
+    </dependency>
+    
+    <!-- IDE -->
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-java-sdk</artifactId>
+      <version>${appengine.version}</version>
+      <type>zip</type>
     </dependency>
 
     <!-- DI Guice -->

@@ -20,19 +20,29 @@ This is a very basic GWT archetype and has a simple RPC setup using App Engine.
 5. Run the mvn archetype generator below.
 
 
+#3 *Nix
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeArtifactId=gwt-basic-rpc-appengine-archetype \
--DarchetypeVersion=1.0-SNAPSHOT \
+-DarchetypeVersion=2.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
--DartifactId=new-project-name \
--Dmodule=Project
+-DartifactId=new-project-name
+```
+
+## *Windows
+```
+mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes ^
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots ^
+-DarchetypeArtifactId=gwt-basic-rpc-appengine-archetype ^
+-DarchetypeVersion=2.0-SNAPSHOT ^
+-DgroupId=com.projectname.project.ChangeMe ^
+-DartifactId=new-project-name-ChangeMe
 ```
 
 ##Running
 1. `mvn clean install`
 2. `mvn appengine:devserver_start` - start the web server
-3. `mvn gwt:run-codeserver` - start the GWT SDM code server
+3. `mvn gwt:codeserver` - start the GWT SDM code server
 4. goto http://localhost:8080 
 5. `mvn appengine:devserver_stop` - stop the web server
