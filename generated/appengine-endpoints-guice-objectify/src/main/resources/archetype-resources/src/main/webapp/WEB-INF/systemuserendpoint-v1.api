@@ -92,6 +92,16 @@
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser",
       "request" : {
+        "parameters" : {
+          "offset" : {
+            "type" : "int32",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
         "body" : "empty"
       },
       "response" : {

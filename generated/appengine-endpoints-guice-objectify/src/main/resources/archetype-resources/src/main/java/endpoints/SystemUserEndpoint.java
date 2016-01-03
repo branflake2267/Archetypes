@@ -1,4 +1,7 @@
-package org.gonevertical.server.endpoints;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.endpoints;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -7,8 +10,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.gonevertical.server.entities.SystemUser;
-import org.gonevertical.server.entities.Todo;
+import ${package}.entities.SystemUser;
+import ${package}.entities.Todo;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.Nullable;

@@ -19,14 +19,27 @@ This is a simple App Engine application with Maven, Guice, Objectify, and Datanu
 3. Rename parameter `new-project-name` to a project title you like.
 4. Run the mvn archetype generator.
 
+* *Nix
+
 ```
 mvn archetype:generate \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
 -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeArtifactId=appengine-endpoints-guice-objectify-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
--DgroupId=com.projectname.project \
--DartifactId=new-project-name
+-DgroupId=com.projectname.project.ChangeMe \
+-DartifactId=new-project-name-ChangeMe
+```
+
+* *Windows
+```
+mvn archetype:generate ^
+-DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots ^
+-DarchetypeGroupId=com.github.branflake2267.archetypes ^
+-DarchetypeArtifactId=appengine-endpoints-guice-objectify-archetype ^
+-DarchetypeVersion=1.0-SNAPSHOT ^
+-DgroupId=com.projectname.project.ChangeMe ^
+-DartifactId=new-project-name-ChangeMe
 ```
 
 ###IDE Import

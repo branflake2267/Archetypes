@@ -18,9 +18,12 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-beta");
 
     // Upgraded
-    projects.add("gwt-basic"); // Upgraded
-    projects.add("gwt-basic-rpc"); // Upgraded
+    //projects.add("gwt-basic"); // Upgraded
+    //projects.add("gwt-basic-rpc"); // Upgraded
 
+    // new
+    projects.add("appengine-endpoints-guice-objectify");
+    
     // projects.add("gwt-basic-rpc-appengine-guice");
     // projects.add("gwt-basic-requestfactory");
     // projects.add("gwt-activitiesandplaces-requestfactory");

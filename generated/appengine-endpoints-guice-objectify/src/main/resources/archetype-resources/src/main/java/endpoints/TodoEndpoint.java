@@ -1,31 +1,33 @@
-package org.gonevertical.server.endpoints;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.endpoints;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import org.gonevertical.server.entities.SystemUser;
-import org.gonevertical.server.entities.Todo;
+import ${package}.entities.Todo;
 
 import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.Nullable;
 
 /**
- * Represent a user in the applications system.
+ * Entity to store simple Todos.
  * 
  * Testing <br/>
- * Goto: http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+ * Goto: http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
  * curl --header "Content-Type: application/json"
- * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+ * http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
  */
-@Api(name = "systemuserendpoint")
-public class SystemUserEndpoint {
+@Api(name = "todoendpoint")
+public class TodoEndpoint {
 
   @Inject
-  public SystemUserEndpoint() {
+  public TodoEndpoint() {
   }
 
   /**
@@ -33,22 +35,22 @@ public class SystemUserEndpoint {
    * method.
    *
    * Testing <br/>
-   * Goto: http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+   * Goto: http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
    * curl --header "Content-Type: application/json"
-   * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
-   * 
+   * http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
+   *
    * @return List of all entities persisted.
    */
-  public List<SystemUser> listSystemUser(@Named("offset") @Nullable Integer offset, @Nullable @Named("limit") Integer limit) {
+  public List<Todo> listTodos(@Named("offset") @Nullable Integer offset, @Nullable @Named("limit") Integer limit) {
     if (offset == null) {
       offset = 0;
     }
     if (limit == null) {
       limit = 10;
     }
-    
-    List<SystemUser> list = ofy().load().type(SystemUser.class).list();
-    
+
+    List<Todo> list = ofy().load().type(Todo.class).offset(offset).limit(limit).list();
+
     return list;
   }
 
@@ -59,9 +61,9 @@ public class SystemUserEndpoint {
    *          the primary key of the java bean.
    * @return The entity with primary key id.
    */
-  public SystemUser getSystemUser(@Named("id") Long id) {
-    SystemUser item = ofy().load().type(SystemUser.class).id(id).now();
-    
+  public Todo getTodo(@Named("id") Long id) {
+    Todo item = ofy().load().type(Todo.class).id(id).now();
+
     return item;
   }
 
@@ -70,29 +72,28 @@ public class SystemUserEndpoint {
    * method.
    *
    * Testing <br/>
-   * curl --header "Content-Type: application/json" -X POST -d '{"name":
-   * "Brandon Donnelson"}'
-   * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+   * curl --header "Content-Type: application/json" -X POST -d '{"task":
+   * "Testing 1 2 3?"}' http://localhost:8888/_ah/api/todoendpoint/v1/todo <br/>
    *
-   * @param systemUser
+   * @param todo
    *          the entity to be inserted.
    * @return The inserted entity.
    */
-  public SystemUser insertSystemUser(SystemUser systemUser) {
-    ofy().save().entity(systemUser).now();
-    return systemUser;
+  public Todo insertTodo(Todo todo) {
+    ofy().save().entity(todo).now();
+    return todo;
   }
 
   /**
    * This method is used for updating a entity. It uses HTTP PUT method.
    *
-   * @param systemUser
+   * @param todo
    *          the entity to be updated.
    * @return The updated entity.
    */
-  public SystemUser updateSystemUser(SystemUser systemUser) {
-    ofy().save().entity(systemUser).now();
-    return systemUser;
+  public Todo updateTodo(Todo todo) {
+    ofy().save().entity(todo).now();
+    return todo;
   }
 
   /**
@@ -103,7 +104,7 @@ public class SystemUserEndpoint {
    *          the primary key of the entity to be deleted.
    * @return The deleted entity.
    */
-  public void removeSystemUser(@Named("id") Long id) {
+  public void removeTodo(@Named("id") Long id) {
     ofy().delete().type(Todo.class).id(id).now();
   }
 
