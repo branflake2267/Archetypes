@@ -1,7 +1,4 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package};
+package org.gonevertical.server;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import ${package}.entities.Todo;
+import org.gonevertical.server.entities.Todo;
 import org.junit.Test;
 
 import com.jayway.restassured.RestAssured;
@@ -18,7 +15,7 @@ import com.jayway.restassured.http.ContentType;
 /**
  * First start the server then run debug on the test. 
  */
-public class TodoEndpointTest {
+public class TodoEndpointIntTest {
 
   private String endpointUrl = "http://localhost:8080/_ah/api/todoendpoint/v1/todo";
 

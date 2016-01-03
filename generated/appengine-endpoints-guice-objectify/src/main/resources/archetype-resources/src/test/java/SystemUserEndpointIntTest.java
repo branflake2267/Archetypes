@@ -1,4 +1,7 @@
-package org.gonevertical.server;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package};
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,8 +9,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.gonevertical.server.entities.SystemUser;
-import org.gonevertical.server.entities.Todo;
+import ${package}.entities.SystemUser;
+import ${package}.entities.Todo;
 import org.junit.Test;
 
 import com.jayway.restassured.RestAssured;
@@ -16,7 +19,7 @@ import com.jayway.restassured.http.ContentType;
 /**
  * First start the server then run debug on the test. 
  */
-public class SystemUserEndpointTest {
+public class SystemUserEndpointIntTest {
 
   private String endpointUrl = "http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser";
 
