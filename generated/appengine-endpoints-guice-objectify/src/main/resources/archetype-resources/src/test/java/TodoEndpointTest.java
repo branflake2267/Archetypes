@@ -20,23 +20,23 @@ import com.jayway.restassured.http.ContentType;
  */
 public class TodoEndpointTest {
 
-  private String endpointUrl = "http://localhost:8888/_ah/api/todoendpoint/v1/todo";
+  private String endpointUrl = "http://localhost:8080/_ah/api/todoendpoint/v1/todo";
 
   @Test
   public void testInsert() {
-    Todo todo = new Todo();
-    todo.setName("Brandon");
+    Todo item = new Todo();
+    item.setName("Brandon");
 
-    Todo newTodo = RestAssured.given().contentType(ContentType.JSON).and().content(todo).expect().statusCode(200).when()
+    Todo newTodo = RestAssured.given().contentType(ContentType.JSON).and().content(item).expect().statusCode(200).when()
         .post(endpointUrl).as(Todo.class);
 
     assertNotNull(newTodo.getId() != null && newTodo.getId() > 0);
-    assertEquals(todo.getName(), "Brandon");
+    assertEquals(item.getName(), "Brandon");
   }
 
   @Test
   public void testList() {
-    createMultipleTodos(20);
+    createMultipleItems(20);
 
     List<Todo> items = RestAssured.given().param("offset", "10").and().param("limit", "10").expect().when()
         .get(endpointUrl).jsonPath().getList("items");
@@ -44,7 +44,7 @@ public class TodoEndpointTest {
     assertTrue(items.size() > 0);
   }
 
-  private void createMultipleTodos(int howMany) {
+  private void createMultipleItems(int howMany) {
     for (int i = 0; i < howMany; i++) {
       Todo item = new Todo();
       item.setName("" + i);

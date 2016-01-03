@@ -27,7 +27,7 @@
 		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
 		<init-param>
 			<param-name>services</param-name>
-			<param-value/>
+			<param-value>org.gonevertical.server.endpoints.SystemUserEndpoint,org.gonevertical.server.endpoints.TodoEndpoint</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
