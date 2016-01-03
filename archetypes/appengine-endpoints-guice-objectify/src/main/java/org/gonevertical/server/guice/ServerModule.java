@@ -1,9 +1,9 @@
 package org.gonevertical.server.guice;
 
 import org.gonevertical.server.endpoints.config.ServletsPathForEndpointClassesModule;
-import org.gonevertical.server.endpoints.config.EndpointsModule;
+import org.gonevertical.server.endpoints.config.RegisterEndpointsModule;
 import org.gonevertical.server.entities.config.RegisterObjectifyDataModule;
-import org.gonevertical.server.servlets.config.ServletsModule;
+import org.gonevertical.server.servlets.config.RegisterServletsModule;
 import org.gonevertical.server.servlets.config.ServletsPathModule;
 
 import com.google.appengine.api.users.User;
@@ -22,8 +22,8 @@ public class ServerModule extends AbstractModule {
   protected void configure() {
     install(new ServletsPathForEndpointClassesModule());
     install(new ServletsPathModule());
-    install(new ServletsModule());
-    install(new EndpointsModule());
+    install(new RegisterServletsModule());
+    install(new RegisterEndpointsModule());
     install(new RegisterObjectifyDataModule());
   }
 

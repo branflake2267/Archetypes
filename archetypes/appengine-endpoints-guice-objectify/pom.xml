@@ -85,10 +85,10 @@
     <dependency>
       <groupId>com.googlecode.objectify</groupId>
       <artifactId>objectify</artifactId>
-      <version>[5.0.0,)</version>
+      <version>[5.1.9,)</version>
     </dependency>
 
-    <!-- Compile/runtime -->
+    <!-- Compile/Runtime -->
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -111,7 +111,7 @@
       <version>1</version>
     </dependency>
 
-    <!-- DI Guice -->
+    <!-- Guice DI -->
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
@@ -159,7 +159,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Rest Testing -->
+    <!-- Testing Rest -->
     <!-- https://github.com/jayway/rest-assured -->
     <dependency>
       <groupId>com.jayway.restassured</groupId>

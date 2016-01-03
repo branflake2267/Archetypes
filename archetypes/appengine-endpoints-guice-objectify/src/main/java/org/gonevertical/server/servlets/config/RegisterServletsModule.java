@@ -8,7 +8,7 @@ import com.google.inject.Singleton;
 /**
  * bind servlets in singleton here
  */
-public class ServletsModule extends AbstractModule {
+public class RegisterServletsModule extends AbstractModule {
 
   /**
    * Bind the servlets to be used in the application here.

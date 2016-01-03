@@ -87,6 +87,16 @@
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "org.gonevertical.server.endpoints.TodoEndpoint.listTodos",
       "request" : {
+        "parameters" : {
+          "offset" : {
+            "type" : "int32",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
         "body" : "empty"
       },
       "response" : {

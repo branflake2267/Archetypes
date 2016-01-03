@@ -5,11 +5,12 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.gonevertical.server.entities.Todo;
 
 import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.Named;
+import com.google.api.server.spi.config.Nullable;
 
 /**
  * Entity to store simple Todos.
@@ -37,9 +38,15 @@ public class TodoEndpoint {
    *
    * @return List of all entities persisted.
    */
-  @SuppressWarnings({ "cast", "unchecked" })
-  public List<Todo> listTodos() {
-    List<Todo> list = ofy().load().type(Todo.class).list();
+  public List<Todo> listTodos(@Named("offset") @Nullable Integer offset, @Nullable @Named("limit") Integer limit) {
+    if (offset == null) {
+      offset = 0;
+    }
+    if (limit == null) {
+      limit = 10;
+    }
+
+    List<Todo> list = ofy().load().type(Todo.class).offset(offset).limit(limit).list();
 
     return list;
   }

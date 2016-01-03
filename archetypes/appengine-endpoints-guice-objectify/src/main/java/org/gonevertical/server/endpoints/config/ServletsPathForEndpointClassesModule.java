@@ -16,7 +16,7 @@ public class ServletsPathForEndpointClassesModule extends GuiceSystemServiceServ
   public void configureServlets() {
     super.configureServlets();
 
-    Class<?> endpointsModule = EndpointsModule.class;
+    Class<?> endpointsModule = RegisterEndpointsModule.class;
     Class<?> servletsPathForEndpointClassesModule = ServletsPathForEndpointClassesModule.class;
 
     List<Class<?>> endpointClasses = ClassFinder.find("org.gonevertical.server.endpoints");

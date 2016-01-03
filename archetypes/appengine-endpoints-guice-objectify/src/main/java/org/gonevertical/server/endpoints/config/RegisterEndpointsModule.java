@@ -9,7 +9,7 @@ import com.google.inject.Singleton;
 /**
  * bind DAOs here
  */
-public class EndpointsModule extends AbstractModule {
+public class RegisterEndpointsModule extends AbstractModule {
 
   @Override
   protected void configure() {

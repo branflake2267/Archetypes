@@ -15,9 +15,9 @@ import com.jayway.restassured.http.ContentType;
 /**
  * First start the server then run debug on the test. 
  */
-public class TodoEndpointTest {
+public class SystemUserEndpointTest {
 
-  private String endpointUrl = "http://localhost:8888/_ah/api/todoendpoint/v1/todo";
+  private String endpointUrl = "http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser";
 
   @Test
   public void testInsert() {
