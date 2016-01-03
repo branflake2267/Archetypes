@@ -16,7 +16,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RpcServlet</servlet-name>
-    <url-pattern>/project/rpcService</url-pattern>
+    <url-pattern>/module/rpcService</url-pattern>
   </servlet-mapping>
 
   <servlet>
