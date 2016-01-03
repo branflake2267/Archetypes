@@ -3,6 +3,7 @@ package org.gonevertical.server.servlets.config;
 import org.gonevertical.server.servlets.HomeServlet;
 
 import com.google.inject.servlet.ServletModule;
+import com.googlecode.objectify.ObjectifyFilter;
 
 /**
  * This starts in web.xml. All requests are intercepted and sent here.
@@ -19,6 +20,8 @@ public class ServletsPathModule extends ServletModule {
 
     // ignore _ah (http://localhost:8888/_ah/*)
     serveRegex("^/(?!_ah.*)home").with(HomeServlet.class);
+    
+    filter("/*").through(ObjectifyFilter.class);
   }
 
 }

@@ -2,11 +2,13 @@ package org.gonevertical.server.entities;
 
 import java.io.Serializable;
 
+import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 /**
  * Represents a Person/User, which may have a linked Google Account.
  */
+@Entity
 public class SystemUser implements Serializable {
 
   @Id

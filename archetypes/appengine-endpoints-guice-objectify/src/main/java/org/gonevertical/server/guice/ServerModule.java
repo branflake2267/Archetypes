@@ -1,5 +1,6 @@
 package org.gonevertical.server.guice;
 
+import org.gonevertical.server.endpoints.config.ServletsPathForEndpointClassesModule;
 import org.gonevertical.server.endpoints.config.EndpointsModule;
 import org.gonevertical.server.entities.config.RegisterObjectifyDataModule;
 import org.gonevertical.server.servlets.config.ServletsModule;
@@ -19,7 +20,7 @@ public class ServerModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    install(new RegisterEndpointClassesModule());
+    install(new ServletsPathForEndpointClassesModule());
     install(new ServletsPathModule());
     install(new ServletsModule());
     install(new EndpointsModule());
