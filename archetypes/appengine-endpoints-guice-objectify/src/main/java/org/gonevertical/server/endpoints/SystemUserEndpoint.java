@@ -17,9 +17,9 @@ import com.google.api.server.spi.config.Nullable;
  * Represent a user in the applications system.
  * 
  * Testing <br/>
- * Goto: http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+ * Goto: http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser <br/>
  * curl --header "Content-Type: application/json"
- * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+ * http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser <br/>
  */
 @Api(name = "systemuserendpoint")
 public class SystemUserEndpoint {
@@ -33,9 +33,9 @@ public class SystemUserEndpoint {
    * method.
    *
    * Testing <br/>
-   * Goto: http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+   * Goto: http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser <br/>
    * curl --header "Content-Type: application/json"
-   * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+   * http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser <br/>
    * 
    * @return List of all entities persisted.
    */
@@ -72,7 +72,7 @@ public class SystemUserEndpoint {
    * Testing <br/>
    * curl --header "Content-Type: application/json" -X POST -d '{"name":
    * "Brandon Donnelson"}'
-   * http://localhost:8888/_ah/api/systemuserendpoint/v1/systemuser <br/>
+   * http://localhost:8080/_ah/api/systemuserendpoint/v1/systemuser <br/>
    *
    * @param systemUser
    *          the entity to be inserted.
