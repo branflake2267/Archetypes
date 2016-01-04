@@ -61,7 +61,7 @@
 	</tr>
 	<tr>
 		<td><a href="archetypes/appengine-endpoints-guice-objectify">App Engine Endpoints</a></td>
-		<td>Basic App Engine with Guice</td>
+		<td>Basic App Engine Endpoints with Guice and Objectify</td>
 	</tr>
 	
 	<tr>
