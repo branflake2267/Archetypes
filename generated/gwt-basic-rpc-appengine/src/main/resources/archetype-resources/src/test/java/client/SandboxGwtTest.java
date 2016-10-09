@@ -9,7 +9,7 @@ public class SandboxGwtTest extends GWTTestCase {
   
   @Override
   public String getModuleName() {
-    return "${package}.${module}";
+    return "${package}.module";
   }
 
   public void testSandbox() {

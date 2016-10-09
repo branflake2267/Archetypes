@@ -25,27 +25,6 @@
     "maxAge" : 0
   },
   "methods" : {
-    "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
-      "path" : "systemuser/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "systemuserendpoint.systemUserEndpoint.updateSystemUser" : {
       "path" : "systemuser",
       "httpMethod" : "PUT",
@@ -60,27 +39,6 @@
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "systemuserendpoint.systemUserEndpoint.removeSystemUser" : {
-      "path" : "systemuser/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
       }
     },
     "systemuserendpoint.systemUserEndpoint.listSystemUser" : {
@@ -123,6 +81,48 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
+      "path" : "systemuser/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.removeSystemUser" : {
+      "path" : "systemuser/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
     }
   },
   "descriptor" : {
@@ -157,11 +157,6 @@
       }
     },
     "methods" : {
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
-        "response" : {
-          "$ref" : "SystemUser"
-        }
-      },
       "org.gonevertical.server.endpoints.SystemUserEndpoint.updateSystemUser" : {
         "request" : {
           "$ref" : "SystemUser"
@@ -169,8 +164,6 @@
         "response" : {
           "$ref" : "SystemUser"
         }
-      },
-      "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser" : {
       },
       "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser" : {
         "response" : {
@@ -184,6 +177,13 @@
         "response" : {
           "$ref" : "SystemUser"
         }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
+        "response" : {
+          "$ref" : "SystemUser"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser" : {
       }
     }
   }

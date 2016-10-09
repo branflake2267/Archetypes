@@ -1,0 +1,190 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://myapp.appspot.com/_ah/api",
+  "name" : "systemuserendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://myapp.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "systemuserendpoint.systemUserEndpoint.removeSystemUser" : {
+      "path" : "systemuser/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.listSystemUser" : {
+      "path" : "systemuser",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser",
+      "request" : {
+        "parameters" : {
+          "offset" : {
+            "type" : "int32",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.getSystemUser" : {
+      "path" : "systemuser/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.insertSystemUser" : {
+      "path" : "systemuser",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "systemuserendpoint.systemUserEndpoint.updateSystemUser" : {
+      "path" : "systemuser",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.gonevertical.server.endpoints.SystemUserEndpoint.updateSystemUser",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "SystemUser" : {
+        "id" : "SystemUser",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "googleId" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SystemUserCollection" : {
+        "id" : "SystemUserCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SystemUser"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.removeSystemUser" : {
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.listSystemUser" : {
+        "response" : {
+          "$ref" : "SystemUserCollection"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.getSystemUser" : {
+        "response" : {
+          "$ref" : "SystemUser"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.insertSystemUser" : {
+        "request" : {
+          "$ref" : "SystemUser"
+        },
+        "response" : {
+          "$ref" : "SystemUser"
+        }
+      },
+      "org.gonevertical.server.endpoints.SystemUserEndpoint.updateSystemUser" : {
+        "request" : {
+          "$ref" : "SystemUser"
+        },
+        "response" : {
+          "$ref" : "SystemUser"
+        }
+      }
+    }
+  }
+}

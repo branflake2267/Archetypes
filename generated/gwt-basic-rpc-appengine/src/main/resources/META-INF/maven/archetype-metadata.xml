@@ -9,16 +9,19 @@
       <directory>src/main/java</directory>
       <includes>
         <include>**/*.java</include>
-        <include>**/*.xml</include>
+        <include>**/*.html</include>
       </includes>
-      <excludes>
-        <exclude>META-INF/persistence.xml</exclude>
-      </excludes>
     </fileSet>
     <fileSet encoding="UTF-8" filtered="true">
       <directory>src/main/java</directory>
       <includes>
-        <include>META-INF/persistence.xml</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>src/main</directory>
+      <includes>
+        <include>**/*.xml</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8" filtered="true">
