@@ -8,7 +8,7 @@ cd target/test
 
 mvn archetype:generate -DarchetypeGroupId=com.github.branflake2267.archetypes \
 -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots \
--DarchetypeArtifactId=gwt-gpe-test-gwt27-archetype \
+-DarchetypeArtifactId=gwt-test-gwt27-archetype \
 -DarchetypeVersion=1.0-SNAPSHOT \
 -DgroupId=com.projectname.project \
 -DartifactId=new-project-name \

@@ -18,12 +18,13 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-beta");
 
     // Upgraded
-    //projects.add("gwt-basic"); // Upgraded
-    //projects.add("gwt-basic-rpc"); // Upgraded
+    // projects.add("gwt-basic"); // Upgraded
+    // projects.add("gwt-basic-rpc"); // Upgraded
+    // projects.add("gwt-basic-rpc-appengine"); // Upgraded
 
     // new
-    projects.add("appengine-endpoints-guice-objectify");
-    
+    // projects.add("appengine-endpoints-guice-objectify");
+
     // projects.add("gwt-basic-rpc-appengine-guice");
     // projects.add("gwt-basic-requestfactory");
     // projects.add("gwt-activitiesandplaces-requestfactory");
@@ -38,6 +39,10 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-rpc-appengine"); // good 5/9/2015
     // projects.add("gwt-basic-rpc-appengine-guice");
     // projects.add("gwt-basic-rpc-tomcat"); // good 5/9/2015
+
+    // testing
+    projects.add("gwt-test-gwt27");
+    projects.add("gwt-basic");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
     generate.setProjects(projects);
