@@ -41,7 +41,7 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-rpc-tomcat"); // good 5/9/2015
 
     // testing
-    projects.add("gwt-test-gwt27");
+    //projects.add("gwt-test-gwt27");
     projects.add("gwt-basic");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
