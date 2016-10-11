@@ -14,13 +14,13 @@
   <properties>
     <!-- GWT -->
     <gwt.version>2.8.0-rc3</gwt.version>
-    <gwt.maven.plugin.version>1.0-rc-5</gwt.maven.plugin.version>
+    <gwt.maven.plugin.version>1.0-rc-6</gwt.maven.plugin.version>
 
     <!-- Maven -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- WebApp/War Output Directory -->
-    <webappDirectory>${project.build.directory}/webapp</webappDirectory>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
   </properties>
 
   <build>
@@ -50,13 +50,22 @@
         <extensions>true</extensions>
         <configuration>
           <!-- Eclipse will work with module naming in the gwt-app config only -->
-          <moduleName>org.gonevertical.project.module</moduleName>
-          <moduleShortName>module</moduleShortName>
+          <moduleName>org.gonevertical.project.App</moduleName>
+          <moduleShortName>App</moduleShortName>
           <webappDirectory>${webappDirectory}</webappDirectory>
           <startupUrls>
             <startupUrl>Project.html</startupUrl>
           </startupUrls>
         </configuration>
+        <executions>
+          <execution>
+            <id>create_module</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate-module</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
       <!-- WebApp/War -->
@@ -81,6 +90,35 @@
         </executions>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <versionRange>[1.0-rc-6,)</versionRange>
+                    <goals>
+                      <goal>generate-module</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute/>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <!-- GWT BOM -->
