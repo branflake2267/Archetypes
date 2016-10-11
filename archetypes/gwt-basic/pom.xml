@@ -20,19 +20,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- WebApp/War Output Directory -->
-    <webappDirectory>${project.build.directory}/webapp</webappDirectory>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
   </properties>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**</include>
-        </includes>
-      </resource>
-    </resources>
-  
     <!-- Compiled Classes -->
     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
