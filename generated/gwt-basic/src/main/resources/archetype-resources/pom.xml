@@ -104,13 +104,15 @@
                   <pluginExecutionFilter>
                     <groupId>net.ltgt.gwt.maven</groupId>
                     <artifactId>gwt-maven-plugin</artifactId>
-                    <versionRange>[1.0-rc-6,)</versionRange>
+                    <versionRange>[1.0,)</versionRange>
                     <goals>
                       <goal>generate-module</goal>
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute />
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
                   </action>
                 </pluginExecution>
 
@@ -126,7 +128,9 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute />
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
