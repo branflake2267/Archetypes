@@ -66,15 +66,6 @@
             <startupUrl>Project.html</startupUrl>
           </startupUrls>
         </configuration>
-        <executions>
-          <execution>
-            <id>create_module</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>generate-module</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
       <!-- WebApp/War -->
@@ -82,73 +73,21 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
+        <version>3.0.0</version>
         <configuration>
           <webappDirectory>${webappDirectory}</webappDirectory>
-          <warName>webapp</warName>
         </configuration>
         <executions>
           <execution>
-            <id>package-webapp</id>
+            <id>copy-war-contents</id>
             <phase>package</phase>
             <goals>
               <goal>exploded</goal>
-              <goal>war</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build 
-          itself. -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>net.ltgt.gwt.maven</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <versionRange>[${gwt.maven.plugin.version},)</versionRange>
-                    <goals>
-                      <goal>generate-module</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <execute>
-                      <runOnIncremental>true</runOnIncremental>
-                    </execute>
-                  </action>
-                </pluginExecution>
-
-                <!-- gwt-app packaging doesn't engage the war lifecycle, do this here -->
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <versionRange>[2.0,)</versionRange>
-                    <goals>
-                      <goal>exploded</goal>
-                      <goal>war</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <execute>
-                      <runOnIncremental>true</runOnIncremental>
-                    </execute>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
   <!-- GWT BOM -->
