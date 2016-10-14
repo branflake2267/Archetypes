@@ -14,7 +14,7 @@ public class ${module}EntryPoint implements EntryPoint {
   
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new HTML("GWT App has loaded."));
+    RootPanel.get().add(new HTML("GWT ${module} has loaded."));
   }
 
 }

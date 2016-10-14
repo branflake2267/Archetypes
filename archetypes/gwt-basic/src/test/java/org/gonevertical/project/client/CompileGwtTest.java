@@ -6,7 +6,7 @@ public class CompileGwtTest extends GWTTestCase {
   
   @Override
   public String getModuleName() {
-    return "org.gonevertical.project.module";
+    return "org.gonevertical.project.App";
   }
 
   public void testSandbox() {
