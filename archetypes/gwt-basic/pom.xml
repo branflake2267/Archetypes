@@ -92,7 +92,8 @@
     </plugins>
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build 
+          itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -110,7 +111,23 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute/>
+                    <execute />
+                  </action>
+                </pluginExecution>
+
+                <!-- gwt-app packaging doesn't engage the war lifecycle, do this here -->
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <versionRange>[2.0,)</versionRange>
+                    <goals>
+                      <goal>exploded</goal>
+                      <goal>war</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute />
                   </action>
                 </pluginExecution>
               </pluginExecutions>
