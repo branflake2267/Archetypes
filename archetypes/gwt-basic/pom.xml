@@ -27,6 +27,15 @@
     <!-- Compiled Classes -->
     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+      </resource>
+    </resources>
+
     <plugins>
       <!-- Java -->
       <plugin>
@@ -105,13 +114,15 @@
                   <pluginExecutionFilter>
                     <groupId>net.ltgt.gwt.maven</groupId>
                     <artifactId>gwt-maven-plugin</artifactId>
-                    <versionRange>[1.0-rc-6,)</versionRange>
+                    <versionRange>[${gwt.maven.plugin.version},)</versionRange>
                     <goals>
                       <goal>generate-module</goal>
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute />
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
                   </action>
                 </pluginExecution>
 
@@ -127,7 +138,9 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute />
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -156,10 +169,12 @@
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Testing -->
