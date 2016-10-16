@@ -77,9 +77,18 @@
         <configuration>
           <webappDirectory>${webappDirectory}</webappDirectory>
         </configuration>
+        <executions>
+          <execution>
+            <id>copy-war-contents-to-exploded-dir</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exploded</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
-    
+
     <pluginManagement>
       <plugins>
 
