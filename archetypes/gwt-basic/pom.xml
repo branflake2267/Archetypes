@@ -68,7 +68,7 @@
         </configuration>
       </plugin>
 
-      <!-- WebApp/War -->
+      <!-- War -->
       <!-- run: mvn clean package -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -77,17 +77,42 @@
         <configuration>
           <webappDirectory>${webappDirectory}</webappDirectory>
         </configuration>
-        <executions>
-          <execution>
-            <id>copy-war-contents</id>
-            <phase>package</phase>
-            <goals>
-              <goal>exploded</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
+    
+    <pluginManagement>
+      <plugins>
+
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <versionRange>[3.0.0,)</versionRange>
+                    <goals>
+                      <goal>exploded</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute>
+                      <!-- Copy war contents on import and updates -->
+                      <runOnConfiguration>true</runOnConfiguration>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <!-- GWT BOM -->
