@@ -91,7 +91,6 @@
 
     <pluginManagement>
       <plugins>
-
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -142,12 +141,10 @@
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
-      <scope>provided</scope>
     </dependency>
 
     <!-- Testing -->
