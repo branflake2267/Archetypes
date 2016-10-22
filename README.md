@@ -31,5 +31,6 @@ Regularly updated GWT Archetypes.
 
 ## Snapshot Repository
 
-* [The Snapshots Repository](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
+* [Snapshots Repository List](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
+* [Archetype Projects Source List](./archetypes)
 
