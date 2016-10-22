@@ -33,17 +33,16 @@ Regularly updated GWT Archetypes.
 	</tr>
 </table>
 
+### More GWT Archetypes
+
+* [TBroyer GWT Maven Plugin Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
+
 
 ### GXT Archetypes
 * [GXT Archetypes List](http://docs.sencha.com/gxt/4.x/getting_started/maven/Archetypes.html)
 
-##Maven
+## Snapshot Repository
 * [The Snapshots Repository](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/) - See the snapshots list.
 
-
-##Favorite Archetype Destinations
-* [GWT-Platform Archetypes](https://github.com/ArcBees/ArcBees-tools/tree/master/archetypes) - Setup some GWT-Platform project Archetypes from here.
-* [GWT Mojo Maven Plugin Archetypes](http://mojo.codehaus.org/gwt-maven-plugin/user-guide/archetype.html)
-* [Thomas Broyer GWT Archetypes](https://github.com/tbroyer/gwt-maven-archetypes)
 
 
