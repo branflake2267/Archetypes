@@ -5,6 +5,10 @@
 * [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
 * [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
 
+### Eclipse
+
+* [Getting Starget with Maven](https://www.youtube.com/watch?v=xeanOpvrbBQ&index=2&list=PLBbgqtDgdc_TqzA-qXrjgTFMC_6DKAQyT&ab_channel=BrandonDonnelson)
+
 ## Archetypes
 * Go to the Archetype and follow the instructions.
 * [Find more archetypes here](https://github.com/branflake2267/Archetypes/tree/master/archetypes).
