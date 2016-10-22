@@ -16,20 +16,10 @@
 ### GWT Archetypes
 Regularly updated GWT Archetypes.
 
-<table>
-	<tr>
-		<th>Archetype</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic">GWT Basic</a></td>
-		<td>Very basic GWT maven setup</td>
-	</tr>
-	<tr>
-		<td><a href="https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc">Basic GWT RPC</a></td>
-		<td>Very basic GWT maven setup with RPC</td>
-	</tr>
-</table>
+| Archetype | Description | GWT Plugin Type |
+| --- | --- | --- |
+| [GWT Basic](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic) | Basic GWT Project | TBroyer Single Module |
+| [Basic GWT RPC](https://github.com/branflake2267/Archetypes/tree/master/archetypes/gwt-basic-rpc) | Basic GWT Project with RCP | TBroyer Single Module |
 
 ### More GWT Archetypes
 
