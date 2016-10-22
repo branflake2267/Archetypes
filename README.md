@@ -1,13 +1,15 @@
 # Maven Archtypes
 * The objective is to get started with GWT applications quickly. 
 
-## IDE Videos
-* [Eclipse Archetype Creation](https://www.youtube.com/watch?v=5QPOAXLGB2Y)
-* [IntelliJ Archetype Creation](https://www.youtube.com/watch?v=XD9anp_p4mc)
+## IDE
 
 ### Eclipse
 
-* [Getting Starget with Maven](https://www.youtube.com/watch?v=xeanOpvrbBQ&index=2&list=PLBbgqtDgdc_TqzA-qXrjgTFMC_6DKAQyT&ab_channel=BrandonDonnelson)
+* [Getting Starget with Maven Video](https://www.youtube.com/watch?v=xeanOpvrbBQ&index=2&list=PLBbgqtDgdc_TqzA-qXrjgTFMC_6DKAQyT&ab_channel=BrandonDonnelson)
+
+### InteliiJ IDEA
+
+* [IntelliJ Archetype Creation Video](https://www.youtube.com/watch?v=XD9anp_p4mc)
 
 ## Archetypes
 * Go to the Archetype and follow the instructions.
