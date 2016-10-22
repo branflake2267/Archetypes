@@ -13,19 +13,28 @@
 
   <properties>
     <!-- GWT -->
-    <gwt.version>2.8.0-beta1</gwt.version>
-    <gwt.maven.plugin.version>1.0-rc-5</gwt.maven.plugin.version>
+    <gwt.version>2.8.0</gwt.version>
+    <gwt.maven.plugin.version>1.0-rc-6</gwt.maven.plugin.version>
 
     <!-- Maven -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- WebApp/War Output Directory -->
-    <webappDirectory>${project.build.directory}/webapp</webappDirectory>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
   </properties>
 
   <build>
     <!-- Compiled Classes -->
     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+      </resource>
+    </resources>
 
     <plugins>
       <!-- Java -->
@@ -43,7 +52,6 @@
       <!-- https://tbroyer.github.io/gwt-maven-plugin/usage.html -->
       <!-- http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22net.ltgt.gwt.maven%22%20AND%20a%3A%22gwt-maven-plugin%22 -->
       <!-- Requires Java 1.7+ -->
-      <!-- run: mvn gwt:devmode -->
       <plugin>
         <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
@@ -51,38 +59,68 @@
         <extensions>true</extensions>
         <configuration>
           <!-- Eclipse will work with module naming in the gwt-app config only -->
-          <moduleName>org.gonevertical.project.module</moduleName>
-          <moduleShortName>module</moduleShortName>
+          <moduleName>org.gonevertical.project.App</moduleName>
+          <moduleShortName>App</moduleShortName>
           <webappDirectory>${webappDirectory}</webappDirectory>
           <startupUrls>
             <startupUrl>Project.html</startupUrl>
           </startupUrls>
-          <
         </configuration>
       </plugin>
 
-      <!-- WebApp/War -->
+      <!-- War -->
       <!-- run: mvn clean package -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
+        <version>3.0.0</version>
         <configuration>
           <webappDirectory>${webappDirectory}</webappDirectory>
-          <warName>webapp</warName>
         </configuration>
         <executions>
           <execution>
-            <id>package-webapp</id>
+            <id>copy-war-contents-to-exploded-dir</id>
             <phase>package</phase>
             <goals>
               <goal>exploded</goal>
-              <goal>war</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <versionRange>[3.0.0,)</versionRange>
+                    <goals>
+                      <goal>exploded</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute>
+                      <!-- Copy war contents on import and updates -->
+                      <runOnConfiguration>true</runOnConfiguration>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <!-- GWT BOM -->
@@ -103,14 +141,12 @@
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-codeserver</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
@@ -125,5 +161,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 
 </project>
