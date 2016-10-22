@@ -29,8 +29,8 @@ Regularly updated GWT Archetypes.
 
 * [GXT Archetypes List](http://docs.sencha.com/gxt/4.x/getting_started/maven/Archetypes.html)
 
-## Snapshot Repository
+## Repository
+Source and Repository.
 
-* [Snapshots Repository List](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
 * [Archetype Projects Source List](./archetypes)
-
+* [Snapshots Repository List](https://oss.sonatype.org/content/repositories/snapshots/com/github/branflake2267/archetypes/)
