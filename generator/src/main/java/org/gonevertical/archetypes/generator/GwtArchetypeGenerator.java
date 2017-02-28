@@ -166,7 +166,8 @@ public class GwtArchetypeGenerator {
     FindFiles findGwtClient = new FindFiles("(implements.*?EntryPoint)");
     List<File> found = findGwtClient.start(new File(baseWorkingProjectDir));
     if (found == null || found.isEmpty()) {
-      gwtClientPackage = "";
+      gwtClientPackage = "tld.domain.project";
+      System.out.println("\n\n\n~~~~~~~\nCould not find gwtClientPackage... Setting default. \n~~~~~~~\n\n\n");
       return;
     }
 
@@ -178,6 +179,12 @@ public class GwtArchetypeGenerator {
     packageName = packageName.replace(".client", "");
 
     gwtClientPackage = packageName.trim();
+    
+    if (found == null || found.isEmpty()) {
+      gwtClientPackage = "tld.domain.project";
+      System.out.println("\n\n\n~~~~~~~\nCould not find gwtClientPackage... Setting default. \n~~~~~~~\n\n\n");
+      return;
+    }
   }
 
   private void cleanCopyrightInFiles() {

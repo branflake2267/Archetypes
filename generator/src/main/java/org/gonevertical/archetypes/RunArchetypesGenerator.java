@@ -18,8 +18,8 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-beta");
 
     // Upgraded
-    projects.add("gwt-basic"); // Upgraded
-    projects.add("gwt-basic-rpc"); // Upgraded
+    // projects.add("gwt-basic"); // Upgraded
+    // projects.add("gwt-basic-rpc"); // Upgraded
     // projects.add("gwt-basic-rpc-appengine"); // Upgraded
 
     // new
@@ -41,7 +41,7 @@ public class RunArchetypesGenerator {
     // projects.add("gwt-basic-rpc-tomcat"); // good 5/9/2015
 
     // testing
-    //projects.add("gwt-test-gwt27");
+    projects.add("gwt-test-gwt27"); // gwt-eclipse plugin testing
     // projects.add("gwt-basic");
 
     GwtArchetypeGenerator generate = new GwtArchetypeGenerator();
