@@ -50,6 +50,49 @@ public class FileUtils {
     File rf = new File(tmpName);
     rf.renameTo(file);
   }
+  
+  /**
+   * This replaces the regexFind once.   
+   * 
+   * @param file
+   * @param regexFind
+   * @param replaceWithString
+   */
+  public static void replaceInFileByLineOnce(File file, String regexFind, String replaceWithString) {
+    if (file == null) {
+      return;
+    }
+    String tmpName = file.getAbsolutePath() + ".tmp";
+    FileInputStream fis = null;
+    BufferedInputStream bis = null;
+    DataInputStream dis = null;
+    BufferedReader br = null;
+    try {
+      fis = new FileInputStream(file);
+      bis = new BufferedInputStream(fis);
+      dis = new DataInputStream(bis);
+      br = new BufferedReader(new InputStreamReader(dis));
+      FileWriter fstream = new FileWriter(tmpName);
+      BufferedWriter out = new BufferedWriter(fstream);
+      String s = null;
+      while ((s = br.readLine()) != null) {
+        s = s.replace(regexFind, replaceWithString);
+        out.write(s + "\n");
+      }
+      out.close();
+      fstream.close();
+      br.close();
+      fis.close();
+      bis.close();
+      dis.close();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    File rf = new File(tmpName);
+    rf.renameTo(file);
+  }
 
   public static void replaceInFile(File file, String regexFind) {
     if (file == null) {
@@ -84,11 +127,11 @@ public class FileUtils {
   public static boolean deleteRecursive(File path) {
     if (path.exists()) {
       File[] files = path.listFiles();
-      for (int i = 0; i < files.length; i++) {
-        if (files[i].isDirectory()) {
-          deleteRecursive(files[i]);
+      for (File file : files) {
+        if (file.isDirectory()) {
+          deleteRecursive(file);
         } else {
-          boolean deleted = files[i].delete();
+          boolean deleted = file.delete();
           System.out.println("deleted=" + deleted);
         }
       }
