@@ -14,7 +14,6 @@ import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class XmlNodeUtils {
@@ -40,8 +39,8 @@ public class XmlNodeUtils {
     return value;
   }
 
-  public String findNodeValueOrThrow(String filePath, String xpathExp) throws SAXException, IOException,
-      ParserConfigurationException, XPathExpressionException, TransformerException {
+  public String findNodeValueOrThrow(String filePath, String xpathExp)
+      throws SAXException, IOException, ParserConfigurationException, XPathExpressionException, TransformerException {
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     Document document = dbf.newDocumentBuilder().parse(new File(filePath));
 
@@ -54,10 +53,10 @@ public class XmlNodeUtils {
       System.out.println("XPath didn't find " + xpathExp);
       return null;
     }
-    
+
     String value = foundNode.getTextContent();
     System.out.println("foundNode=" + foundNode.getTextContent());
-    
+
     return value;
   }
 

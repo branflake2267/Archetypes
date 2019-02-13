@@ -27,7 +27,7 @@
     <gwt.maven.plugin.version>1.0-rc-6</gwt.maven.plugin.version>
 
     <!-- App Engine -->
-    <appengine.version>1.9.30</appengine.version>
+    <appengine.version>1.9.49</appengine.version>
     <guice.version>4.0-beta5</guice.version>
 
     <!-- Maven -->
@@ -92,21 +92,43 @@
         </executions>
       </plugin>
 
-      <!-- appengine:devserver_start - start web server -->
-      <!-- appengine:devserver_stop - stop web server -->
       <plugin>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-maven-plugin</artifactId>
-        <version>${appengine.version}</version>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>display-dependency-updates</goal>
+              <goal>display-plugin-updates</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version> <!-- required for Eclipse Mars -->
         <configuration>
-          <enableJarClasses>false</enableJarClasses>
-          <enableJarSplitting>true</enableJarSplitting>
-          <appDir>${webappDirectory}</appDir>
-          <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
-          <!-- <address>0.0.0.0</address> <port>8080</port> -->
-          <!-- Comment in the below snippet to enable local debugging with a remove debugger like those included with Eclipse 
-            or IntelliJ -->
-          <!-- <jvmFlags><jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag></jvmFlags> -->
+          <archiveClasses>true</archiveClasses>
+          <webResources>
+            <!-- in order to interpolate version from pom into appengine-web.xml -->
+            <resource>
+              <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+              <filtering>true</filtering>
+              <targetPath>WEB-INF</targetPath>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>${appengine.maven.plugin.version}</version>
+        <configuration>
         </configuration>
       </plugin>
 
