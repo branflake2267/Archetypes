@@ -127,6 +127,8 @@ public class GwtArchetypeGenerator {
     // Be sure to use a archetype.properties
     System.out.println("\n\nDo you have a: archetype.properties?\n\n");
 
+    // TODO remove generated directory
+    
     runMvnClean();
 
     parseGwtClientPackage();
@@ -154,10 +156,13 @@ public class GwtArchetypeGenerator {
     renameProjectFiles();
 
     // deploy items
-    // addPomParent(); // Don't add this
     moveArchetypeToGeneratedDirectory();
 
     appendProfilesForRelease();
+    
+    // TODO commit changes 
+    
+    // TODO run the maven publish commands found in the release notes. 
 
     System.out.println("Finished generating pom for " + baseWorkingProjectDir);
   }
